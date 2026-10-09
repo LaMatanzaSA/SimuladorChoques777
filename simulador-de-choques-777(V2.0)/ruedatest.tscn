@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c6wdmvvejqpu7"]
+
+[ext_resource type="Texture2D" uid="uid://mrysa77yrslp" path="res://Sprites/Tiles/Default/coin_gold.png" id="1_svlob"]
+[ext_resource type="Shape2D" uid="uid://2gq0req8aok3" path="res://new_circle_shape_2d.tres" id="2_5egui"]
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=787866154]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=728538212]
+texture = ExtResource("1_svlob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=859637997]
+shape = ExtResource("2_5egui")

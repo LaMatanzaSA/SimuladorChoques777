@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://x8n5rqmjw30a"]
+
+[ext_resource type="PackedScene" uid="uid://cyl3mkj665b2i" path="res://SueloTest.tscn" id="1_vnpk6"]
+[ext_resource type="PackedScene" uid="uid://usoha0vby261" path="res://AtutoTest.tscn" id="2_lgsii"]
+[ext_resource type="PackedScene" uid="uid://c6wdmvvejqpu7" path="res://ruedatest.tscn" id="4_lgsii"]
+[ext_resource type="PackedScene" path="res://ObstaculoTest.tscn" id="5_obst"]
+
+[node name="Node" type="Node" unique_id=860816601]
+
+[node name="CharacterBody2D" parent="." unique_id=182666106 instance=ExtResource("2_lgsii")]
+position = Vector2(18, -54)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1390244013]
+
+[node name="Obstaculo4" parent="." unique_id=787866154 groups=["obstaculo"] instance=ExtResource("4_lgsii")]
+position = Vector2(1383.9999, -781)
+rotation = -0.008726646
+
+[node name="StaticBody2D" parent="." unique_id=1172261398 instance=ExtResource("1_vnpk6")]
+position = Vector2(3, -5)
+
+[node name="Obstaculo1" parent="." unique_id=1084718937 instance=ExtResource("5_obst")]
+position = Vector2(175, -340)
+
+[node name="Obstaculo2" parent="." unique_id=1731352802 instance=ExtResource("5_obst")]
+position = Vector2(263, -287)
+
+[node name="Obstaculo3" parent="." unique_id=1228132868 instance=ExtResource("5_obst")]
+position = Vector2(391, -336)
+
+[node name="StaticBody2D2" parent="." unique_id=1898698385 instance=ExtResource("1_vnpk6")]
+position = Vector2(255, -5)
+
+[node name="StaticBody2D3" parent="." unique_id=1672344076 instance=ExtResource("1_vnpk6")]
+position = Vector2(494.99997, -9.000008)
+rotation = -0.20071286
+
+[node name="StaticBody2D4" parent="." unique_id=148922754 instance=ExtResource("1_vnpk6")]
+position = Vector2(727, -53.999992)
+rotation = -0.20071286
+
+[node name="StaticBody2D5" parent="." unique_id=1641424660 instance=ExtResource("1_vnpk6")]
+position = Vector2(965.99994, -104.99997)
+rotation = -0.41887903
+
+[node name="StaticBody2D6" parent="." unique_id=1048122054 instance=ExtResource("1_vnpk6")]
+position = Vector2(1186, -206.99997)
+rotation = -0.75398225
+
+[node name="StaticBody2D7" parent="." unique_id=985427924 instance=ExtResource("1_vnpk6")]
+position = Vector2(1350.9999, -364.00006)
+rotation = -1.0890855
+
+[node name="StaticBody2D8" parent="." unique_id=864317991 instance=ExtResource("1_vnpk6")]
+position = Vector2(1458, -567)
+rotation = -1.5079645
