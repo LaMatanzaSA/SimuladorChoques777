@@ -1,0 +1,15 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://genqc01c145d" path="res://Sprites/Tiles/Default/block_blue.png" id="1_blk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obs"]
+size = Vector2(64, 64)
+
+[node name="Obstaculo" type="StaticBody2D" groups=["obstaculo"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.45, 0.35, 1)
+texture = ExtResource("1_blk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_obs")

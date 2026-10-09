@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://usoha0vby261"]
+
+[ext_resource type="Script" uid="uid://cbcljwmti6sar" path="res://atuto_test.gd" id="1_mos8y"]
+[ext_resource type="Texture2D" uid="uid://cmb5o0kt6enxf" path="res://PNG/Cars/taxi.png" id="1_wj72q"]
+[ext_resource type="Shape2D" uid="uid://cfs4skbwv20ps" path="res://auto_h.tres" id="3_mos8y"]
+[ext_resource type="Script" uid="uid://2qobhv4cb6vv" path="res://collision_detector.gd" id="5_cdet"]
+[ext_resource type="Script" uid="uid://cku08nmn57ofj" path="res://damage_calculator.gd" id="6_dcal"]
+[ext_resource type="Script" uid="uid://bix61424ygwiy" path="res://damage_visualizer.gd" id="7_dvis"]
+[ext_resource type="Script" uid="uid://c20hgj1ajmnuw" path="res://physics_modifier.gd" id="8_pmod"]
+[ext_resource type="Script" uid="uid://di7qx1c4vkk8m" path="res://vehicle_stopper.gd" id="9_vsto"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_detector"]
+size = Vector2(69, 34.5)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=182666106]
+floor_snap_length = 12.0
+script = ExtResource("1_mos8y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=773389313]
+scale = Vector2(2.0454545, 2.5714285)
+texture = ExtResource("1_wj72q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1991655466]
+position = Vector2(0, 1)
+rotation = 1.5707964
+shape = ExtResource("3_mos8y")
+
+[node name="CollisionDetector" type="Area2D" parent="." unique_id=1297978963]
+script = ExtResource("5_cdet")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDetector" unique_id=2133119966]
+position = Vector2(0.5, 0.25)
+shape = SubResource("RectangleShape2D_detector")
+
+[node name="DamageCalculator" type="Node" parent="." unique_id=1197343290]
+script = ExtResource("6_dcal")
+
+[node name="DamageVisualizer" type="Node" parent="." unique_id=972460444]
+script = ExtResource("7_dvis")
+
+[node name="PhysicsModifier" type="Node" parent="." unique_id=2114583431]
+script = ExtResource("8_pmod")
+
+[node name="VehicleStopper" type="Node" parent="." unique_id=473389857]
+script = ExtResource("9_vsto")
+
+[connection signal="body_entered" from="CollisionDetector" to="CollisionDetector" method="_on_body_entered"]
+[connection signal="impacto_detectado" from="CollisionDetector" to="DamageCalculator" method="calcular_dano"]
+[connection signal="dano_actualizado" from="DamageCalculator" to="DamageVisualizer" method="actualizar_sprite"]
+[connection signal="dano_actualizado" from="DamageCalculator" to="PhysicsModifier" method="aplicar_degradacion"]
+[connection signal="dano_actualizado" from="DamageCalculator" to="VehicleStopper" method="detener_vehiculo"]
