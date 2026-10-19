@@ -3,7 +3,7 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación II (RepoSense + análisis de calidad POO/SOLID). **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas): es una criba para orientar la revisión, **no una nota**.
-> Generado: 2026-10-17.
+> Generado: 2026-10-19.
 
 ## 1. Veredicto
 
@@ -15,7 +15,7 @@
 | Clases (bien usadas) | 8 (4 OK) |
 | Código dentro de clases (%POO) | 70% |
 | Funciones fuera de clases | 11 |
-| Duplicación | 26.6% |
+| Duplicación lógica | 22.2% |
 | Señales S/O/L/I/D | 4/2/0/0/1 |
 | Tope duro aplicado | `SUELTAS>=10` → índice ≤ 20 |
 
@@ -35,7 +35,7 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 | Criterio | Requisito | Tu resultado | Cumple |
 |---|---|---|---|
 | Código dentro de clases (%POO) | ≥ 85% | 70% | no |
-| Duplicación | ≤ 10% | 26.6% | no |
+| Duplicación lógica | ≤ 10% | 22.2% | no |
 | Funciones fuera de clases | ≤ 1 | 11 | no |
 | Señales POO/SOLID críticas | ninguna | ninguna | sí |
 
@@ -44,7 +44,7 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 | Criterio | Requisito | Tu resultado | Cumple |
 |---|---|---|---|
 | Código dentro de clases (%POO) | ≥ 95% | 70% | no |
-| Duplicación | ≤ 5% | 26.6% | no |
+| Duplicación lógica | ≤ 5% | 22.2% | no |
 | Funciones fuera de clases | ≤ 0 | 11 | no |
 | Señales POO/SOLID críticas | ninguna | Clase demasiado grande (SRP), Complejidad alta, Acoplamiento alto (CBO), Switch sobre tipos (OCP) | no |
 | Índice de calidad POO/SOLID | ≥ 60 | 6/100 | no |
@@ -53,7 +53,7 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 
 | Autor | Commits | Código (LOC) | Tests (LOC) | Docs (LOC) | Días activos | % del código |
 |---|---:|---:|---:|---:|---:|---:|
-| Matías Mad | 2 | 239 | 0 | 0 | 2 | 65% |
+| Matías Mad | 4 | 239 | 0 | 0 | 4 | 65% |
 | EmilianoMontano | 2 | 130 | 0 | 1 | 2 | 35% |
 
 > _El LOC de autoría lo calcula RepoSense sobre el historial y puede diferir del LOC de código del análisis de calidad (que mira solo el estado de `main`)._
@@ -70,11 +70,11 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 - **Por qué importa:** Ordena y prioriza la revisión: un índice bajo indica varias señales que conviene mirar juntas.
 - **Tu resultado:** índice **6/100**
 
-### 2. Duplicación (DRY) (duplicacion) — con señales
+### 2. Duplicación lógica (DRY) (duplicacion) — con señales
 
-- **Qué mide:** Porcentaje de bloques de código repetidos (similitud) en el repositorio.
-- **Por qué importa:** Cada copia se mantiene por separado: un arreglo hay que repetirlo y los defectos se multiplican.
-- **Tu resultado:** **26.6%** de duplicación
+- **Qué mide:** Porcentaje de bloques de LÓGICA repetidos. Quedan fuera imports/includes, anotaciones, declaraciones de campos y comentarios/Javadoc/docstrings: esos bloques son boilerplate, no lógica.
+- **Por qué importa:** Cada copia de lógica se mantiene por separado: un arreglo hay que repetirlo y los defectos se multiplican.
+- **Tu resultado:** **22.2%** de duplicación lógica
 - **Para investigar la causa:**
     - ¿El trabajo se repartió por pantallas o archivos y se integró copiando y pegando bloques?
     - ¿Qué zonas del sistema cambiaron juntas más de una vez (señal de lógica compartida)?
@@ -237,14 +237,14 @@ Archivos donde el análisis encontró cada señal (sin número de línea, a prop
 
 ## 5. Evolución por commit
 
-Métricas calculadas sobre el estado de `main` en **cada commit** (5 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
+Métricas calculadas sobre el estado de `main` en **cada commit** (6 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
 
 ```mermaid
 xychart-beta
     title "Índice POO/SOLID a lo largo de los commits"
-    x-axis ["8d32acc", "61db4c4", "c16a3fc", "0d868c7", "78b731b"]
+    x-axis ["8d32acc", "61db4c4", "c16a3fc", "0d868c7", "78b731b", "f64205e"]
     y-axis "Índice" 0 --> 100
-    line [0, 0, 14, 6, 6]
+    line [0, 0, 14, 7, 6, 6]
 ```
 
 | # | Fecha | Commit | Autor | LOC | Índice | %POO | Duplic. | Sueltas |
@@ -252,8 +252,9 @@ xychart-beta
 | 1 | 2026-08-14 | `8d32acc` | EmilianoMontano | 0 | 0 | 0% | 0.0% | 0 |
 | 2 | 2026-08-24 | `61db4c4` | dqmdz-etec | 0 | 0 | 0% | 0.0% | 0 |
 | 3 | 2026-09-04 | `c16a3fc` | M-mad-2920 | 44 | 14 | 100% | 0.0% | 0 |
-| 4 | 2026-10-09 | `0d868c7` | M-mad-2920 | 211 | 6 | 100% | 46.7% | 0 |
-| 5 | 2026-10-16 | `78b731b` | EmilianoMontano | 307 | 6 | 70% | 26.6% | 11 |
+| 4 | 2026-10-09 | `0d868c7` | M-mad-2920 | 211 | 7 | 100% | 36.5% | 0 |
+| 5 | 2026-10-16 | `78b731b` | EmilianoMontano | 307 | 6 | 70% | 22.2% | 11 |
+| 6 | 2026-10-19 | `f64205e` | M-mad-2920 | 307 | 6 | 70% | 22.2% | 11 |
 
 ---
 _Informe generado por la cátedra. Los criterios y umbrales de medición corresponden al perfil `exigente` de `calidad.py`; el semáforo de aprobación, a `CRITERIOS-CALIDAD.md` (ver `README.md`). Ante dudas, revisá el archivo señalado._
