@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bfp7ugu2d1dts"]
+
+[ext_resource type="Script" uid="uid://djom0nbcuqvq7" path="res://velocimetro_movimiento.gd" id="1_dlts8"]
+[ext_resource type="Texture2D" uid="uid://cpfgrlupfor4r" path="res://velocimetro3.png" id="1_qves4"]
+[ext_resource type="Texture2D" uid="uid://bef6sojtlm2re" path="res://agujavelocidad.png" id="2_dlts8"]
+
+[node name="Control" type="Control" unique_id=1128775000]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_dlts8")
+
+[node name="Velocimetro3" type="Sprite2D" parent="." unique_id=1768181840]
+position = Vector2(129, 520)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_qves4")
+
+[node name="Agujavelocidad" type="Sprite2D" parent="." unique_id=555481782]
+position = Vector2(130, 519)
+rotation = -0.5602507
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_dlts8")
+offset = Vector2(-202, 0)
+flip_h = true
+
+[node name="TextoVelocidad" type="Label" parent="." unique_id=279836163]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 552.0
+offset_right = 150.0
+offset_bottom = 575.0
+horizontal_alignment = 1

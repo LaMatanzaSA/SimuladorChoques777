@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://usoha0vby261"]
+
+[ext_resource type="Script" uid="uid://cbcljwmti6sar" path="res://atuto_test.gd" id="1_mos8y"]
+[ext_resource type="Texture2D" uid="uid://cmb5o0kt6enxf" path="res://PNG/Cars/taxi.png" id="1_wj72q"]
+[ext_resource type="Shape2D" uid="uid://cfs4skbwv20ps" path="res://auto_h.tres" id="3_mos8y"]
+[ext_resource type="Shape2D" uid="uid://bwo2p4ffedfh8" path="res://autohitbox.tres" id="4_pyqq4"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=182666106]
+floor_snap_length = 12.0
+script = ExtResource("1_mos8y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=773389313]
+scale = Vector2(2.0454545, 2.5714285)
+texture = ExtResource("1_wj72q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1991655466]
+position = Vector2(0, 1)
+rotation = 1.5707964
+shape = ExtResource("3_mos8y")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=899514999]
+position = Vector2(28.5, 1.5)
+shape = ExtResource("4_pyqq4")

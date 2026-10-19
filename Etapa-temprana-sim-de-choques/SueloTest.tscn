@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cyl3mkj665b2i"]
+
+[ext_resource type="Texture2D" uid="uid://genqc01c145d" path="res://Sprites/Tiles/Default/block_blue.png" id="1_ey414"]
+[ext_resource type="Shape2D" uid="uid://djp6rgilxywqo" path="res://suelohitbox.tres" id="2_ey414"]
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1172261398]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=978054391]
+texture = ExtResource("1_ey414")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=918118200]
+position = Vector2(64, 0)
+texture = ExtResource("1_ey414")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=489419572]
+position = Vector2(128, 0)
+texture = ExtResource("1_ey414")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1635939041]
+position = Vector2(192, 0)
+texture = ExtResource("1_ey414")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=875556705]
+position = Vector2(96, 0)
+shape = ExtResource("2_ey414")
