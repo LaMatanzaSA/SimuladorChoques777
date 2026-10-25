@@ -3,21 +3,20 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación II (RepoSense + análisis de calidad POO/SOLID). **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas): es una criba para orientar la revisión, **no una nota**.
-> Generado: 2026-10-19.
+> Generado: 2026-10-25.
 
 ## 1. Veredicto
 
 | Aspecto | Resultado |
 |---|---|
-| Índice de calidad POO/SOLID | **6/100** |
-| Código (LOC) | 307 |
-| Archivos de código | 11 |
-| Clases (bien usadas) | 8 (4 OK) |
-| Código dentro de clases (%POO) | 70% |
-| Funciones fuera de clases | 11 |
-| Duplicación lógica | 22.2% |
-| Señales S/O/L/I/D | 4/2/0/0/1 |
-| Tope duro aplicado | `SUELTAS>=10` → índice ≤ 20 |
+| Índice de calidad POO/SOLID | **19/100** |
+| Código (LOC) | 167 |
+| Archivos de código | 7 |
+| Clases (bien usadas) | 7 (4 OK) |
+| Código dentro de clases (%POO) | 100% |
+| Funciones fuera de clases | 0 |
+| Duplicación lógica | 0.0% |
+| Señales S/O/L/I/D | 2/1/0/0/1 |
 
 > Este informe **describe** lo que el análisis midió con los criterios ya establecidos de la materia. No es una nota.
 
@@ -27,38 +26,38 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 
 | Semáforo | Resultado |
 |---|---|
-| Aprobar (`estandar`) | **no cumple** — 1/4 |
-| Destacar (`exigente`) | **no cumple** — 0/5 |
+| Aprobar (`estandar`) | **cumple** — 4/4 |
+| Destacar (`exigente`) | **no cumple** — 3/5 |
 
 **Criterios para aprobar**
 
 | Criterio | Requisito | Tu resultado | Cumple |
 |---|---|---|---|
-| Código dentro de clases (%POO) | ≥ 85% | 70% | no |
-| Duplicación lógica | ≤ 10% | 22.2% | no |
-| Funciones fuera de clases | ≤ 1 | 11 | no |
+| Código dentro de clases (%POO) | ≥ 85% | 100% | sí |
+| Duplicación lógica | ≤ 10% | 0.0% | sí |
+| Funciones fuera de clases | ≤ 1 | 0 | sí |
 | Señales POO/SOLID críticas | ninguna | ninguna | sí |
 
 **Criterios para destacar**
 
 | Criterio | Requisito | Tu resultado | Cumple |
 |---|---|---|---|
-| Código dentro de clases (%POO) | ≥ 95% | 70% | no |
-| Duplicación lógica | ≤ 5% | 22.2% | no |
-| Funciones fuera de clases | ≤ 0 | 11 | no |
+| Código dentro de clases (%POO) | ≥ 95% | 100% | sí |
+| Duplicación lógica | ≤ 5% | 0.0% | sí |
+| Funciones fuera de clases | ≤ 0 | 0 | sí |
 | Señales POO/SOLID críticas | ninguna | Clase demasiado grande (SRP), Complejidad alta, Acoplamiento alto (CBO), Switch sobre tipos (OCP) | no |
-| Índice de calidad POO/SOLID | ≥ 60 | 6/100 | no |
+| Índice de calidad POO/SOLID | ≥ 60 | 19/100 | no |
 
 ## 2. Autoría (RepoSense)
 
 | Autor | Commits | Código (LOC) | Tests (LOC) | Docs (LOC) | Días activos | % del código |
 |---|---:|---:|---:|---:|---:|---:|
-| Matías Mad | 4 | 239 | 0 | 0 | 4 | 65% |
-| EmilianoMontano | 2 | 130 | 0 | 1 | 2 | 35% |
+| Matías Mad | 5 | 192 | 0 | 0 | 4 | 100% |
+| EmilianoMontano | 2 | 0 | 0 | 1 | 2 | 0% |
 
 > _El LOC de autoría lo calcula RepoSense sobre el historial y puede diferir del LOC de código del análisis de calidad (que mira solo el estado de `main`)._
 
-> **Reparto del trabajo:** Matías Mad concentra el 65% de las líneas de código. Un reparto muy desigual suele indicar que la integración no fue realmente en equipo; vale la pena reconstruir cómo se coordinó.
+> **Reparto del trabajo:** Matías Mad concentra el 100% de las líneas de código. Un reparto muy desigual suele indicar que la integración no fue realmente en equipo; vale la pena reconstruir cómo se coordinó.
 
 ## 3. Aspectos evaluados
 
@@ -68,39 +67,31 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Un resumen numérico (0-100) que combina la riqueza de clases bien usadas con la penalización por señales POO/SOLID y duplicación, y luego aplica topes duros.
 - **Por qué importa:** Ordena y prioriza la revisión: un índice bajo indica varias señales que conviene mirar juntas.
-- **Tu resultado:** índice **6/100**
+- **Tu resultado:** índice **19/100**
 
-### 2. Duplicación lógica (DRY) (duplicacion) — con señales
+### 2. Duplicación lógica (DRY) (duplicacion) — sin señales
 
 - **Qué mide:** Porcentaje de bloques de LÓGICA repetidos. Quedan fuera imports/includes, anotaciones, declaraciones de campos y comentarios/Javadoc/docstrings: esos bloques son boilerplate, no lógica.
 - **Por qué importa:** Cada copia de lógica se mantiene por separado: un arreglo hay que repetirlo y los defectos se multiplican.
-- **Tu resultado:** **22.2%** de duplicación lógica
-- **Para investigar la causa:**
-    - ¿El trabajo se repartió por pantallas o archivos y se integró copiando y pegando bloques?
-    - ¿Qué zonas del sistema cambiaron juntas más de una vez (señal de lógica compartida)?
-    - ¿Hubo un lugar común acordado para la lógica repetida antes de empezar, o cada integrante resolvió lo suyo?
+- **Tu resultado:** **0.0%** de duplicación lógica
 
 ### 3. Adopción de POO (% de código en clases) (poo) — sin señales
 
 - **Qué mide:** Qué porción del código vive dentro de clases (no de funciones sueltas).
 - **Por qué importa:** El diseño orientado a objetos es el eje de la materia: el comportamiento debería vivir como método de una clase.
-- **Tu resultado:** **70.4%** del código dentro de clases
+- **Tu resultado:** **100.0%** del código dentro de clases
 
-### 4. Funciones fuera de clases (sueltas) — con señales
+### 4. Funciones fuera de clases (sueltas) — sin señales
 
 - **Qué mide:** Funciones de nivel de módulo que no pertenecen a ninguna clase (en esta materia el comportamiento debe ser método de una clase).
 - **Por qué importa:** Son la forma más directa de código procedural en un proyecto que debería ser orientado a objetos.
-- **Tu resultado:** **11** función(es) fuera de clases
-- **Para investigar la causa:**
-    - ¿Esa función se dejó suelta por urgencia o por desconocer dónde ubicarla?
-    - ¿Qué clase debería ser responsable de ese comportamiento?
-    - ¿Había una convención sobre dónde poner cada cosa?
+- **Tu resultado:** **0** función(es) fuera de clases
 
 ### 5. Clase demasiado grande (SRP) (god) — con señales
 
 - **Qué mide:** Clases con muchas líneas, métodos o campos a la vez.
 - **Por qué importa:** Una clase que hace de todo cambia por muchos motivos y cuesta entenderla y probarla.
-- **Tu resultado:** **2** clase(s) demasiado grande(s)
+- **Tu resultado:** **1** clase(s) demasiado grande(s)
 - **Para investigar la causa:**
     - ¿La clase creció por acumulación de responsabilidades?
     - ¿Qué partes de la clase se usan siempre juntas y cuáles no?
@@ -116,7 +107,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Complejidad ciclomática: cantidad de caminos posibles dentro de un método o función (condicionales, bucles, casos).
 - **Por qué importa:** Muchos caminos = difícil de seguir y de probar; suelen esconderse casos sin cubrir.
-- **Tu resultado:** **4** método(s)/función(es) con complejidad alta
+- **Tu resultado:** **1** método(s)/función(es) con complejidad alta
 - **Para investigar la causa:**
     - ¿Se agregaron condiciones a medida que aparecían casos nuevos?
     - ¿Se probaron todos los caminos o solo el caso principal?
@@ -126,7 +117,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Tamaño de los métodos/funciones y cantidad de parámetros.
 - **Por qué importa:** Una función que hace varias cosas cuesta leerla, nombrarla y reutilizarla.
-- **Tu resultado:** **2** método(s)/función(es) largos o con muchos parámetros
+- **Tu resultado:** **1** método(s)/función(es) largos o con muchos parámetros
 - **Para investigar la causa:**
     - ¿La función creció por acumulación de pasos?
     - ¿Agrupa operaciones que podrían describirse por separado?
@@ -136,7 +127,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Cuánto depende una clase de otros tipos del proyecto.
 - **Por qué importa:** Piezas muy enlazadas hacen que un cambio se propague y que sea difícil reemplazar partes.
-- **Tu resultado:** **3** clase(s) muy acoplada(s)
+- **Tu resultado:** **2** clase(s) muy acoplada(s)
 - **Para investigar la causa:**
     - ¿La clase conoce detalles internos de muchas otras?
     - ¿Se puede cambiar una parte sin tocar las demás?
@@ -152,7 +143,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Chequeos repetidos de tipo (`instanceof`/`is`/`typeof`) que equivalen a un switch sobre el tipo.
 - **Por qué importa:** Cada tipo nuevo obliga a tocar varios lugares, en vez de extender con una implementación nueva.
-- **Tu resultado:** **2** clase(s) con switch sobre tipos
+- **Tu resultado:** **1** clase(s) con switch sobre tipos
 - **Para investigar la causa:**
     - ¿Qué operación se resuelve preguntando el tipo?
     - ¿Qué se toca cada vez que aparece un tipo o caso nuevo?
@@ -190,7 +181,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Clases que exponen campos sin control de acceso.
 - **Por qué importa:** Expone el estado interno y hace que cualquier cambio dependa de quién lo modifica desde afuera.
-- **Tu resultado:** **4** clase(s) con campos públicos
+- **Tu resultado:** **3** clase(s) con campos públicos
 - **Para investigar la causa:**
     - ¿Se accede al campo desde otras clases para evitar un método?
     - ¿Qué reglas deberían respetarse al modificar ese estado?
@@ -206,45 +197,37 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 Archivos donde el análisis encontró cada señal (sin número de línea, a propósito):
 
-**Clase demasiado grande (SRP) (god)** — 2 archivo(s):
-- `Etapa-temprana-sim-de-choques/atuto_test.gd`
+**Clase demasiado grande (SRP) (god)** — 1 archivo(s):
 - `simulador-de-choques-777(V2.0)/atuto_test.gd`
 
-**Complejidad alta (complejidad)** — 4 archivo(s):
-- `Etapa-temprana-sim-de-choques/atuto_test.gd`
-- `Etapa-temprana-sim-de-choques/menu_inicio.gd`
-- `Etapa-temprana-sim-de-choques/velocimetro_movimiento.gd`
+**Complejidad alta (complejidad)** — 1 archivo(s):
 - `simulador-de-choques-777(V2.0)/atuto_test.gd`
 
-**Métodos/funciones largos o con muchos parámetros (tamano)** — 2 archivo(s):
-- `Etapa-temprana-sim-de-choques/atuto_test.gd`
+**Métodos/funciones largos o con muchos parámetros (tamano)** — 1 archivo(s):
 - `simulador-de-choques-777(V2.0)/atuto_test.gd`
 
-**Acoplamiento alto (CBO) (acoplamiento)** — 3 archivo(s):
-- `Etapa-temprana-sim-de-choques/atuto_test.gd`
+**Acoplamiento alto (CBO) (acoplamiento)** — 2 archivo(s):
 - `simulador-de-choques-777(V2.0)/collision_detector.gd`
 - `simulador-de-choques-777(V2.0)/damage_visualizer.gd`
 
-**Switch sobre tipos (OCP) (ocp)** — 2 archivo(s):
-- `Etapa-temprana-sim-de-choques/atuto_test.gd`
+**Switch sobre tipos (OCP) (ocp)** — 1 archivo(s):
 - `simulador-de-choques-777(V2.0)/atuto_test.gd`
 
-**Campos públicos (encapsulación) (encapsulacion)** — 4 archivo(s):
-- `Etapa-temprana-sim-de-choques/atuto_test.gd`
+**Campos públicos (encapsulación) (encapsulacion)** — 3 archivo(s):
 - `simulador-de-choques-777(V2.0)/atuto_test.gd`
 - `simulador-de-choques-777(V2.0)/autoto_phisycs_test.gd`
 - `simulador-de-choques-777(V2.0)/damage_calculator.gd`
 
 ## 5. Evolución por commit
 
-Métricas calculadas sobre el estado de `main` en **cada commit** (6 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
+Métricas calculadas sobre el estado de `main` en **cada commit** (7 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
 
 ```mermaid
 xychart-beta
     title "Índice POO/SOLID a lo largo de los commits"
-    x-axis ["8d32acc", "61db4c4", "c16a3fc", "0d868c7", "78b731b", "f64205e"]
+    x-axis ["8d32acc", "61db4c4", "c16a3fc", "0d868c7", "78b731b", "f64205e", "2a437bb"]
     y-axis "Índice" 0 --> 100
-    line [0, 0, 14, 7, 6, 6]
+    line [0, 0, 14, 7, 6, 6, 19]
 ```
 
 | # | Fecha | Commit | Autor | LOC | Índice | %POO | Duplic. | Sueltas |
@@ -255,6 +238,7 @@ xychart-beta
 | 4 | 2026-10-09 | `0d868c7` | M-mad-2920 | 211 | 7 | 100% | 36.5% | 0 |
 | 5 | 2026-10-16 | `78b731b` | EmilianoMontano | 307 | 6 | 70% | 22.2% | 11 |
 | 6 | 2026-10-19 | `f64205e` | M-mad-2920 | 307 | 6 | 70% | 22.2% | 11 |
+| 7 | 2026-10-19 | `2a437bb` | M-mad-2920 | 167 | 19 | 100% | 0.0% | 0 |
 
 ---
 _Informe generado por la cátedra. Los criterios y umbrales de medición corresponden al perfil `exigente` de `calidad.py`; el semáforo de aprobación, a `CRITERIOS-CALIDAD.md` (ver `README.md`). Ante dudas, revisá el archivo señalado._
