@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bwd7vllafxdnc"]
+
+[ext_resource type="Script" uid="uid://bdpaup12kpa1l" path="res://menu_pausa.gd" id="1_jd2x8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mkwp"]
+bg_color = Color(0.7647059, 0.3372549, 1, 0.78431374)
+corner_radius_top_left = 15
+corner_radius_bottom_left = 15
+
+[node name="MenuPausa" type="CanvasLayer" unique_id=1151610375]
+process_mode = 3
+script = ExtResource("1_jd2x8")
+
+[node name="UI" type="Control" parent="." unique_id=464832129]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -74.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ColorRect" type="Panel" parent="UI" unique_id=436078376]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.25
+anchor_top = 2.174
+anchor_right = -1.25
+anchor_bottom = 2.174
+offset_left = -263.0
+offset_top = -282.00598
+offset_right = 90.0
+offset_bottom = 150.994
+theme_override_styles/panel = SubResource("StyleBoxFlat_3mkwp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=950733708]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.4310001
+offset_left = -298.0
+offset_top = -110.5
+offset_right = 27.0
+offset_bottom = 189.76099
+offset_transform_enabled = true
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/VBoxContainer" unique_id=452613929]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -18)
+theme_override_font_sizes/font_size = 40
+text = "PAUSA"
+horizontal_alignment = 1
+
+[node name="BotonContinuar" type="Button" parent="UI/VBoxContainer" unique_id=761567794]
+custom_minimum_size = Vector2(325, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "REANUDAR"
+
+[node name="Button" type="Button" parent="UI/VBoxContainer" unique_id=476401824]
+custom_minimum_size = Vector2(325, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "MAPAS"
+
+[node name="Button2" type="Button" parent="UI/VBoxContainer" unique_id=704006362]
+custom_minimum_size = Vector2(325, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "AUTOS"
+
+[node name="BotonReiniciar" type="Button" parent="UI/VBoxContainer" unique_id=1462356184]
+custom_minimum_size = Vector2(325, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "REINICIAR
+"
+
+[node name="BotonSalir" type="Button" parent="UI/VBoxContainer" unique_id=2103008997]
+custom_minimum_size = Vector2(325, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "VOLVER AL MENU"

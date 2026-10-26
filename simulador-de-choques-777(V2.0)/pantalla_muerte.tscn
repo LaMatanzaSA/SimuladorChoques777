@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://6ctnn8raqqwg"]
+
+[ext_resource type="Script" uid="uid://cb6qjued4m6vd" path="res://pantalla_muerte.gd" id="1_2cvs3"]
+
+[node name="PantallaMuerte" type="CanvasLayer" unique_id=1355662767]
+script = ExtResource("1_2cvs3")
+_ruta_menu_principal = "uid://b344ja16j5bix"
+
+[node name="FondoRojo" type="ColorRect" parent="." unique_id=1315088997]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.8862745, 0.21568628, 0.19607843, 0.5882353)
+
+[node name="UI" type="Control" parent="." unique_id=1758791726]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.9375
+offset_top = -216.0
+offset_right = 244.9375
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=1818812898]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextoPerdiste" type="Label" parent="UI/VBoxContainer" unique_id=771442115]
+layout_mode = 2
+theme_override_constants/outline_size = 50
+theme_override_font_sizes/font_size = 75
+text = "¡Has Perdido!
+
+"
+horizontal_alignment = 1
+
+[node name="BotonReiniciar" type="Button" parent="UI/VBoxContainer" unique_id=1854586481]
+custom_minimum_size = Vector2(50, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "REINICIAR"
+
+[node name="BotonMenu" type="Button" parent="UI/VBoxContainer" unique_id=1784966852]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "VOLVER AL MENU"
