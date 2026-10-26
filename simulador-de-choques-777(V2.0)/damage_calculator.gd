@@ -3,6 +3,8 @@ extends Node
 
 ## Se emite cada vez que cambia el daño acumulado.
 signal dano_actualizado(dano_actual: float, dano_maximo: float)
+## Se emite cuando el vehículo queda destruido.
+signal auto_destruido
 
 ## Umbral de destrucción total.
 @export var dano_maximo : float = 100.0
@@ -21,3 +23,10 @@ func calcular_dano(fuerza: float) -> void:
 	var dano_del_golpe : float = lerpf(dano_minimo_por_golpe, dano_maximo_por_golpe, proporcion)
 	dano_actual = minf(dano_actual + dano_del_golpe, dano_maximo)
 	dano_actualizado.emit(dano_actual, dano_maximo)
+	
+	# AGREGADO: Si llegó al máximo, avisamos a la UI para que muestre la muerte
+	if dano_actual >= dano_maximo:
+		auto_destruido.emit()
+
+func _ready() -> void:
+	add_to_group("damage_calculators")

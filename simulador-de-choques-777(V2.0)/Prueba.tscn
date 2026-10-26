@@ -4,11 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://usoha0vby261" path="res://AtutoTest.tscn" id="2_lgsii"]
 [ext_resource type="PackedScene" uid="uid://c6wdmvvejqpu7" path="res://ruedatest.tscn" id="4_lgsii"]
 [ext_resource type="PackedScene" path="res://ObstaculoTest.tscn" id="5_obst"]
+[ext_resource type="PackedScene" uid="uid://bfp7ugu2d1dts" path="res://velocimetro_movimiento.tscn" id="5_wgwtc"]
+[ext_resource type="PackedScene" uid="uid://bwd7vllafxdnc" path="res://menu_pausa.tscn" id="6_b0kld"]
+[ext_resource type="PackedScene" uid="uid://6ctnn8raqqwg" path="res://pantalla_muerte.tscn" id="7_1d36f"]
+[ext_resource type="Texture2D" uid="uid://diw7alm6osqgg" path="res://Sprites/FONDOS REALES/MUNDO 1.png" id="7_ep22w"]
 
 [node name="Node" type="Node" unique_id=860816601]
 
-[node name="CharacterBody2D" parent="." unique_id=182666106 instance=ExtResource("2_lgsii")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1762238746]
+
+[node name="velocimetro" parent="CanvasLayer" unique_id=1128775000 instance=ExtResource("5_wgwtc")]
+
+[node name="CharacterBody2D" parent="." unique_id=182666106 node_paths=PackedStringArray("velocimetro") instance=ExtResource("2_lgsii")]
 position = Vector2(18, -54)
+velocimetro = NodePath("../CanvasLayer/velocimetro")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1390244013]
 
@@ -54,3 +63,14 @@ rotation = -1.0890855
 [node name="StaticBody2D8" parent="." unique_id=864317991 instance=ExtResource("1_vnpk6")]
 position = Vector2(1458, -567)
 rotation = -1.5079645
+
+[node name="MenuPausa" parent="." unique_id=1151610375 instance=ExtResource("6_b0kld")]
+
+[node name="PantallaMuerte" parent="." unique_id=1355662767 instance=ExtResource("7_1d36f")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=2021558993]
+
+[node name="Mundo1" type="Sprite2D" parent="ParallaxBackground" unique_id=408872278]
+position = Vector2(576, 324)
+scale = Vector2(3.6000001, 3.6000001)
+texture = ExtResource("7_ep22w")

@@ -10,6 +10,8 @@ var rotation_speed : float = 10.0
 var push_speed : float = max_speed * 0.6
 var speed : float = 0.0
 var is_pushing : bool = false
+
+@export var velocimetro: Control
 # false cuando el vehículo está destruido (lo apaga VehicleStopper)
 var operativo : bool = true
 
@@ -49,3 +51,7 @@ func _physics_process(delta):
 			push_dir.y = 0 
 			if push_dir.x != 0:
 				collider.apply_central_impulse(push_dir * fuerza_empuje)
+				
+				## ENVIAR VELOCIDAD AL VELOCÍMETRO
+	if is_instance_valid(velocimetro) and velocimetro.has_method("actualizar_velocidad"):
+		velocimetro.actualizar_velocidad(abs(speed))

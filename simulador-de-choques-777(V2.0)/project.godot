@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Simulador de choques 777 (Copy)"
-run/main_scene="uid://x8n5rqmjw30a"
+config/name="Simulador de choques 777 (OFICIAL)"
+run/main_scene="uid://b344ja16j5bix"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
