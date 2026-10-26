@@ -3,7 +3,7 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación II (RepoSense + análisis de calidad POO/SOLID). **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas): es una criba para orientar la revisión, **no una nota**.
-> Generado: 2026-10-25.
+> Generado: 2026-10-26.
 
 ## 1. Veredicto
 
@@ -44,7 +44,7 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 |---|---|---|---|
 | Código dentro de clases (%POO) | ≥ 95% | 100% | sí |
 | Duplicación lógica | ≤ 5% | 0.0% | sí |
-| Funciones fuera de clases | ≤ 0 | 0 | sí |
+| Funciones fuera de clases | ≤ 1 | 0 | sí |
 | Señales POO/SOLID críticas | ninguna | Clase demasiado grande (SRP), Complejidad alta, Acoplamiento alto (CBO), Switch sobre tipos (OCP) | no |
 | Índice de calidad POO/SOLID | ≥ 60 | 19/100 | no |
 
@@ -227,7 +227,7 @@ xychart-beta
     title "Índice POO/SOLID a lo largo de los commits"
     x-axis ["8d32acc", "61db4c4", "c16a3fc", "0d868c7", "78b731b", "f64205e", "2a437bb"]
     y-axis "Índice" 0 --> 100
-    line [0, 0, 14, 7, 6, 6, 19]
+    line [0, 0, 14, 7, 7, 7, 19]
 ```
 
 | # | Fecha | Commit | Autor | LOC | Índice | %POO | Duplic. | Sueltas |
@@ -236,8 +236,8 @@ xychart-beta
 | 2 | 2026-08-24 | `61db4c4` | dqmdz-etec | 0 | 0 | 0% | 0.0% | 0 |
 | 3 | 2026-09-04 | `c16a3fc` | M-mad-2920 | 44 | 14 | 100% | 0.0% | 0 |
 | 4 | 2026-10-09 | `0d868c7` | M-mad-2920 | 211 | 7 | 100% | 36.5% | 0 |
-| 5 | 2026-10-16 | `78b731b` | EmilianoMontano | 307 | 6 | 70% | 22.2% | 11 |
-| 6 | 2026-10-19 | `f64205e` | M-mad-2920 | 307 | 6 | 70% | 22.2% | 11 |
+| 5 | 2026-10-16 | `78b731b` | EmilianoMontano | 307 | 7 | 100% | 22.2% | 0 |
+| 6 | 2026-10-19 | `f64205e` | M-mad-2920 | 307 | 7 | 100% | 22.2% | 0 |
 | 7 | 2026-10-19 | `2a437bb` | M-mad-2920 | 167 | 19 | 100% | 0.0% | 0 |
 
 ---
