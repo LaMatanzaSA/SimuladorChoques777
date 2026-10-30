@@ -15,14 +15,13 @@
 
 [node name="velocimetro" parent="CanvasLayer" unique_id=1128775000 instance=ExtResource("5_wgwtc")]
 
-[node name="CharacterBody2D" parent="." unique_id=182666106 node_paths=PackedStringArray("velocimetro") instance=ExtResource("2_lgsii")]
+[node name="CharacterBody2D" parent="." unique_id=182666106 instance=ExtResource("2_lgsii")]
 position = Vector2(18, -54)
-velocimetro = NodePath("../CanvasLayer/velocimetro")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1390244013]
 
 [node name="Obstaculo4" parent="." unique_id=787866154 groups=["obstaculo"] instance=ExtResource("4_lgsii")]
-position = Vector2(1383.9999, -781)
+position = Vector2(1382.9999, -781)
 rotation = -0.008726646
 
 [node name="StaticBody2D" parent="." unique_id=1172261398 instance=ExtResource("1_vnpk6")]
@@ -32,7 +31,7 @@ position = Vector2(3, -5)
 position = Vector2(175, -340)
 
 [node name="Obstaculo2" parent="." unique_id=1731352802 instance=ExtResource("5_obst")]
-position = Vector2(263, -287)
+position = Vector2(272, -341)
 
 [node name="Obstaculo3" parent="." unique_id=1228132868 instance=ExtResource("5_obst")]
 position = Vector2(391, -336)

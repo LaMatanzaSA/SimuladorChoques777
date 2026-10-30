@@ -1,20 +1,23 @@
 ## ÚNICA responsabilidad: reflejar el nivel de daño en el aspecto visual del vehículo.
 class_name DamageVisualizer
-extends Node
+extends DamageReactor
 
-## Sprites de menor a mayor desgaste (p. ej. leve, medio, destruido).
-## Se asignan en el Inspector. Si está vacío, solo se oscurece el sprite original.
-@export var sprites_dano : Array[Texture2D] = []
-## Color con el que se tiñe el sprite al llegar al daño máximo.
-@export var color_destruido : Color = Color(0.25, 0.25, 0.25)
+@export var config: DamageVisualConfig
+@export var sprite: Sprite2D
 
-func actualizar_sprite(dano_actual: float, dano_maximo: float) -> void:
-	var sprite : Sprite2D = get_parent().get_node("Sprite2D")
-	var proporcion : float = clampf(dano_actual / dano_maximo, 0.0, 1.0)
-	# Elegir el sprite de la lista según el porcentaje de daño.
-	if not sprites_dano.is_empty():
-		var indice : int = mini(int(proporcion * sprites_dano.size()), sprites_dano.size() - 1)
-		if sprites_dano[indice] != null:
-			sprite.texture = sprites_dano[indice]
-	# Refuerzo visual: tinte progresivamente más oscuro.
-	sprite.modulate = Color.WHITE.lerp(color_destruido, proporcion)
+func _ready() -> void:
+	super()
+	if config == null:
+		config = DamageVisualConfig.new()
+	if sprite == null:
+		sprite = get_parent().get_node_or_null("Sprite2D") as Sprite2D
+
+func reaccionar_al_dano(dano_actual: float, dano_maximo: float) -> void:
+	if not is_instance_valid(sprite):
+		return
+	var proporcion: float = clampf(dano_actual / dano_maximo, 0.0, 1.0)
+	if not config.sprites_dano.is_empty():
+		var indice: int = mini(int(proporcion * config.sprites_dano.size()), config.sprites_dano.size() - 1)
+		if config.sprites_dano[indice] != null:
+			sprite.texture = config.sprites_dano[indice]
+	sprite.modulate = Color.WHITE.lerp(config.color_destruido, proporcion)

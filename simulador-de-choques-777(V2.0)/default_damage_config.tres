@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DamageConfig" format=3]
+
+[ext_resource type="Script" path="res://damage_config.gd" id="1_dcfg"]
+
+[resource]
+script = ExtResource("1_dcfg")
+dano_maximo = 100.0
+fuerza_referencia = 400.0
+dano_minimo_por_golpe = 10.0
+dano_maximo_por_golpe = 40.0

@@ -1,19 +1,26 @@
 ## ÚNICA responsabilidad: dejar el vehículo inoperativo cuando el daño llega al máximo.
 class_name VehicleStopper
-extends Node
+extends DamageReactor
 
-## Fricción aplicada al destruirse, para que frene en seco en lugar de seguir rodando.
-@export var friccion_destruido : float = 1500.0
+## Fricción aplicada al destruirse, para que frene en seco.
+@export var friccion_destruido: float = 1500.0
+@export var vehiculo: Personaje
+@export var detector: Area2D
 
-func detener_vehiculo(dano_actual: float, dano_maximo: float) -> void:
-	# Mientras no se alcance el umbral, no hacer nada.
+func _ready() -> void:
+	super()
+	if vehiculo == null:
+		vehiculo = get_parent() as Personaje
+	if detector == null and is_instance_valid(vehiculo):
+		for hijo: Node in vehiculo.get_children():
+			if hijo is CollisionDetector:
+				detector = hijo as Area2D
+				break
+
+func reaccionar_al_dano(dano_actual: float, dano_maximo: float) -> void:
 	if dano_actual < dano_maximo:
 		return
-	var vehiculo : Personaje = get_parent()
-	# Se corta el control del jugador (la gravedad y colisiones siguen activas
-	# para que el vehículo no quede flotando si se destruye en el aire).
-	vehiculo.operativo = false
-	vehiculo.accel = 0.0
-	vehiculo.friction = friccion_destruido
+	vehiculo.inhabilitar(friccion_destruido)
 	# Se apaga el detector para no seguir acumulando daño sobre un vehículo destruido.
-	vehiculo.get_node("CollisionDetector").set_deferred("monitoring", false)
+	if is_instance_valid(detector):
+		detector.set_deferred("monitoring", false)

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="VehicleStats" format=3]
+
+[ext_resource type="Script" path="res://vehicle_stats.gd" id="1_vstats"]
+
+[resource]
+script = ExtResource("1_vstats")
+max_speed = 400.0
+accel = 800.0
+friction = 600.0
+rotation_speed = 10.0
+gravity = 300.0
+fuerza_empuje = 50.0
+ratio_velocidad_empuje = 0.6
