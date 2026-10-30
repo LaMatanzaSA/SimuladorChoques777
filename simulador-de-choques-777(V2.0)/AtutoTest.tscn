@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://usoha0vby261"]
 
 [ext_resource type="Script" uid="uid://cbcljwmti6sar" path="res://atuto_test.gd" id="1_mos8y"]
-[ext_resource type="Texture2D" uid="uid://cmb5o0kt6enxf" path="res://PNG/Cars/taxi.png" id="1_wj72q"]
+[ext_resource type="Texture2D" uid="uid://cmb5o0kt6enxf" path="res://Sprites/Cars/taxi.png" id="1_wj72q"]
 [ext_resource type="Shape2D" uid="uid://cfs4skbwv20ps" path="res://auto_h.tres" id="3_mos8y"]
 [ext_resource type="Script" uid="uid://2qobhv4cb6vv" path="res://collision_detector.gd" id="5_cdet"]
 [ext_resource type="Script" uid="uid://cku08nmn57ofj" path="res://damage_calculator.gd" id="6_dcal"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://di7qx1c4vkk8m" path="res://vehicle_stopper.gd" id="9_vsto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_detector"]
-size = Vector2(69, 34.5)
+size = Vector2(79, 34.5)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=182666106]
 floor_snap_length = 12.0
@@ -29,7 +29,7 @@ shape = ExtResource("3_mos8y")
 script = ExtResource("5_cdet")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDetector" unique_id=2133119966]
-position = Vector2(0.5, 0.25)
+position = Vector2(-0.5, 0.25)
 shape = SubResource("RectangleShape2D_detector")
 
 [node name="DamageCalculator" type="Node" parent="." unique_id=1197343290]

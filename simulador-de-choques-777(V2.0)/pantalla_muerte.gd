@@ -1,13 +1,12 @@
 class_name PantallaMuerte
 extends CanvasLayer
+## ÚNICA responsabilidad: mostrar la pantalla de derrota.
+## Depende de cualquier nodo que emita `auto_destruido`
 
-## Referencia al calculador de daño
-@export var _damage_calculator: DamageCalculator
-
-## Configuración de rutas
+## Fuente explícita (opcional). Si está vacía se buscan fuentes por grupo.
+@export var _fuente_destruccion: Node
 @export_file("*.tscn") var _ruta_menu_principal: String = "res://menu_inicio.tscn"
 
-## Referencias a nodos UI (Encapsuladas y Tipadas)
 @onready var _fondo_rojo: ColorRect = $FondoRojo
 @onready var _ui_contenedor: Control = $UI
 @onready var _boton_reiniciar: Button = $UI/VBoxContainer/BotonReiniciar
@@ -15,46 +14,39 @@ extends CanvasLayer
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	_ocultar_pantalla()
+	_alternar_visibilidad(false)
 	_conectar_senales_ui()
-	_conectar_calculador_dano()
+	_conectar_fuentes()
 
-## Muestra la pantalla sin pausar el árbol del juego
+## Muestra la pantalla sin pausar el árbol del juego.
 func mostrar_muerte() -> void:
-	_mostrar_pantalla()
+	_alternar_visibilidad(true)
 
-func _mostrar_pantalla() -> void:
+func _alternar_visibilidad(mostrar: bool) -> void:
 	if is_instance_valid(_fondo_rojo):
-		_fondo_rojo.show()
+		_fondo_rojo.visible = mostrar
 	if is_instance_valid(_ui_contenedor):
-		_ui_contenedor.show()
-
-func _ocultar_pantalla() -> void:
-	if is_instance_valid(_fondo_rojo):
-		_fondo_rojo.hide()
-	if is_instance_valid(_ui_contenedor):
-		_ui_contenedor.hide()
+		_ui_contenedor.visible = mostrar
 
 func _conectar_senales_ui() -> void:
 	if is_instance_valid(_boton_reiniciar):
-		_boton_reiniciar.pressed.connect(_on_reiniciar_pressed)
-		
+		_boton_reiniciar.pressed.connect(func() -> void: SceneFlow.reiniciar_escena(get_tree()))
 	if is_instance_valid(_boton_menu):
-		_boton_menu.pressed.connect(_on_menu_pressed)
+		_boton_menu.pressed.connect(func() -> void: SceneFlow.cambiar_escena(get_tree(), _ruta_menu_principal))
 
-func _conectar_calculador_dano() -> void:
-	if not is_instance_valid(_damage_calculator):
-		var calculadores: Array[Node] = get_tree().get_nodes_in_group("damage_calculators")
-		if not calculadores.is_empty():
-			_damage_calculator = calculadores[0] as DamageCalculator
-
-	if is_instance_valid(_damage_calculator):
-		_damage_calculator.auto_destruido.connect(mostrar_muerte)
-
-func _on_reiniciar_pressed() -> void:
-	get_tree().paused = false
-	get_tree().reload_current_scene()
-
-func _on_menu_pressed() -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_file(_ruta_menu_principal)
+## Se conecta a la fuente explícita o, si no hay, a todas las del grupo.
+func _conectar_fuentes() -> void:
+	var fuentes: Array[Node] = []
+	if is_instance_valid(_fuente_destruccion):
+		fuentes.append(_fuente_destruccion)
+	else:
+		fuentes.append_array(get_tree().get_nodes_in_group(&"fuentes_destruccion"))
+	var conectadas: int = 0
+	for fuente: Node in fuentes:
+		if not fuente.has_signal(&"auto_destruido"):
+			continue
+		if not fuente.is_connected(&"auto_destruido", mostrar_muerte):
+			fuente.connect(&"auto_destruido", mostrar_muerte)
+		conectadas += 1
+	if conectadas == 0:
+		push_warning("PantallaMuerte: no se encontró ninguna fuente con la señal 'auto_destruido'.")
