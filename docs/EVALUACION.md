@@ -3,7 +3,7 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación II (RepoSense + análisis de calidad POO/SOLID). **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas): es una criba para orientar la revisión, **no una nota**.
-> Generado: 2026-10-30.
+> Generado: 2026-11-01.
 
 ## 1. Veredicto
 
@@ -49,6 +49,14 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 | Señales POO/SOLID críticas | ninguna | Baja cohesión (LCOM), Acoplamiento alto (CBO), Switch sobre tipos (OCP) | no |
 | Índice de calidad POO/SOLID | ≥ 60 | 13/100 | no |
 
+### Cómo se calcula el %POO (y por qué no sube solo)
+
+`%POO = líneas de lógica dentro de clases ÷ líneas de lógica totales`.
+
+Se cuentan las líneas de **lógica y campos**; no cuentan `package`/`import`/`using`/anotaciones ni comentarios, Javadoc o docstrings. Es una **proporción**: si agregás código nuevo dentro de una clase, el numerador y el denominador crecen juntos y el porcentaje casi no cambia.
+
+Sube cuando el código que hoy está **fuera** de clases pasa a ser método de una clase (o desaparece): funciones sueltas, `main`, constantes de módulo, scripts y lógica de archivos sueltos. También importa que ese trabajo esté **integrado en `main`**: la evaluación siempre mide `main`, así que lo que sigue en otra rama no se refleja todavía.
+
 ## 2. Autoría (RepoSense)
 
 | Autor | Commits | Código (LOC) | Tests (LOC) | Docs (LOC) | Días activos | % del código |
@@ -60,7 +68,22 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 
 > **Reparto del trabajo:** Matías Mad concentra el 78% de las líneas de código. Un reparto muy desigual suele indicar que la integración no fue realmente en equipo; vale la pena reconstruir cómo se coordinó.
 
-## 3. Aspectos evaluados
+## 3. Fallas detectadas
+
+Reúne lo que el análisis marcó y lo que todavía falta para cada semáforo. Cuando la señal se puede asociar a archivos, se indican para orientar la revisión. No es una nota.
+
+| Falla | Tu resultado | Requisito | Archivos |
+|---|---|---|---|
+| Duplicación lógica | 18.1% | Aprobar: ≤ 10%<br>Destacar: ≤ 5% | `simulador-de-choques-777(V2.0)/atuto_test_1.gd` |
+| Señales POO/SOLID críticas | Acoplamiento alto (CBO) | Aprobar: ninguna<br>Destacar: ninguna | `simulador-de-choques-777(V2.0)/menu_pausa.gd`, `simulador-de-choques-777(V2.0)/pantalla_muerte.gd`, `simulador-de-choques-777(V2.0)/vehicle_pusher.gd`, `simulador-de-choques-777(V2.0)/vehicle_stopper.gd`, `simulador-de-choques-777(V2.0)/velocimetro_movimiento.gd` |
+| Índice de calidad POO/SOLID | 13/100 | Destacar: ≥ 60 | — |
+| Herencia profunda (DIT) | **4** clase(s) con herencia profunda | Sin señales | `simulador-de-choques-777(V2.0)/damage_visualizer.gd`, `simulador-de-choques-777(V2.0)/keyboard_vehicle_input.gd`, `simulador-de-choques-777(V2.0)/physics_modifier.gd`, `simulador-de-choques-777(V2.0)/vehicle_stopper.gd` |
+| Dependencia de concretos y falta de abstracciones (DIP) | **1** dependencia(s) de concretos sin abstracciones | Sin señales | — |
+| Clase sin métodos (solo datos) | **1** clase(s) sin métodos (solo datos) | Sin señales | `simulador-de-choques-777(V2.0)/damage_config.gd` |
+| Campos públicos (encapsulación) | **5** clase(s) con campos públicos | Sin señales | `simulador-de-choques-777(V2.0)/atuto_test.gd`, `simulador-de-choques-777(V2.0)/atuto_test_1.gd`, `simulador-de-choques-777(V2.0)/autoto_phisycs_test.gd`, `simulador-de-choques-777(V2.0)/damage_config.gd`, `simulador-de-choques-777(V2.0)/vehicle_stats.gd` |
+| Clase solo con métodos estáticos (utilitaria) | **1** clase(s) solo con métodos estáticos | Sin señales | `simulador-de-choques-777(V2.0)/scene_flow.gd` |
+
+## 4. Aspectos evaluados
 
 Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuando el análisis reportó una señal, se agregan preguntas para **investigar la causa** (no hay recetas: entender el porqué es parte de la evaluación).
 
@@ -82,9 +105,10 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 ### 3. Adopción de POO (% de código en clases) (poo) — sin señales
 
-- **Qué mide:** Qué porción del código vive dentro de clases (no de funciones sueltas).
+- **Qué mide:** Proporción de las **líneas de lógica** que viven dentro de una clase. Quedan fuera `package`/`import`/`using`/anotaciones y comentarios/Javadoc/docstrings: no son código que pueda estar dentro de una clase y, si contaran, el porcentaje quedaría topado por el boilerplate de cada archivo.
 - **Por qué importa:** El diseño orientado a objetos es el eje de la materia: el comportamiento debería vivir como método de una clase.
 - **Tu resultado:** **100.0%** del código dentro de clases
+- **Cómo leerlo:** Es una **proporción**, no un acumulado: agregar código dentro de una clase no la sube por sí solo (numerador y denominador crecen juntos). Sube cuando el código que está **fuera** de clases (funciones sueltas, `main`, constantes de módulo, scripts) pasa a ser método de una clase o deja de existir. La medición se hace sobre `main`: el trabajo que todavía vive en otra rama no se refleja hasta que se integra.
 
 ### 4. Funciones fuera de clases (sueltas) — sin señales
 
@@ -201,40 +225,6 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
     - ¿Por qué no hace falta una instancia en esa clase?
     - ¿Los métodos operan sobre estado que podría vivir en un objeto?
     - ¿Se usó clase solo para agrupar funciones sueltas?
-
-## 4. Anexo: dónde mirar
-
-Archivos donde el análisis encontró cada señal (sin número de línea, a propósito):
-
-**Baja cohesión (LCOM) (cohesion)** — 1 archivo(s):
-- `simulador-de-choques-777(V2.0)/velocimetro_movimiento.gd`
-
-**Acoplamiento alto (CBO) (acoplamiento)** — 2 archivo(s):
-- `simulador-de-choques-777(V2.0)/menu_pausa.gd`
-- `simulador-de-choques-777(V2.0)/pantalla_muerte.gd`
-
-**Herencia profunda (DIT) (herencia)** — 4 archivo(s):
-- `simulador-de-choques-777(V2.0)/damage_visualizer.gd`
-- `simulador-de-choques-777(V2.0)/keyboard_vehicle_input.gd`
-- `simulador-de-choques-777(V2.0)/physics_modifier.gd`
-- `simulador-de-choques-777(V2.0)/vehicle_stopper.gd`
-
-**Switch sobre tipos (OCP) (ocp)** — 2 archivo(s):
-- `simulador-de-choques-777(V2.0)/vehicle_pusher.gd`
-- `simulador-de-choques-777(V2.0)/vehicle_stopper.gd`
-
-**Clase sin métodos (solo datos) (data)** — 1 archivo(s):
-- `simulador-de-choques-777(V2.0)/damage_config.gd`
-
-**Campos públicos (encapsulación) (encapsulacion)** — 5 archivo(s):
-- `simulador-de-choques-777(V2.0)/atuto_test.gd`
-- `simulador-de-choques-777(V2.0)/atuto_test_1.gd`
-- `simulador-de-choques-777(V2.0)/autoto_phisycs_test.gd`
-- `simulador-de-choques-777(V2.0)/damage_config.gd`
-- `simulador-de-choques-777(V2.0)/vehicle_stats.gd`
-
-**Clase solo con métodos estáticos (utilitaria) (static)** — 1 archivo(s):
-- `simulador-de-choques-777(V2.0)/scene_flow.gd`
 
 ## 5. Evolución por commit
 
