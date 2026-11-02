@@ -1,7 +1,18 @@
 class_name Personaje
+
 extends CharacterBody2D
 ## Responsabilidad: integrar movimiento horizontal + gravedad.
 ## Input, alineación, empuje y UI están delegados en componentes/señales.
+@export var fuerza_empuje = 50
+@export var gravity = 300
+@export var max_speed : float = 400.0
+@export var accel : float = 120.0
+@export var friction : float = 300.0
+var target_rotation : float = 0.0
+var rotation_speed : float = 10.0
+var push_speed : float = max_speed * 0.6
+var speed : float = 0.0
+var is_pushing : bool = false
 
 signal velocidad_cambiada(velocidad: float)
 
@@ -12,8 +23,6 @@ signal velocidad_cambiada(velocidad: float)
 
 ## Copia mutable de `stats`: el .tres original nunca se modifica.
 var stats_actual: VehicleStats
-var speed: float = 0.0
-var is_pushing: bool = false
 ## false cuando el vehículo está destruido.
 var operativo: bool = true
 
