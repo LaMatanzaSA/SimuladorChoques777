@@ -3,20 +3,20 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación II (RepoSense + análisis de calidad POO/SOLID). **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas): es una criba para orientar la revisión, **no una nota**.
-> Generado: 2026-11-01.
+> Generado: 2026-11-02.
 
 ## 1. Veredicto
 
 | Aspecto | Resultado |
 |---|---|
 | Índice de calidad POO/SOLID | **13/100** |
-| Código (LOC) | 572 |
-| Archivos de código | 22 |
-| Clases (bien usadas) | 22 (12 OK) |
+| Código (LOC) | 619 |
+| Archivos de código | 23 |
+| Clases (bien usadas) | 23 (12 OK) |
 | Código dentro de clases (%POO) | 100% |
 | Funciones fuera de clases | 0 |
-| Duplicación lógica | 18.1% |
-| Señales S/O/L/I/D | 2/2/0/0/1 |
+| Duplicación lógica | 16.6% |
+| Señales S/O/L/I/D | 3/2/0/0/1 |
 | Tope duro aplicado | `DUP>=15%` → índice ≤ 50 |
 
 > Este informe **describe** lo que el análisis midió con los criterios ya establecidos de la materia. No es una nota.
@@ -35,7 +35,7 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 | Criterio | Requisito | Tu resultado | Cumple |
 |---|---|---|---|
 | Código dentro de clases (%POO) | ≥ 85% | 100% | sí |
-| Duplicación lógica | ≤ 10% | 18.1% | no |
+| Duplicación lógica | ≤ 10% | 16.6% | no |
 | Funciones fuera de clases | ≤ 1 | 0 | sí |
 | Señales POO/SOLID críticas | ninguna | Acoplamiento alto (CBO) | no |
 
@@ -44,7 +44,7 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 | Criterio | Requisito | Tu resultado | Cumple |
 |---|---|---|---|
 | Código dentro de clases (%POO) | ≥ 95% | 100% | sí |
-| Duplicación lógica | ≤ 5% | 18.1% | no |
+| Duplicación lógica | ≤ 5% | 16.6% | no |
 | Funciones fuera de clases | ≤ 1 | 0 | sí |
 | Señales POO/SOLID críticas | ninguna | Baja cohesión (LCOM), Acoplamiento alto (CBO), Switch sobre tipos (OCP) | no |
 | Índice de calidad POO/SOLID | ≥ 60 | 13/100 | no |
@@ -61,12 +61,12 @@ Sube cuando el código que hoy está **fuera** de clases pasa a ser método de u
 
 | Autor | Commits | Código (LOC) | Tests (LOC) | Docs (LOC) | Días activos | % del código |
 |---|---:|---:|---:|---:|---:|---:|
-| Matías Mad | 6 | 535 | 0 | 0 | 5 | 78% |
-| EmilianoMontano | 3 | 149 | 0 | 1 | 3 | 22% |
+| Matías Mad | 6 | 533 | 0 | 0 | 5 | 72% |
+| EmilianoMontano | 4 | 210 | 0 | 1 | 4 | 28% |
 
 > _El LOC de autoría lo calcula RepoSense sobre el historial y puede diferir del LOC de código del análisis de calidad (que mira solo el estado de `main`)._
 
-> **Reparto del trabajo:** Matías Mad concentra el 78% de las líneas de código. Un reparto muy desigual suele indicar que la integración no fue realmente en equipo; vale la pena reconstruir cómo se coordinó.
+> **Reparto del trabajo:** Matías Mad concentra el 72% de las líneas de código. Un reparto muy desigual suele indicar que la integración no fue realmente en equipo; vale la pena reconstruir cómo se coordinó.
 
 ## 3. Fallas detectadas
 
@@ -74,8 +74,8 @@ Reúne lo que el análisis marcó y lo que todavía falta para cada semáforo. C
 
 | Falla | Tu resultado | Requisito | Archivos |
 |---|---|---|---|
-| Duplicación lógica | 18.1% | Aprobar: ≤ 10%<br>Destacar: ≤ 5% | `simulador-de-choques-777(V2.0)/atuto_test_1.gd` |
-| Señales POO/SOLID críticas | Acoplamiento alto (CBO) | Aprobar: ninguna<br>Destacar: ninguna | `simulador-de-choques-777(V2.0)/menu_pausa.gd`, `simulador-de-choques-777(V2.0)/pantalla_muerte.gd`, `simulador-de-choques-777(V2.0)/vehicle_pusher.gd`, `simulador-de-choques-777(V2.0)/vehicle_stopper.gd`, `simulador-de-choques-777(V2.0)/velocimetro_movimiento.gd` |
+| Duplicación lógica | 16.6% | Aprobar: ≤ 10%<br>Destacar: ≤ 5% | `simulador-de-choques-777(V2.0)/atuto_test_1.gd` |
+| Señales POO/SOLID críticas | Acoplamiento alto (CBO) | Aprobar: ninguna<br>Destacar: ninguna | `simulador-de-choques-777(V2.0)/efectos_auto.gd`, `simulador-de-choques-777(V2.0)/menu_pausa.gd`, `simulador-de-choques-777(V2.0)/pantalla_muerte.gd`, `simulador-de-choques-777(V2.0)/vehicle_pusher.gd`, `simulador-de-choques-777(V2.0)/vehicle_stopper.gd`, `simulador-de-choques-777(V2.0)/velocimetro_movimiento.gd` |
 | Índice de calidad POO/SOLID | 13/100 | Destacar: ≥ 60 | — |
 | Herencia profunda (DIT) | **4** clase(s) con herencia profunda | Sin señales | `simulador-de-choques-777(V2.0)/damage_visualizer.gd`, `simulador-de-choques-777(V2.0)/keyboard_vehicle_input.gd`, `simulador-de-choques-777(V2.0)/physics_modifier.gd`, `simulador-de-choques-777(V2.0)/vehicle_stopper.gd` |
 | Dependencia de concretos y falta de abstracciones (DIP) | **1** dependencia(s) de concretos sin abstracciones | Sin señales | — |
@@ -97,7 +97,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Porcentaje de bloques de LÓGICA repetidos. Quedan fuera imports/includes, anotaciones, declaraciones de campos y comentarios/Javadoc/docstrings: esos bloques son boilerplate, no lógica.
 - **Por qué importa:** Cada copia de lógica se mantiene por separado: un arreglo hay que repetirlo y los defectos se multiplican.
-- **Tu resultado:** **18.1%** de duplicación lógica
+- **Tu resultado:** **16.6%** de duplicación lógica
 - **Para investigar la causa:**
     - ¿El trabajo se repartió por pantallas o archivos y se integró copiando y pegando bloques?
     - ¿Qué zonas del sistema cambiaron juntas más de una vez (señal de lógica compartida)?
@@ -126,7 +126,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Métodos y campos de una clase que casi no se relacionan entre sí.
 - **Por qué importa:** Una unidad que cambia por motivos distintos y comparte poca información suele esconder más de una responsabilidad.
-- **Tu resultado:** **1** clase(s) con baja cohesión
+- **Tu resultado:** **2** clase(s) con baja cohesión
 - **Para investigar la causa:**
     - ¿Qué métodos de la clase no comparten estado con el resto?
     - ¿Cambian por motivos distintos según la tarea?
@@ -228,14 +228,14 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 ## 5. Evolución por commit
 
-Métricas calculadas sobre el estado de `main` en **cada commit** (9 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
+Métricas calculadas sobre el estado de `main` en **cada commit** (10 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
 
 ```mermaid
 xychart-beta
     title "Índice POO/SOLID a lo largo de los commits"
-    x-axis ["8d32acc", "61db4c4", "c16a3fc", "0d868c7", "78b731b", "f64205e", "2a437bb", "354fa9e", "5bb0e0c"]
+    x-axis ["8d32acc", "61db4c4", "c16a3fc", "0d868c7", "78b731b", "f64205e", "2a437bb", "354fa9e", "5bb0e0c", "a204e05"]
     y-axis "Índice" 0 --> 100
-    line [0, 0, 21, 10, 11, 11, 32, 19, 13]
+    line [0, 0, 21, 10, 11, 11, 32, 19, 13, 13]
 ```
 
 | # | Fecha | Commit | Autor | LOC | Índice | %POO | Duplic. | Sueltas |
@@ -249,6 +249,7 @@ xychart-beta
 | 7 | 2026-10-19 | `2a437bb` | M-mad-2920 | 167 | 32 | 100% | 0.0% | 0 |
 | 8 | 2026-10-26 | `354fa9e` | EmilianoMontano | 372 | 19 | 100% | 0.0% | 0 |
 | 9 | 2026-10-30 | `5bb0e0c` | M-mad-2920 | 572 | 13 | 100% | 18.1% | 0 |
+| 10 | 2026-11-02 | `a204e05` | EmilianoMontano | 619 | 13 | 100% | 16.6% | 0 |
 
 ---
 _Informe generado por la cátedra. Los criterios y umbrales de medición corresponden al perfil `exigente` de `calidad.py`; el semáforo de aprobación, a `CRITERIOS-CALIDAD.md` (ver `README.md`). Ante dudas, revisá el archivo señalado._
