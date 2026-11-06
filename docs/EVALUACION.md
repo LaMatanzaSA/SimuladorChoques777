@@ -3,21 +3,20 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación II (RepoSense + análisis de calidad POO/SOLID). **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas): es una criba para orientar la revisión, **no una nota**.
-> Generado: 2026-11-02.
+> Generado: 2026-11-06.
 
 ## 1. Veredicto
 
 | Aspecto | Resultado |
 |---|---|
-| Índice de calidad POO/SOLID | **13/100** |
-| Código (LOC) | 619 |
-| Archivos de código | 23 |
-| Clases (bien usadas) | 23 (12 OK) |
+| Índice de calidad POO/SOLID | **92/100** |
+| Código (LOC) | 609 |
+| Archivos de código | 20 |
+| Clases (bien usadas) | 20 (18 OK) |
 | Código dentro de clases (%POO) | 100% |
 | Funciones fuera de clases | 0 |
-| Duplicación lógica | 16.6% |
-| Señales S/O/L/I/D | 3/2/0/0/1 |
-| Tope duro aplicado | `DUP>=15%` → índice ≤ 50 |
+| Duplicación lógica | 0.0% |
+| Señales S/O/L/I/D | 2/0/0/0/0 |
 
 > Este informe **describe** lo que el análisis midió con los criterios ya establecidos de la materia. No es una nota.
 
@@ -27,27 +26,27 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 
 | Semáforo | Resultado |
 |---|---|
-| Aprobar (`estandar`) | **no cumple** — 2/4 |
-| Destacar (`exigente`) | **no cumple** — 2/5 |
+| Aprobar (`estandar`) | **no cumple** — 3/4 |
+| Destacar (`exigente`) | **no cumple** — 4/5 |
 
 **Criterios para aprobar**
 
 | Criterio | Requisito | Tu resultado | Cumple |
 |---|---|---|---|
 | Código dentro de clases (%POO) | ≥ 85% | 100% | sí |
-| Duplicación lógica | ≤ 10% | 16.6% | no |
+| Duplicación lógica | ≤ 10% | 0.0% | sí |
 | Funciones fuera de clases | ≤ 1 | 0 | sí |
-| Señales POO/SOLID críticas | ninguna | Acoplamiento alto (CBO) | no |
+| Señales POO/SOLID críticas | ninguna | Baja cohesión (LCOM) | no |
 
 **Criterios para destacar**
 
 | Criterio | Requisito | Tu resultado | Cumple |
 |---|---|---|---|
 | Código dentro de clases (%POO) | ≥ 95% | 100% | sí |
-| Duplicación lógica | ≤ 5% | 16.6% | no |
+| Duplicación lógica | ≤ 5% | 0.0% | sí |
 | Funciones fuera de clases | ≤ 1 | 0 | sí |
-| Señales POO/SOLID críticas | ninguna | Baja cohesión (LCOM), Acoplamiento alto (CBO), Switch sobre tipos (OCP) | no |
-| Índice de calidad POO/SOLID | ≥ 60 | 13/100 | no |
+| Señales POO/SOLID críticas | ninguna | Baja cohesión (LCOM) | no |
+| Índice de calidad POO/SOLID | ≥ 60 | 92/100 | sí |
 
 ### Cómo se calcula el %POO (y por qué no sube solo)
 
@@ -61,12 +60,12 @@ Sube cuando el código que hoy está **fuera** de clases pasa a ser método de u
 
 | Autor | Commits | Código (LOC) | Tests (LOC) | Docs (LOC) | Días activos | % del código |
 |---|---:|---:|---:|---:|---:|---:|
-| Matías Mad | 6 | 533 | 0 | 0 | 5 | 72% |
-| EmilianoMontano | 4 | 210 | 0 | 1 | 4 | 28% |
+| Matías Mad | 7 | 587 | 0 | 0 | 6 | 79% |
+| EmilianoMontano | 4 | 156 | 0 | 1 | 4 | 21% |
 
 > _El LOC de autoría lo calcula RepoSense sobre el historial y puede diferir del LOC de código del análisis de calidad (que mira solo el estado de `main`)._
 
-> **Reparto del trabajo:** Matías Mad concentra el 72% de las líneas de código. Un reparto muy desigual suele indicar que la integración no fue realmente en equipo; vale la pena reconstruir cómo se coordinó.
+> **Reparto del trabajo:** Matías Mad concentra el 79% de las líneas de código. Un reparto muy desigual suele indicar que la integración no fue realmente en equipo; vale la pena reconstruir cómo se coordinó.
 
 ## 3. Fallas detectadas
 
@@ -74,14 +73,7 @@ Reúne lo que el análisis marcó y lo que todavía falta para cada semáforo. C
 
 | Falla | Tu resultado | Requisito | Archivos |
 |---|---|---|---|
-| Duplicación lógica | 16.6% | Aprobar: ≤ 10%<br>Destacar: ≤ 5% | `simulador-de-choques-777(V2.0)/atuto_test_1.gd` |
-| Señales POO/SOLID críticas | Acoplamiento alto (CBO) | Aprobar: ninguna<br>Destacar: ninguna | `simulador-de-choques-777(V2.0)/efectos_auto.gd`, `simulador-de-choques-777(V2.0)/menu_pausa.gd`, `simulador-de-choques-777(V2.0)/pantalla_muerte.gd`, `simulador-de-choques-777(V2.0)/vehicle_pusher.gd`, `simulador-de-choques-777(V2.0)/vehicle_stopper.gd`, `simulador-de-choques-777(V2.0)/velocimetro_movimiento.gd` |
-| Índice de calidad POO/SOLID | 13/100 | Destacar: ≥ 60 | — |
-| Herencia profunda (DIT) | **4** clase(s) con herencia profunda | Sin señales | `simulador-de-choques-777(V2.0)/damage_visualizer.gd`, `simulador-de-choques-777(V2.0)/keyboard_vehicle_input.gd`, `simulador-de-choques-777(V2.0)/physics_modifier.gd`, `simulador-de-choques-777(V2.0)/vehicle_stopper.gd` |
-| Dependencia de concretos y falta de abstracciones (DIP) | **1** dependencia(s) de concretos sin abstracciones | Sin señales | — |
-| Clase sin métodos (solo datos) | **1** clase(s) sin métodos (solo datos) | Sin señales | `simulador-de-choques-777(V2.0)/damage_config.gd` |
-| Campos públicos (encapsulación) | **5** clase(s) con campos públicos | Sin señales | `simulador-de-choques-777(V2.0)/atuto_test.gd`, `simulador-de-choques-777(V2.0)/atuto_test_1.gd`, `simulador-de-choques-777(V2.0)/autoto_phisycs_test.gd`, `simulador-de-choques-777(V2.0)/damage_config.gd`, `simulador-de-choques-777(V2.0)/vehicle_stats.gd` |
-| Clase solo con métodos estáticos (utilitaria) | **1** clase(s) solo con métodos estáticos | Sin señales | `simulador-de-choques-777(V2.0)/scene_flow.gd` |
+| Señales POO/SOLID críticas | Baja cohesión (LCOM) | Aprobar: ninguna<br>Destacar: ninguna | `simulador-de-choques-777(V2.0)/atuto_test.gd`, `simulador-de-choques-777(V2.0)/panel_slide_animator.gd` |
 
 ## 4. Aspectos evaluados
 
@@ -91,17 +83,13 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Un resumen numérico (0-100) que combina la riqueza de clases bien usadas con la penalización por señales POO/SOLID y duplicación, y luego aplica topes duros.
 - **Por qué importa:** Ordena y prioriza la revisión: un índice bajo indica varias señales que conviene mirar juntas.
-- **Tu resultado:** índice **13/100**
+- **Tu resultado:** índice **92/100**
 
-### 2. Duplicación lógica (DRY) (duplicacion) — con señales
+### 2. Duplicación lógica (DRY) (duplicacion) — sin señales
 
 - **Qué mide:** Porcentaje de bloques de LÓGICA repetidos. Quedan fuera imports/includes, anotaciones, declaraciones de campos y comentarios/Javadoc/docstrings: esos bloques son boilerplate, no lógica.
 - **Por qué importa:** Cada copia de lógica se mantiene por separado: un arreglo hay que repetirlo y los defectos se multiplican.
-- **Tu resultado:** **16.6%** de duplicación lógica
-- **Para investigar la causa:**
-    - ¿El trabajo se repartió por pantallas o archivos y se integró copiando y pegando bloques?
-    - ¿Qué zonas del sistema cambiaron juntas más de una vez (señal de lógica compartida)?
-    - ¿Hubo un lugar común acordado para la lógica repetida antes de empezar, o cada integrante resolvió lo suyo?
+- **Tu resultado:** **0.0%** de duplicación lógica
 
 ### 3. Adopción de POO (% de código en clases) (poo) — sin señales
 
@@ -144,35 +132,23 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 - **Por qué importa:** Una función que hace varias cosas cuesta leerla, nombrarla y reutilizarla.
 - **Tu resultado:** **0** método(s)/función(es) largos o con muchos parámetros
 
-### 9. Acoplamiento alto (CBO) (acoplamiento) — con señales
+### 9. Acoplamiento alto (CBO) (acoplamiento) — sin señales
 
-- **Qué mide:** Cuánto depende una clase de otros tipos del proyecto.
+- **Qué mide:** Cuánto depende una clase de otros tipos del proyecto. No cuentan los tipos de la plataforma (biblioteca estándar, DOM, motor Godot) ni los métodos/propiedades propias.
 - **Por qué importa:** Piezas muy enlazadas hacen que un cambio se propague y que sea difícil reemplazar partes.
-- **Tu resultado:** **2** clase(s) muy acoplada(s)
-- **Para investigar la causa:**
-    - ¿La clase conoce detalles internos de muchas otras?
-    - ¿Se puede cambiar una parte sin tocar las demás?
-    - ¿Los colaboradores llegan como parámetros o se crean por dentro?
+- **Tu resultado:** **0** clase(s) muy acoplada(s)
 
-### 10. Herencia profunda (DIT) (herencia) — con señales
+### 10. Herencia profunda (DIT) (herencia) — sin señales
 
 - **Qué mide:** Profundidad de la cadena de herencia de una clase.
 - **Por qué importa:** Jerarquías muy profundas vuelven difícil saber de dónde viene cada comportamiento.
-- **Tu resultado:** **4** clase(s) con herencia profunda
-- **Para investigar la causa:**
-    - ¿La jerarquía creció para reutilizar código o para modelar una relación real 'es-un'?
-    - ¿Qué comportamiento cambia entre niveles de la jerarquía?
-    - ¿Se evaluó la composición como alternativa?
+- **Tu resultado:** **0** clase(s) con herencia profunda
 
-### 11. Switch sobre tipos (OCP) (ocp) — con señales
+### 11. Switch sobre tipos (OCP) (ocp) — sin señales
 
-- **Qué mide:** Chequeos repetidos de tipo (`instanceof`/`is`/`typeof`) que equivalen a un switch sobre el tipo.
+- **Qué mide:** Cadenas de dispatch por tipo (`else if ... is` / `else if ... instanceof`, `switch` sobre tipo o `typeof`). Un `is Tipo variable` aislado (pattern matching / cast seguro) NO cuenta como switch.
 - **Por qué importa:** Cada tipo nuevo obliga a tocar varios lugares, en vez de extender con una implementación nueva.
-- **Tu resultado:** **2** clase(s) con switch sobre tipos
-- **Para investigar la causa:**
-    - ¿Qué operación se resuelve preguntando el tipo?
-    - ¿Qué se toca cada vez que aparece un tipo o caso nuevo?
-    - ¿El comportamiento podría vivir en la propia jerarquía de tipos?
+- **Tu resultado:** **0** clase(s) con switch sobre tipos
 
 ### 12. Interfaz con demasiados métodos (ISP) (isp) — sin señales
 
@@ -186,45 +162,29 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 - **Por qué importa:** Suele indicar que la jerarquía no representa bien el problema y rompe la sustitución entre clases.
 - **Tu resultado:** **0** override(s) vacío(s) o 'no implementado'
 
-### 14. Dependencia de concretos y falta de abstracciones (DIP) (dip) — con señales
+### 14. Dependencia de concretos y falta de abstracciones (DIP) (dip) — sin señales
 
-- **Qué mide:** Instanciación directa de clases concretas y ausencia de interfaces o clases abstractas pese al acoplamiento.
+- **Qué mide:** Instanciación directa de clases **propias** concretas y ausencia de interfaces o clases abstractas pese al acoplamiento. No cuentan los structs ni los nodos/tipos del motor.
 - **Por qué importa:** Depender de implementaciones concretas dificulta cambiar o probar una parte sin arrastrar las demás.
-- **Tu resultado:** **1** dependencia(s) de concretos sin abstracciones
-- **Para investigar la causa:**
-    - ¿La clase crea por dentro a sus colaboradores en vez de recibirlos?
-    - ¿Hay puntos de variación que convendría expresar como abstracción?
-    - ¿Cómo se probaría esa clase cambiando una implementación?
+- **Tu resultado:** **0** dependencia(s) de concretos sin abstracciones
 
-### 15. Clase sin métodos (solo datos) (data) — con señales
+### 15. Clase sin métodos (solo datos) (data) — sin señales
 
 - **Qué mide:** Clases que solo acumulan campos y no tienen comportamiento.
 - **Por qué importa:** Separar datos de comportamiento reparte por el proyecto la lógica que debería estar cerca de esos datos.
-- **Tu resultado:** **1** clase(s) sin métodos (solo datos)
-- **Para investigar la causa:**
-    - ¿Dónde vive el comportamiento que opera sobre esos datos?
-    - ¿La clase representa un concepto del dominio o un contenedor técnico?
-    - ¿Se evita la lógica de negocio dentro de la clase por comodidad?
+- **Tu resultado:** **0** clase(s) sin métodos (solo datos)
 
-### 16. Campos públicos (encapsulación) (encapsulacion) — con señales
+### 16. Campos públicos (encapsulación) (encapsulacion) — sin señales
 
 - **Qué mide:** Clases que exponen campos sin control de acceso.
 - **Por qué importa:** Expone el estado interno y hace que cualquier cambio dependa de quién lo modifica desde afuera.
-- **Tu resultado:** **5** clase(s) con campos públicos
-- **Para investigar la causa:**
-    - ¿Se accede al campo desde otras clases para evitar un método?
-    - ¿Qué reglas deberían respetarse al modificar ese estado?
-    - ¿Los campos públicos se usan más como configuración que como estado?
+- **Tu resultado:** **0** clase(s) con campos públicos
 
-### 17. Clase solo con métodos estáticos (utilitaria) (static) — con señales
+### 17. Clase solo con métodos estáticos (utilitaria) (static) — sin señales
 
 - **Qué mide:** Clases donde todos los métodos son estáticos.
 - **Por qué importa:** Es comportamiento procedural disfrazado de clase: no se instancia ni participa del modelo de objetos.
-- **Tu resultado:** **1** clase(s) solo con métodos estáticos
-- **Para investigar la causa:**
-    - ¿Por qué no hace falta una instancia en esa clase?
-    - ¿Los métodos operan sobre estado que podría vivir en un objeto?
-    - ¿Se usó clase solo para agrupar funciones sueltas?
+- **Tu resultado:** **0** clase(s) solo con métodos estáticos
 
 ## 5. Evolución por commit
 
