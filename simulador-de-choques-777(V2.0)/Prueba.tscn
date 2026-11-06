@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bwd7vllafxdnc" path="res://menu_pausa.tscn" id="6_b0kld"]
 [ext_resource type="PackedScene" uid="uid://6ctnn8raqqwg" path="res://pantalla_muerte.tscn" id="7_1d36f"]
 [ext_resource type="Texture2D" uid="uid://diw7alm6osqgg" path="res://Sprites/FONDOS REALES/MUNDO 1.png" id="7_ep22w"]
+[ext_resource type="Script" uid="uid://dj8h581rf8221" path="res://panel_slide_animator.gd" id="11_np4jp"]
 
 [sub_resource type="Curve" id="Curve_d4gy5"]
 _limits = [0.25, 1.5, 0.0, 1.0]
@@ -261,3 +262,4 @@ self_modulate = Color(1, 1, 1, 0.5882353)
 position = Vector2(576, 324)
 scale = Vector2(3.6000001, 3.6000001)
 texture = ExtResource("7_ep22w")
+script = ExtResource("11_np4jp")

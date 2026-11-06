@@ -64,13 +64,13 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 34
 text = "REANUDAR"
 
-[node name="Button" type="Button" parent="UI/VBoxContainer" unique_id=476401824]
+[node name="BotonMapas" type="Button" parent="UI/VBoxContainer" unique_id=476401824]
 custom_minimum_size = Vector2(325, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 34
 text = "MAPAS"
 
-[node name="Button2" type="Button" parent="UI/VBoxContainer" unique_id=704006362]
+[node name="BotonAutos" type="Button" parent="UI/VBoxContainer" unique_id=704006362]
 custom_minimum_size = Vector2(325, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 34
@@ -88,3 +88,79 @@ custom_minimum_size = Vector2(325, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 34
 text = "VOLVER AL MENU"
+
+[node name="PanelAutos" type="VBoxContainer" parent="UI" unique_id=247060000]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.4310001
+offset_left = -298.0
+offset_top = -110.5
+offset_right = 27.0
+offset_bottom = 189.76099
+offset_transform_enabled = true
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="BotonAuto1" type="Button" parent="UI/PanelAutos" unique_id=668899849]
+custom_minimum_size = Vector2(325, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "AUTO 1"
+
+[node name="BotonAuto2" type="Button" parent="UI/PanelAutos" unique_id=1489737274]
+custom_minimum_size = Vector2(325, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "AUTO 2"
+
+[node name="BotonAuto3" type="Button" parent="UI/PanelAutos" unique_id=1262133827]
+custom_minimum_size = Vector2(325, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "AUTO 3"
+
+[node name="BotonVolverAutos" type="Button" parent="UI/PanelAutos" unique_id=164036321]
+custom_minimum_size = Vector2(325, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "VOLVER
+"
+
+[node name="PanelMapas" type="VBoxContainer" parent="UI" unique_id=1660401577]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.4310001
+offset_left = -298.0
+offset_top = -110.5
+offset_right = 27.0
+offset_bottom = 189.76099
+offset_transform_enabled = true
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="BotonMapa1" type="Button" parent="UI/PanelMapas" unique_id=2073839184]
+custom_minimum_size = Vector2(325, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "MAPA 1"
+
+[node name="BotonMapa2" type="Button" parent="UI/PanelMapas" unique_id=1895838456]
+custom_minimum_size = Vector2(325, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "MAPA 2"
+
+[node name="BotonMapa3" type="Button" parent="UI/PanelMapas" unique_id=405573765]
+custom_minimum_size = Vector2(325, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "MAPA 3"
+
+[node name="BotonVolverMapas" type="Button" parent="UI/PanelMapas" unique_id=1328503396]
+custom_minimum_size = Vector2(325, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "VOLVER
+"
