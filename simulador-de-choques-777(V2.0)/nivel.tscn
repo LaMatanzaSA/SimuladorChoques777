@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ndw18xiu8lmr"]
+
+[ext_resource type="PackedScene" uid="uid://cyl3mkj665b2i" path="res://SueloTest.tscn" id="1_7gdj4"]
+[ext_resource type="Texture2D" uid="uid://diw7alm6osqgg" path="res://Sprites/FONDOS REALES/MUNDO 1.png" id="2_j87l1"]
+[ext_resource type="PackedScene" uid="uid://usoha0vby261" path="res://AtutoTest.tscn" id="3_ymy7k"]
+
+[node name="Nivel" type="Node" unique_id=839421703]
+
+[node name="StaticBody2D" parent="." unique_id=1172261398 instance=ExtResource("1_7gdj4")]
+position = Vector2(28, 32)
+
+[node name="StaticBody2D2" parent="." unique_id=804776128 instance=ExtResource("1_7gdj4")]
+position = Vector2(32, -72)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1158034494]
+
+[node name="Mundo1" type="Sprite2D" parent="ParallaxBackground" unique_id=848466942]
+position = Vector2(1330.75, -800.75)
+scale = Vector2(8.3203125, 8.91389)
+texture = ExtResource("2_j87l1")
+
+[node name="CharacterBody2D" parent="." unique_id=182666106 instance=ExtResource("3_ymy7k")]
+position = Vector2(54, -115)

@@ -1,15 +1,30 @@
 class_name SceneFlow
 extends RefCounted
-## ÚNICA responsabilidad: transiciones de escena compartidas por todos los menús.
+## Servicio de navegación entre escenas. Ya no es una utilidad estática: cada menú
+## recibe su propia instancia con el árbol y la ruta del menú principal inyectados.
 
-static func restablecer_estado(arbol: SceneTree) -> void:
+## Se emite justo antes de cambiar de escena.
+signal escena_solicitada(ruta: String)
+
+var _arbol: SceneTree
+var _ruta_menu_principal: String
+
+func _init(arbol: SceneTree, ruta_menu_principal: String = "res://menu_inicio.tscn") -> void:
+	_arbol = arbol
+	_ruta_menu_principal = ruta_menu_principal
+
+func restablecer_estado() -> void:
 	Engine.time_scale = 1.0
-	arbol.paused = false
+	_arbol.paused = false
 
-static func reiniciar_escena(arbol: SceneTree) -> void:
-	arbol.paused = false
-	arbol.reload_current_scene()
+func reiniciar() -> void:
+	_arbol.paused = false
+	_arbol.reload_current_scene()
 
-static func cambiar_escena(arbol: SceneTree, ruta: String) -> void:
-	arbol.paused = false
-	arbol.change_scene_to_file(ruta)
+func ir_al_menu_principal() -> void:
+	cambiar_a(_ruta_menu_principal)
+
+func cambiar_a(ruta: String) -> void:
+	_arbol.paused = false
+	escena_solicitada.emit(ruta)
+	_arbol.change_scene_to_file(ruta)

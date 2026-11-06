@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_dcfg")
-dano_maximo = 100.0
-fuerza_referencia = 400.0
-dano_minimo_por_golpe = 10.0
-dano_maximo_por_golpe = 40.0
+_dano_maximo = 100.0
+_fuerza_referencia = 400.0
+_dano_minimo_por_golpe = 10.0
+_dano_maximo_por_golpe = 40.0

@@ -1,21 +1,22 @@
 class_name PantallaMuerte
 extends CanvasLayer
 ## ÚNICA responsabilidad: mostrar la pantalla de derrota.
-## Depende de cualquier nodo que emita `auto_destruido`
+## Depende de cualquier nodo que emita `auto_destruido`, no de una clase concreta.
 
 ## Fuente explícita (opcional). Si está vacía se buscan fuentes por grupo.
 @export var _fuente_destruccion: Node
 @export_file("*.tscn") var _ruta_menu_principal: String = "res://menu_inicio.tscn"
+@export var _ruta_boton_reiniciar: NodePath = ^"UI/VBoxContainer/BotonReiniciar"
+@export var _ruta_boton_menu: NodePath = ^"UI/VBoxContainer/BotonMenu"
 
-@onready var _fondo_rojo: ColorRect = $FondoRojo
-@onready var _ui_contenedor: Control = $UI
-@onready var _boton_reiniciar: Button = $UI/VBoxContainer/BotonReiniciar
-@onready var _boton_menu: Button = $UI/VBoxContainer/BotonMenu
+var _flujo: SceneFlow
 
 func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_ALWAYS
+	process_mode = PROCESS_MODE_ALWAYS
+	_flujo = SceneFlow.new(get_tree(), _ruta_menu_principal)
 	_alternar_visibilidad(false)
-	_conectar_senales_ui()
+	_conectar_boton(_ruta_boton_reiniciar, _flujo.reiniciar)
+	_conectar_boton(_ruta_boton_menu, _flujo.ir_al_menu_principal)
 	_conectar_fuentes()
 
 ## Muestra la pantalla sin pausar el árbol del juego.
@@ -23,16 +24,14 @@ func mostrar_muerte() -> void:
 	_alternar_visibilidad(true)
 
 func _alternar_visibilidad(mostrar: bool) -> void:
-	if is_instance_valid(_fondo_rojo):
-		_fondo_rojo.visible = mostrar
-	if is_instance_valid(_ui_contenedor):
-		_ui_contenedor.visible = mostrar
+	for hijo: Node in get_children():
+		if hijo is CanvasItem:
+			(hijo as CanvasItem).visible = mostrar
 
-func _conectar_senales_ui() -> void:
-	if is_instance_valid(_boton_reiniciar):
-		_boton_reiniciar.pressed.connect(func() -> void: SceneFlow.reiniciar_escena(get_tree()))
-	if is_instance_valid(_boton_menu):
-		_boton_menu.pressed.connect(func() -> void: SceneFlow.cambiar_escena(get_tree(), _ruta_menu_principal))
+func _conectar_boton(ruta: NodePath, accion: Callable) -> void:
+	var boton: Node = get_node_or_null(ruta)
+	if boton != null and boton.has_signal(&"pressed"):
+		boton.connect(&"pressed", accion)
 
 ## Se conecta a la fuente explícita o, si no hay, a todas las del grupo.
 func _conectar_fuentes() -> void:
