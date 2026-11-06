@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_dvcfg")
-color_destruido = Color(0.25, 0.25, 0.25, 1)
+_color_destruido = Color(0.25, 0.25, 0.25, 1)

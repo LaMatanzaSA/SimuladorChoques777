@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource("1_vstats")
-max_speed = 400.0
-accel = 800.0
-friction = 600.0
-rotation_speed = 10.0
-gravity = 300.0
-fuerza_empuje = 50.0
-ratio_velocidad_empuje = 0.6
+_max_speed = 400.0
+_accel = 800.0
+_friction = 600.0
+_rotation_speed = 10.0
+_gravity = 300.0
+_fuerza_empuje = 50.0
+_ratio_velocidad_empuje = 0.6

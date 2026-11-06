@@ -1,17 +1,15 @@
 class_name VehiclePusher
 extends Node
-## ÚNICA responsabilidad: empujar los RigidBody2D contra los que se choca el vehículo.
+## ÚNICA responsabilidad: empujar los cuerpos con física que toca el vehículo.
+## Es "empujable" todo objeto que ofrezca `apply_central_impulse` (duck typing).
 
-## Devuelve true si está empujando algún RigidBody2D.
-func empujar(vehiculo: CharacterBody2D, velocidad: float, fuerza: float) -> bool:
+## Devuelve true si había al menos un cuerpo empujable en contacto.
+func empujar(cuerpos: Array[Object], sentido: float, fuerza: float) -> bool:
 	var empujando: bool = false
-	for i: int in vehiculo.get_slide_collision_count():
-		var colision: KinematicCollision2D = vehiculo.get_slide_collision(i)
-		var cuerpo: Object = colision.get_collider()
-		if cuerpo is RigidBody2D:
-			vehiculo.velocity.y = 0.0
-			empujando = true
-			var direccion := Vector2(signf(velocidad), 0.0)
-			if direccion.x != 0.0:
-				(cuerpo as RigidBody2D).apply_central_impulse(direccion * fuerza)
+	for cuerpo: Object in cuerpos:
+		if not is_instance_valid(cuerpo) or not cuerpo.has_method(&"apply_central_impulse"):
+			continue
+		empujando = true
+		if sentido != 0.0:
+			cuerpo.call(&"apply_central_impulse", Vector2(sentido, 0.0) * fuerza)
 	return empujando
