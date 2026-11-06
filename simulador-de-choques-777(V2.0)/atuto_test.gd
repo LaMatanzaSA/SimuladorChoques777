@@ -1,4 +1,5 @@
 class_name Personaje
+
 extends CharacterBody2D
 ## Responsabilidad: integrar movimiento horizontal + gravedad.
 
