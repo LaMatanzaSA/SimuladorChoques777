@@ -1,6 +1,5 @@
 extends ParallaxBackground
 
-# Apunta directo al nodo Sprite2D de tu fondo
 @onready var sprite_fondo: Sprite2D = $ParallaxLayer/Mundo1
 
 func _ready() -> void:

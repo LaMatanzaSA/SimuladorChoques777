@@ -95,11 +95,11 @@ func _conectar_senales() -> void:
 
 	# Selección de Autos
 	if is_instance_valid(_boton_auto_1):
-		_boton_auto_1.pressed.connect(func() -> void: _seleccionar_auto("res://Sprites/Sprites Autos2.0/AmarilloN.png"))
+		_boton_auto_1.pressed.connect(func() -> void: _seleccionar_auto("res://Sprites/Cars/taxi.png"))
 	if is_instance_valid(_boton_auto_2):
-		_boton_auto_2.pressed.connect(func() -> void: _seleccionar_auto("res://Sprites/Sprites Autos2.0/RojoN.png"))
+		_boton_auto_2.pressed.connect(func() -> void: _seleccionar_auto("res://Sprites/Cars/sports_yellow.png"))
 	if is_instance_valid(_boton_auto_3):
-		_boton_auto_3.pressed.connect(func() -> void: _seleccionar_auto("res://Sprites/Sprites Autos2.0/RosaN.png"))
+		_boton_auto_3.pressed.connect(func() -> void: _seleccionar_auto("res://Sprites/Cars/sports_race.png"))
 
 func _seleccionar_mapa(ruta_mapa: String) -> void:
 	GameManager.mapa_seleccionado = ruta_mapa

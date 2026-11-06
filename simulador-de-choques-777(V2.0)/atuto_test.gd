@@ -1,5 +1,4 @@
 class_name Personaje
-
 extends CharacterBody2D
 ## Responsabilidad: integrar movimiento horizontal + gravedad.
 
@@ -13,6 +12,10 @@ const _ENTRADA_POR_DEFECTO: GDScript = preload("res://keyboard_vehicle_input.gd"
 @export var _alineador: SurfaceAligner
 @export var _empujador: VehiclePusher
 
+# Referencias para la textura dinámica y el fondo Parallax
+@export var sprite_auto: Sprite2D
+@export var nodo_parallax: ParallaxBackground
+
 var _speed: float = 0.0
 var _direccion: float = 0.0
 var _is_pushing: bool = false
@@ -22,10 +25,12 @@ var _factor_dano: float = 1.0
 var _friccion_final: float = 0.0
 
 func _enter_tree() -> void:
-	# Antes de cualquier _ready(): la UI puede encontrar al vehículo sin depender del orden del árbol.
 	add_to_group(&"vehiculos")
 
 func _ready() -> void:
+	_buscar_referencias_faltantes()
+	_aplicar_textura_auto()
+	
 	if _stats == null:
 		_stats = VehicleStats.new()
 	_alineador = _obtener_o_crear(SurfaceAligner, _alineador) as SurfaceAligner
@@ -39,11 +44,19 @@ func _physics_process(delta: float) -> void:
 	_aplicar_gravedad(delta)
 	_actualizar_velocidad_horizontal(delta)
 	move_and_slide()
-	_alineador.alinear(self, _stats.velocidad_rotacion(_factor_dano), delta)
-	_is_pushing = _empujador.empujar(_cuerpos_en_contacto(), signf(_speed), _stats.fuerza_empuje())
+	
+	if is_instance_valid(_alineador):
+		_alineador.alinear(self, _stats.velocidad_rotacion(_factor_dano), delta)
+	if is_instance_valid(_empujador):
+		_is_pushing = _empujador.empujar(_cuerpos_en_contacto(), signf(_speed), _stats.fuerza_empuje())
+		
 	if _is_pushing:
 		velocity.y = 0.0
+		
 	velocidad_cambiada.emit(absf(_speed))
+	
+	if is_instance_valid(nodo_parallax):
+		nodo_parallax.scroll_base_offset.x -= _speed * delta * 0.2
 
 ## Dirección deseada en [-1, 1].
 func establecer_direccion(direccion: float) -> void:
@@ -84,7 +97,24 @@ func _cuerpos_en_contacto() -> Array[Object]:
 		cuerpos.append(get_slide_collision(i).get_collider())
 	return cuerpos
 
-## Devuelve el componente inyectado, uno existente del mismo tipo, o uno nuevo.
+func _buscar_referencias_faltantes() -> void:
+	# Busca un Sprite2D si no fue asignado en el Inspector
+	if not is_instance_valid(sprite_auto):
+		for hijo in get_children():
+			if hijo is Sprite2D:
+				sprite_auto = hijo
+				break
+
+	# Busca el ParallaxBackground en la escena si no fue asignado
+	if not is_instance_valid(nodo_parallax):
+		nodo_parallax = get_tree().root.find_child("ParallaxBackground", true, false) as ParallaxBackground
+
+func _aplicar_textura_auto() -> void:
+	if ResourceLoader.exists(GameManager.auto_seleccionado):
+		var nueva_textura = load(GameManager.auto_seleccionado) as Texture2D
+		if is_instance_valid(sprite_auto) and nueva_textura != null:
+			sprite_auto.texture = nueva_textura
+
 func _obtener_o_crear(tipo: GDScript, actual: Node) -> Node:
 	if is_instance_valid(actual):
 		return actual
