@@ -6,21 +6,17 @@
 [node name="StaticBody2D" type="StaticBody2D" unique_id=1172261398]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=978054391]
-visible = false
 texture = ExtResource("1_ey414")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=918118200]
-visible = false
 position = Vector2(64, 0)
 texture = ExtResource("1_ey414")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=489419572]
-visible = false
 position = Vector2(128, 0)
 texture = ExtResource("1_ey414")
 
 [node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1635939041]
-visible = false
 position = Vector2(192, 0)
 texture = ExtResource("1_ey414")
 
