@@ -8,14 +8,22 @@ extends CanvasLayer
 @onready var _vbox_contenedor: VBoxContainer = $UI/VBoxContainer
 @onready var _boton_iniciar: Button = $UI/VBoxContainer/BotonIniciar
 @onready var _boton_salir: Button = $UI/VBoxContainer/BotonSalir
+@onready var _fondo_sprite: Sprite2D = $Mundo1
 
 var _flujo: SceneFlow
 
 func _ready() -> void:
 	_flujo = SceneFlow.new(get_tree())
 	_flujo.restablecer_estado()
+	_aplicar_textura_fondo()
 	_configurar_interfaz()
 	_conectar_senales()
+
+func _aplicar_textura_fondo() -> void:
+	if ResourceLoader.exists(GameManager.mapa_seleccionado):
+		var nueva_textura = load(GameManager.mapa_seleccionado) as Texture2D
+		if is_instance_valid(_fondo_sprite) and nueva_textura != null:
+			_fondo_sprite.texture = nueva_textura
 
 func _configurar_interfaz() -> void:
 	if not is_instance_valid(_vbox_contenedor):
