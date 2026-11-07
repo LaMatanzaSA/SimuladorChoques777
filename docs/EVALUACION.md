@@ -211,6 +211,67 @@ xychart-beta
 | 9 | 2026-10-30 | `5bb0e0c` | M-mad-2920 | 572 | 13 | 100% | 18.1% | 0 |
 | 10 | 2026-11-02 | `a204e05` | EmilianoMontano | 619 | 13 | 100% | 16.6% | 0 |
 
+<!-- actividad-clases:inicio -->
+## Actividad en días de clase
+
+> Período **2026-08-14 → 2026-10-29** · **17 clases** (lunes, viernes) · calendario oficial de la materia.
+>
+> `Commits` = commits de trabajo (no-merge); `Merges` = merges de PR (también son push). Los días sin actividad dicen **sin actividad**. Se usan las fechas de clase del calendario oficial; los días fuera del calendario no se incluyen.
+>
+> Se recorre `git log --all` sobre un mirror (todas las ramas y `refs/pull/*`), con deduplicación por commit. Fecha = fecha de autor en UTC-3. Los commits locales no pusheados no se ven. Si el trabajo fue en pareja y el commit es de otra persona, figura a nombre del autor del commit; para reflejarlo, usar `Co-authored-by` o una nota manual.
+>
+> Sección informativa: no modifica el semáforo de aprobación.
+
+### EmilianoMontano
+
+**3/17 clases con actividad** · 3 commits · 2 merges
+
+| Fecha | Marca | Repositorios | Commits / merges |
+|---|:--:|---|--:|
+| 2026-08-14 | **Sí** | SimuladorChoques777 | 1 / 0 |
+| 2026-08-21 | No | sin actividad | 0 / 0 |
+| 2026-08-24 | No | sin actividad | 0 / 0 |
+| 2026-08-28 | No | sin actividad | 0 / 0 |
+| 2026-08-31 | No | sin actividad | 0 / 0 |
+| 2026-09-04 | No | sin actividad | 0 / 0 |
+| 2026-09-07 | No | sin actividad | 0 / 0 |
+| 2026-09-14 | No | sin actividad | 0 / 0 |
+| 2026-09-25 | No | sin actividad | 0 / 0 |
+| 2026-09-28 | No | sin actividad | 0 / 0 |
+| 2026-10-02 | No | sin actividad | 0 / 0 |
+| 2026-10-05 | No | sin actividad | 0 / 0 |
+| 2026-10-09 | No | sin actividad | 0 / 0 |
+| 2026-10-16 | **Sí** | SimuladorChoques777 | 1 / 1 |
+| 2026-10-19 | No | sin actividad | 0 / 0 |
+| 2026-10-23 | No | sin actividad | 0 / 0 |
+| 2026-10-26 | **Sí** | SimuladorChoques777 | 1 / 1 |
+
+### Matías Mad
+
+**4/17 clases con actividad** · 5 commits · 4 merges
+
+| Fecha | Marca | Repositorios | Commits / merges |
+|---|:--:|---|--:|
+| 2026-08-14 | No | sin actividad | 0 / 0 |
+| 2026-08-21 | No | sin actividad | 0 / 0 |
+| 2026-08-24 | No | sin actividad | 0 / 0 |
+| 2026-08-28 | No | sin actividad | 0 / 0 |
+| 2026-08-31 | No | sin actividad | 0 / 0 |
+| 2026-09-04 | **Sí** | SimuladorChoques777 | 1 / 1 |
+| 2026-09-07 | No | sin actividad | 0 / 0 |
+| 2026-09-14 | No | sin actividad | 0 / 0 |
+| 2026-09-25 | No | sin actividad | 0 / 0 |
+| 2026-09-28 | No | sin actividad | 0 / 0 |
+| 2026-10-02 | No | sin actividad | 0 / 0 |
+| 2026-10-05 | No | sin actividad | 0 / 0 |
+| 2026-10-09 | **Sí** | SimuladorChoques777 | 1 / 1 |
+| 2026-10-16 | **Sí** | SimuladorChoques777 | 1 / 0 |
+| 2026-10-19 | **Sí** | SimuladorChoques777 | 2 / 2 |
+| 2026-10-23 | No | sin actividad | 0 / 0 |
+| 2026-10-26 | No | sin actividad | 0 / 0 |
+
+<!-- actividad-clases:fin -->
+
 ---
 _Informe generado por la cátedra. Los criterios y umbrales de medición corresponden al perfil `exigente` de `calidad.py`; el semáforo de aprobación, a `CRITERIOS-CALIDAD.md` (ver `README.md`). Ante dudas, revisá el archivo señalado._
 <!-- evaluacion:fin -->
