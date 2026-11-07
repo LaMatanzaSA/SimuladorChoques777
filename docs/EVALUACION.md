@@ -248,14 +248,14 @@ xychart-beta
 | 2026-10-23 | No | sin actividad | 0 / 0 |
 | 2026-10-26 | **Sí** | SimuladorChoques777 | 1 / 1 |
 
-#### Aportes fuera del calendario de clases
+#### Aportes fuera del calendario de clases — EmilianoMontano
 
-**2 fechas fuera del calendario** · 3 commits · 2 merges
+**EmilianoMontano — 2 fechas fuera del calendario** · 3 commits · 2 merges
 
-| Fecha | Repositorios | Commits / merges |
-|---|---|--:|
-| 2026-11-02 | SimuladorChoques777 | 1 / 1 |
-| 2026-11-06 | SimuladorChoques777 | 2 / 1 |
+| Alumno | Fecha | Repositorios | Commits / merges |
+|---|---|---|---|
+| EmilianoMontano (`EmilianoMontano`) | 2026-11-02 | SimuladorChoques777 | 1 / 1 |
+| EmilianoMontano (`EmilianoMontano`) | 2026-11-06 | SimuladorChoques777 | 2 / 1 |
 
 ### Matías Mad
 
@@ -281,14 +281,14 @@ xychart-beta
 | 2026-10-23 | No | sin actividad | 0 / 0 |
 | 2026-10-26 | No | sin actividad | 0 / 0 |
 
-#### Aportes fuera del calendario de clases
+#### Aportes fuera del calendario de clases — Matías Mad
 
-**2 fechas fuera del calendario** · 3 commits · 4 merges
+**Matías Mad — 2 fechas fuera del calendario** · 3 commits · 4 merges
 
-| Fecha | Repositorios | Commits / merges |
-|---|---|--:|
-| 2026-10-30 | SimuladorChoques777 | 1 / 1 |
-| 2026-11-06 | SimuladorChoques777 | 2 / 3 |
+| Alumno | Fecha | Repositorios | Commits / merges |
+|---|---|---|---|
+| Matías Mad (`M-mad-2920`) | 2026-10-30 | SimuladorChoques777 | 1 / 1 |
+| Matías Mad (`M-mad-2920`) | 2026-11-06 | SimuladorChoques777 | 2 / 3 |
 
 <!-- actividad-clases:fin -->
 
