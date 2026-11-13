@@ -22,6 +22,7 @@ func _ready() -> void:
 ## Muestra la pantalla sin pausar el árbol del juego.
 func mostrar_muerte() -> void:
 	_alternar_visibilidad(true)
+	get_tree().call_group(&"menu_pausa", &"bloquear_pausa")
 
 func _alternar_visibilidad(mostrar: bool) -> void:
 	for hijo: Node in get_children():
