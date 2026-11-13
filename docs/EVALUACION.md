@@ -226,6 +226,85 @@ xychart-beta
 | 17 | 2026-11-07 | `d7f9c7a` | dqmdz-etec | 720 | 91 | 100% | 0.0% | 0 |
 | 18 | 2026-11-13 | `978c468` | EmilianoMontano | 758 | 89 | 100% | 0.0% | 0 |
 
+<!-- actividad-clases:inicio -->
+## Actividad en días de clase
+
+> Período evaluado **2026-08-14 → 2026-11-13** · **21 clases** (lunes, viernes) · días de clase del calendario, extendidos hasta la fecha de corte.
+>
+> `Commits` = commits de trabajo (no-merge); `Merges` = merges de PR (también son push). Los días sin actividad dicen **sin actividad**. El cuadro principal usa sólo las fechas de clase del calendario oficial.
+>
+> **Aportes fuera del calendario:** cada alumno tiene un cuadro aparte con las fechas no lectivas con actividad, desde **2026-08-14** hasta **2026-11-13** (ventana de aportes). Esas fechas no forman parte del cuadro principal, pero se muestran para no perder trabajo hecho en fines de semana, feriados o después del período.
+>
+> Se recorre `git log --all` sobre un mirror (todas las ramas y `refs/pull/*`), con deduplicación por commit. Fecha = fecha de autor en UTC-3. Los commits locales no pusheados no se ven. Si el trabajo fue en pareja y el commit es de otra persona, figura a nombre del autor del commit; para reflejarlo, usar `Co-authored-by` o una nota manual.
+>
+> Sección informativa: no modifica el semáforo de aprobación.
+
+### EmilianoMontano
+
+**6/21 clases con actividad** · 7 commits · 5 merges
+
+| Fecha | Marca | Repositorios | Commits / merges |
+|---|:--:|---|--:|
+| 2026-08-14 | **Sí** | SimuladorChoques777 | 1 / 0 |
+| 2026-08-21 | No | sin actividad | 0 / 0 |
+| 2026-08-24 | No | sin actividad | 0 / 0 |
+| 2026-08-28 | No | sin actividad | 0 / 0 |
+| 2026-08-31 | No | sin actividad | 0 / 0 |
+| 2026-09-04 | No | sin actividad | 0 / 0 |
+| 2026-09-07 | No | sin actividad | 0 / 0 |
+| 2026-09-14 | No | sin actividad | 0 / 0 |
+| 2026-09-25 | No | sin actividad | 0 / 0 |
+| 2026-09-28 | No | sin actividad | 0 / 0 |
+| 2026-10-02 | No | sin actividad | 0 / 0 |
+| 2026-10-05 | No | sin actividad | 0 / 0 |
+| 2026-10-09 | No | sin actividad | 0 / 0 |
+| 2026-10-16 | **Sí** | SimuladorChoques777 | 1 / 1 |
+| 2026-10-19 | No | sin actividad | 0 / 0 |
+| 2026-10-23 | No | sin actividad | 0 / 0 |
+| 2026-10-26 | **Sí** | SimuladorChoques777 | 1 / 1 |
+| 2026-10-30 | No | sin actividad | 0 / 0 |
+| 2026-11-02 | **Sí** | SimuladorChoques777 | 1 / 1 |
+| 2026-11-06 | **Sí** | SimuladorChoques777 | 2 / 1 |
+| 2026-11-13 | **Sí** | SimuladorChoques777 | 1 / 1 |
+
+#### Aportes fuera del calendario de clases — EmilianoMontano
+
+_Sin aportes fuera del calendario de clases para EmilianoMontano._
+
+### Matías Mad
+
+**6/21 clases con actividad** · 8 commits · 8 merges
+
+| Fecha | Marca | Repositorios | Commits / merges |
+|---|:--:|---|--:|
+| 2026-08-14 | No | sin actividad | 0 / 0 |
+| 2026-08-21 | No | sin actividad | 0 / 0 |
+| 2026-08-24 | No | sin actividad | 0 / 0 |
+| 2026-08-28 | No | sin actividad | 0 / 0 |
+| 2026-08-31 | No | sin actividad | 0 / 0 |
+| 2026-09-04 | **Sí** | SimuladorChoques777 | 1 / 1 |
+| 2026-09-07 | No | sin actividad | 0 / 0 |
+| 2026-09-14 | No | sin actividad | 0 / 0 |
+| 2026-09-25 | No | sin actividad | 0 / 0 |
+| 2026-09-28 | No | sin actividad | 0 / 0 |
+| 2026-10-02 | No | sin actividad | 0 / 0 |
+| 2026-10-05 | No | sin actividad | 0 / 0 |
+| 2026-10-09 | **Sí** | SimuladorChoques777 | 1 / 1 |
+| 2026-10-16 | **Sí** | SimuladorChoques777 | 1 / 0 |
+| 2026-10-19 | **Sí** | SimuladorChoques777 | 2 / 2 |
+| 2026-10-23 | No | sin actividad | 0 / 0 |
+| 2026-10-26 | No | sin actividad | 0 / 0 |
+| 2026-10-30 | **Sí** | SimuladorChoques777 | 1 / 1 |
+| 2026-11-02 | No | sin actividad | 0 / 0 |
+| 2026-11-06 | **Sí** | SimuladorChoques777 | 2 / 3 |
+| 2026-11-13 | No | sin actividad | 0 / 0 |
+
+#### Aportes fuera del calendario de clases — Matías Mad
+
+_Sin aportes fuera del calendario de clases para Matías Mad._
+
+<!-- actividad-clases:fin -->
+
 ---
 _Informe generado por la cátedra. Los criterios y umbrales de medición corresponden al perfil `exigente` de `calidad.py`; el semáforo de aprobación, a `CRITERIOS-CALIDAD.md` (ver `README.md`). Ante dudas, revisá el archivo señalado._
 <!-- evaluacion:fin -->
