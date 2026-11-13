@@ -2,7 +2,7 @@ extends Node
 
 # Variables globales para recordar la elección activa del jugador.
 # Ponemos rutas por defecto para que el juego siempre arranque con algo cargado.
-var auto_seleccionado: String = "res://Sprites/Sprites Autos2.0/AmarilloN.png"
+var auto_seleccionado: String = "res://Sprites/Cars/taxi.png"
 var mapa_seleccionado: String = "res://Sprites/FONDOS REALES/MUNDO 1.png"
 
 # Opcional: Podés agregar funciones para cambiar valores de forma limpia

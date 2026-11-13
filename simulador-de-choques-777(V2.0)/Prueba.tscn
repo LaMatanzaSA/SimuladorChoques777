@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bwd7vllafxdnc" path="res://menu_pausa.tscn" id="6_b0kld"]
 [ext_resource type="PackedScene" uid="uid://6ctnn8raqqwg" path="res://pantalla_muerte.tscn" id="7_1d36f"]
 [ext_resource type="Texture2D" uid="uid://diw7alm6osqgg" path="res://Sprites/FONDOS REALES/MUNDO 1.png" id="7_ep22w"]
+[ext_resource type="Script" uid="uid://3tl82mqhj3ic" path="res://fondo.gd" id="10_63gni"]
 [ext_resource type="Script" uid="uid://dj8h581rf8221" path="res://panel_slide_animator.gd" id="11_np4jp"]
 
 [sub_resource type="Curve" id="Curve_d4gy5"]
@@ -188,8 +189,9 @@ animations = [{
 
 [node name="velocimetro" parent="CanvasLayer" unique_id=1128775000 instance=ExtResource("5_wgwtc")]
 
-[node name="CharacterBody2D" parent="." unique_id=182666106 instance=ExtResource("2_lgsii")]
+[node name="CharacterBody2D" parent="." unique_id=182666106 node_paths=PackedStringArray("nodo_parallax") instance=ExtResource("2_lgsii")]
 position = Vector2(18, -54)
+nodo_parallax = NodePath("../ParallaxBackground")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1390244013]
 
@@ -256,8 +258,14 @@ rotation = -1.5079645
 [node name="PantallaMuerte" parent="." unique_id=1355662767 instance=ExtResource("7_1d36f")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=2021558993]
+script = ExtResource("10_63gni")
 
-[node name="Mundo1" type="Sprite2D" parent="ParallaxBackground" unique_id=408872278]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=132638731]
+position = Vector2(-112, 0)
+motion_scale = Vector2(0.2, 0)
+motion_mirroring = Vector2(1152, 648)
+
+[node name="Mundo1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=408872278]
 self_modulate = Color(1, 1, 1, 0.5882353)
 position = Vector2(576, 324)
 scale = Vector2(3.6000001, 3.6000001)

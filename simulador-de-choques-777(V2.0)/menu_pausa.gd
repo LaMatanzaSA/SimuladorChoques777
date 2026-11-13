@@ -28,8 +28,10 @@ extends CanvasLayer
 @onready var _boton_auto_2: Button = $UI/PanelAutos/BotonAuto2
 @onready var _boton_auto_3: Button = $UI/PanelAutos/BotonAuto3
 @onready var _boton_volver_autos: Button = $UI/PanelAutos/BotonVolverAutos
+@onready var _pausa_bloqueada: bool = false
 
 func _ready() -> void:
+	add_to_group(&"menu_pausa")
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	if _animador == null:
@@ -44,6 +46,10 @@ func _ready() -> void:
 	_conectar_senales()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		toggle_pausa()
+	if not _pausa_bloqueada:
+		return
 	if event.is_action_pressed("ui_cancel"):
 		toggle_pausa()
 
@@ -95,11 +101,11 @@ func _conectar_senales() -> void:
 
 	# Selección de Autos
 	if is_instance_valid(_boton_auto_1):
-		_boton_auto_1.pressed.connect(func() -> void: _seleccionar_auto("res://Sprites/Sprites Autos2.0/AmarilloN.png"))
+		_boton_auto_1.pressed.connect(func() -> void: _seleccionar_auto("res://Sprites/Cars/taxi.png"))
 	if is_instance_valid(_boton_auto_2):
-		_boton_auto_2.pressed.connect(func() -> void: _seleccionar_auto("res://Sprites/Sprites Autos2.0/RojoN.png"))
+		_boton_auto_2.pressed.connect(func() -> void: _seleccionar_auto("res://Sprites/Cars/sports_yellow.png"))
 	if is_instance_valid(_boton_auto_3):
-		_boton_auto_3.pressed.connect(func() -> void: _seleccionar_auto("res://Sprites/Sprites Autos2.0/RosaN.png"))
+		_boton_auto_3.pressed.connect(func() -> void: _seleccionar_auto("res://Sprites/Cars/sports_race.png"))
 
 func _seleccionar_mapa(ruta_mapa: String) -> void:
 	GameManager.mapa_seleccionado = ruta_mapa
@@ -108,3 +114,10 @@ func _seleccionar_mapa(ruta_mapa: String) -> void:
 func _seleccionar_auto(ruta_auto: String) -> void:
 	GameManager.auto_seleccionado = ruta_auto
 	SceneFlow.reiniciar_escena(get_tree())
+
+func bloquear_pausa() -> void:
+	_pausa_bloqueada = true
+	if get_tree().paused:
+		get_tree().paused = false
+		if is_instance_valid(_animador) and _animador.has_method("salir"):
+			_animador.salir()
