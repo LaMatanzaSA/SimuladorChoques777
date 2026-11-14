@@ -3,20 +3,20 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación II (RepoSense + análisis de calidad POO/SOLID). **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas): es una criba para orientar la revisión, **no una nota**.
-> Generado: 2026-11-13.
+> Generado: 2026-11-14.
 
 ## 1. Veredicto
 
 | Aspecto | Resultado |
 |---|---|
-| Índice de calidad POO/SOLID | **91/100** |
-| Código (LOC) | 720 |
-| Archivos de código | 23 |
-| Clases (bien usadas) | 23 (19 OK) |
+| Índice de calidad POO/SOLID | **89/100** |
+| Código (LOC) | 758 |
+| Archivos de código | 22 |
+| Clases (bien usadas) | 22 (19 OK) |
 | Código dentro de clases (%POO) | 100% |
 | Funciones fuera de clases | 0 |
 | Duplicación lógica | 0.0% |
-| Señales S/O/L/I/D | 3/0/0/0/0 |
+| Señales S/O/L/I/D | 4/0/0/0/0 |
 
 > Este informe **describe** lo que el análisis midió con los criterios ya establecidos de la materia. No es una nota.
 
@@ -46,7 +46,7 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 | Duplicación lógica | ≤ 5% | 0.0% | sí |
 | Funciones fuera de clases | ≤ 1 | 0 | sí |
 | Señales POO/SOLID críticas | ninguna | Baja cohesión (LCOM), Complejidad alta | no |
-| Índice de calidad POO/SOLID | ≥ 60 | 91/100 | sí |
+| Índice de calidad POO/SOLID | ≥ 60 | 89/100 | sí |
 
 ### Cómo se calcula el %POO (y por qué no sube solo)
 
@@ -82,7 +82,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Un resumen numérico (0-100) que combina la riqueza de clases bien usadas con la penalización por señales POO/SOLID y duplicación, y luego aplica topes duros.
 - **Por qué importa:** Ordena y prioriza la revisión: un índice bajo indica varias señales que conviene mirar juntas.
-- **Tu resultado:** índice **91/100**
+- **Tu resultado:** índice **89/100**
 
 ### 2. Duplicación lógica (DRY) (duplicacion) — sin señales
 
@@ -113,7 +113,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Métodos y campos de una clase que casi no se relacionan entre sí.
 - **Por qué importa:** Una unidad que cambia por motivos distintos y comparte poca información suele esconder más de una responsabilidad.
-- **Tu resultado:** **2** clase(s) con baja cohesión
+- **Tu resultado:** **3** clase(s) con baja cohesión
 - **Para investigar la causa:**
     - ¿Qué métodos de la clase no comparten estado con el resto?
     - ¿Cambian por motivos distintos según la tarea?
@@ -195,14 +195,14 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 ## 5. Evolución por commit
 
-Métricas calculadas sobre el estado de `main` en **cada commit** (18 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
+Métricas calculadas sobre el estado de `main` en **cada commit** (19 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
 
 ```mermaid
 xychart-beta
     title "Índice POO/SOLID a lo largo de los commits"
-    x-axis ["8d32acc", "61db4c4", "c16a3fc", "0d868c7", "78b731b", "f64205e", "2a437bb", "354fa9e", "5bb0e0c", "a204e05", "1d4dcb4", "a0e13d5", "bf89e1f", "a9a0b67", "97b59f6", "7f7b026", "d7f9c7a", "978c468"]
+    x-axis ["8d32acc", "61db4c4", "c16a3fc", "0d868c7", "78b731b", "f64205e", "2a437bb", "354fa9e", "5bb0e0c", "a204e05", "1d4dcb4", "a0e13d5", "bf89e1f", "a9a0b67", "97b59f6", "7f7b026", "d7f9c7a", "978c468", "43aa98a"]
     y-axis "Índice" 0 --> 100
-    line [0, 0, 12, 11, 39, 39, 66, 72, 50, 50, 50, 92, 91, 91, 91, 91, 91, 89]
+    line [0, 0, 12, 11, 39, 39, 66, 72, 50, 50, 50, 92, 91, 91, 91, 91, 91, 89, 89]
 ```
 
 | # | Fecha | Commit | Autor | LOC | Índice | %POO | Duplic. | Sueltas |
@@ -225,85 +225,7 @@ xychart-beta
 | 16 | 2026-11-07 | `7f7b026` | dqmdz-etec | 720 | 91 | 100% | 0.0% | 0 |
 | 17 | 2026-11-07 | `d7f9c7a` | dqmdz-etec | 720 | 91 | 100% | 0.0% | 0 |
 | 18 | 2026-11-13 | `978c468` | EmilianoMontano | 758 | 89 | 100% | 0.0% | 0 |
-
-<!-- actividad-clases:inicio -->
-## Actividad en días de clase
-
-> Período evaluado **2026-08-14 → 2026-11-13** · **21 clases** (lunes, viernes) · días de clase del calendario, extendidos hasta la fecha de corte.
->
-> `Commits` = commits de trabajo (no-merge); `Merges` = merges de PR (también son push). Los días sin actividad dicen **sin actividad**. El cuadro principal usa sólo las fechas de clase del calendario oficial.
->
-> **Aportes fuera del calendario:** cada alumno tiene un cuadro aparte con las fechas no lectivas con actividad, desde **2026-08-14** hasta **2026-11-13** (ventana de aportes). Esas fechas no forman parte del cuadro principal, pero se muestran para no perder trabajo hecho en fines de semana, feriados o después del período.
->
-> Se recorre `git log --all` sobre un mirror (todas las ramas y `refs/pull/*`), con deduplicación por commit. Fecha = fecha de autor en UTC-3. Los commits locales no pusheados no se ven. Si el trabajo fue en pareja y el commit es de otra persona, figura a nombre del autor del commit; para reflejarlo, usar `Co-authored-by` o una nota manual.
->
-> Sección informativa: no modifica el semáforo de aprobación.
-
-### EmilianoMontano
-
-**6/21 clases con actividad** · 7 commits · 5 merges
-
-| Fecha | Marca | Repositorios | Commits / merges |
-|---|:--:|---|--:|
-| 2026-08-14 | **Sí** | SimuladorChoques777 | 1 / 0 |
-| 2026-08-21 | No | sin actividad | 0 / 0 |
-| 2026-08-24 | No | sin actividad | 0 / 0 |
-| 2026-08-28 | No | sin actividad | 0 / 0 |
-| 2026-08-31 | No | sin actividad | 0 / 0 |
-| 2026-09-04 | No | sin actividad | 0 / 0 |
-| 2026-09-07 | No | sin actividad | 0 / 0 |
-| 2026-09-14 | No | sin actividad | 0 / 0 |
-| 2026-09-25 | No | sin actividad | 0 / 0 |
-| 2026-09-28 | No | sin actividad | 0 / 0 |
-| 2026-10-02 | No | sin actividad | 0 / 0 |
-| 2026-10-05 | No | sin actividad | 0 / 0 |
-| 2026-10-09 | No | sin actividad | 0 / 0 |
-| 2026-10-16 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-10-19 | No | sin actividad | 0 / 0 |
-| 2026-10-23 | No | sin actividad | 0 / 0 |
-| 2026-10-26 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-10-30 | No | sin actividad | 0 / 0 |
-| 2026-11-02 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-11-06 | **Sí** | SimuladorChoques777 | 2 / 1 |
-| 2026-11-13 | **Sí** | SimuladorChoques777 | 1 / 1 |
-
-#### Aportes fuera del calendario de clases — EmilianoMontano
-
-_Sin aportes fuera del calendario de clases para EmilianoMontano._
-
-### Matías Mad
-
-**6/21 clases con actividad** · 8 commits · 8 merges
-
-| Fecha | Marca | Repositorios | Commits / merges |
-|---|:--:|---|--:|
-| 2026-08-14 | No | sin actividad | 0 / 0 |
-| 2026-08-21 | No | sin actividad | 0 / 0 |
-| 2026-08-24 | No | sin actividad | 0 / 0 |
-| 2026-08-28 | No | sin actividad | 0 / 0 |
-| 2026-08-31 | No | sin actividad | 0 / 0 |
-| 2026-09-04 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-09-07 | No | sin actividad | 0 / 0 |
-| 2026-09-14 | No | sin actividad | 0 / 0 |
-| 2026-09-25 | No | sin actividad | 0 / 0 |
-| 2026-09-28 | No | sin actividad | 0 / 0 |
-| 2026-10-02 | No | sin actividad | 0 / 0 |
-| 2026-10-05 | No | sin actividad | 0 / 0 |
-| 2026-10-09 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-10-16 | **Sí** | SimuladorChoques777 | 1 / 0 |
-| 2026-10-19 | **Sí** | SimuladorChoques777 | 2 / 2 |
-| 2026-10-23 | No | sin actividad | 0 / 0 |
-| 2026-10-26 | No | sin actividad | 0 / 0 |
-| 2026-10-30 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-11-02 | No | sin actividad | 0 / 0 |
-| 2026-11-06 | **Sí** | SimuladorChoques777 | 2 / 3 |
-| 2026-11-13 | No | sin actividad | 0 / 0 |
-
-#### Aportes fuera del calendario de clases — Matías Mad
-
-_Sin aportes fuera del calendario de clases para Matías Mad._
-
-<!-- actividad-clases:fin -->
+| 19 | 2026-11-13 | `43aa98a` | dqmdz-etec | 758 | 89 | 100% | 0.0% | 0 |
 
 ---
 _Informe generado por la cátedra. Los criterios y umbrales de medición corresponden al perfil `exigente` de `calidad.py`; el semáforo de aprobación, a `CRITERIOS-CALIDAD.md` (ver `README.md`). Ante dudas, revisá el archivo señalado._
