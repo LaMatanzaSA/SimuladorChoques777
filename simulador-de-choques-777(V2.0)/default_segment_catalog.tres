@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SegmentCatalog" format=3]
+
+[ext_resource type="Script" path="res://segment_catalog.gd" id="1_cat"]
+[ext_resource type="PackedScene" path="res://suelo_segmento.tscn" id="2_seg"]
+
+[resource]
+script = ExtResource("1_cat")
+_escenas = Array[PackedScene]([ExtResource("2_seg")])
