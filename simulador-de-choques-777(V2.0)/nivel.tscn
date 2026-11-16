@@ -1,23 +1,281 @@
 [gd_scene format=3 uid="uid://ndw18xiu8lmr"]
 
-[ext_resource type="PackedScene" uid="uid://cyl3mkj665b2i" path="res://SueloTest.tscn" id="1_7gdj4"]
-[ext_resource type="Texture2D" uid="uid://diw7alm6osqgg" path="res://Sprites/FONDOS REALES/MUNDO 1.png" id="2_j87l1"]
+[ext_resource type="Texture2D" uid="uid://cb7p6kin87gal" path="res://Sprites/FONDOS REALES/MUNDO 1.png" id="2_j87l1"]
 [ext_resource type="PackedScene" uid="uid://usoha0vby261" path="res://AtutoTest.tscn" id="3_ymy7k"]
+[ext_resource type="Script" uid="uid://b1o7fphj82aa4" path="res://efectos_auto.gd" id="4_ymy7k"]
+[ext_resource type="Texture2D" uid="uid://bdexynepoyj03" path="res://Sprites/Animaciones/explosion-removebg-preview(1).png" id="5_vttml"]
+[ext_resource type="Resource" path="res://default_lane_config.tres" id="7_lcfg"]
+[ext_resource type="Script" uid="uid://b8gfdjfedu2ei" path="res://lane_controller.gd" id="8_ctrl"]
+[ext_resource type="Script" uid="uid://b55v1qujmdl5p" path="res://lane_input.gd" id="9_inp"]
+[ext_resource type="Script" uid="uid://dsjc8if8c453p" path="res://view_bounds.gd" id="10_vb"]
+[ext_resource type="Script" uid="uid://dgsfns0c20r7k" path="res://lane_track.gd" id="11_trk"]
+[ext_resource type="Script" uid="uid://bdfklaf2tje74" path="res://terrain_streamer.gd" id="12_str"]
+[ext_resource type="Resource" path="res://default_segment_catalog.tres" id="13_cat"]
+[ext_resource type="Script" uid="uid://dj8h581rf8221" path="res://panel_slide_animator.gd" id="14_e7jer"]
+[ext_resource type="Script" uid="uid://cdot0vxur6hm2" path="res://lane_body_follower.gd" id="14_fol"]
+[ext_resource type="Script" uid="uid://bqmbe42g1m3ad" path="res://lane_shifter.gd" id="15_shf"]
+[ext_resource type="PackedScene" uid="uid://bfp7ugu2d1dts" path="res://velocimetro_movimiento.tscn" id="16_vel"]
+[ext_resource type="PackedScene" uid="uid://bwd7vllafxdnc" path="res://menu_pausa.tscn" id="17_pau"]
+[ext_resource type="PackedScene" uid="uid://6ctnn8raqqwg" path="res://pantalla_muerte.tscn" id="18_mue"]
+
+[sub_resource type="Curve" id="Curve_6apml"]
+_limits = [0.25, 1.5, 0.0, 1.0]
+_data = [Vector2(0, 0.25), 0.0, 0.0, 0, 0, Vector2(1, 1.5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_d4gy5"]
+curve = SubResource("Curve_6apml")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d04yg"]
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 90.0
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, -100, 0)
+scale_min = 20.0
+scale_max = 20.0
+scale_curve = SubResource("CurveTexture_d4gy5")
+color = Color(0.4210918, 0.42109177, 0.42109188, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u1w1e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np4jp"]
+atlas = ExtResource("5_vttml")
+region = Rect2(0, 0, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63gni"]
+atlas = ExtResource("5_vttml")
+region = Rect2(94, 0, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3ee6"]
+atlas = ExtResource("5_vttml")
+region = Rect2(188, 0, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4wox"]
+atlas = ExtResource("5_vttml")
+region = Rect2(282, 0, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p5g7"]
+atlas = ExtResource("5_vttml")
+region = Rect2(376, 0, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fthwv"]
+atlas = ExtResource("5_vttml")
+region = Rect2(0, 132, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7aah"]
+atlas = ExtResource("5_vttml")
+region = Rect2(94, 132, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hl4k"]
+atlas = ExtResource("5_vttml")
+region = Rect2(188, 132, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b62hr"]
+atlas = ExtResource("5_vttml")
+region = Rect2(282, 132, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h68s1"]
+atlas = ExtResource("5_vttml")
+region = Rect2(376, 132, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdhia"]
+atlas = ExtResource("5_vttml")
+region = Rect2(0, 264, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_160sr"]
+atlas = ExtResource("5_vttml")
+region = Rect2(94, 264, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ox6"]
+atlas = ExtResource("5_vttml")
+region = Rect2(188, 264, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm5yi"]
+atlas = ExtResource("5_vttml")
+region = Rect2(282, 264, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_peche"]
+atlas = ExtResource("5_vttml")
+region = Rect2(376, 264, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ritef"]
+atlas = ExtResource("5_vttml")
+region = Rect2(0, 396, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh4m3"]
+atlas = ExtResource("5_vttml")
+region = Rect2(94, 396, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14ic7"]
+atlas = ExtResource("5_vttml")
+region = Rect2(188, 396, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wn2v"]
+atlas = ExtResource("5_vttml")
+region = Rect2(282, 396, 94, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djuor"]
+atlas = ExtResource("5_vttml")
+region = Rect2(376, 396, 94, 132)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sdrig"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np4jp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63gni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3ee6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4wox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p5g7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fthwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7aah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hl4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b62hr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h68s1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdhia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_160sr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ox6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm5yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_peche")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ritef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hh4m3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14ic7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wn2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djuor")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="Nivel" type="Node" unique_id=839421703]
 
-[node name="StaticBody2D" parent="." unique_id=1172261398 instance=ExtResource("1_7gdj4")]
-position = Vector2(28, 32)
+[node name="Carriles" type="Node2D" parent="." unique_id=176423870]
+position = Vector2(0, 89)
 
-[node name="StaticBody2D2" parent="." unique_id=804776128 instance=ExtResource("1_7gdj4")]
-position = Vector2(32, -72)
+[node name="ControladorCarriles" type="Node" parent="Carriles" unique_id=1373870485]
+script = ExtResource("8_ctrl")
+_config = ExtResource("7_lcfg")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1158034494]
+[node name="EntradaCarriles" type="Node" parent="Carriles" unique_id=898386058]
+script = ExtResource("9_inp")
 
-[node name="Mundo1" type="Sprite2D" parent="ParallaxBackground" unique_id=848466942]
-position = Vector2(1330.75, -800.75)
-scale = Vector2(8.3203125, 8.91389)
-texture = ExtResource("2_j87l1")
+[node name="LimitesVista" type="Node" parent="Carriles" unique_id=258593214]
+script = ExtResource("10_vb")
+
+[node name="Carril0" type="Node2D" parent="Carriles" unique_id=239415153 node_paths=PackedStringArray("_controlador", "_generador")]
+modulate = Color(0.72, 0.72, 0.8, 1)
+script = ExtResource("11_trk")
+_controlador = NodePath("../ControladorCarriles")
+_generador = NodePath("GeneradorSuelo")
+
+[node name="GeneradorSuelo" type="Node2D" parent="Carriles/Carril0" unique_id=1257720712 node_paths=PackedStringArray("_limites_vista")]
+visible = false
+script = ExtResource("12_str")
+_catalogo = ExtResource("13_cat")
+_limites_vista = NodePath("../../LimitesVista")
+
+[node name="Carril1" type="Node2D" parent="Carriles" unique_id=485647969 node_paths=PackedStringArray("_controlador", "_generador")]
+script = ExtResource("11_trk")
+_controlador = NodePath("../ControladorCarriles")
+_generador = NodePath("GeneradorSuelo")
+_indice_carril = 1
+
+[node name="GeneradorSuelo" type="Node2D" parent="Carriles/Carril1" unique_id=1354859550 node_paths=PackedStringArray("_limites_vista")]
+visible = false
+script = ExtResource("12_str")
+_catalogo = ExtResource("13_cat")
+_limites_vista = NodePath("../../LimitesVista")
 
 [node name="CharacterBody2D" parent="." unique_id=182666106 instance=ExtResource("3_ymy7k")]
-position = Vector2(54, -115)
+position = Vector2(42, -16)
+
+[node name="SeguidorCarril" type="Node" parent="CharacterBody2D" unique_id=1123397007 node_paths=PackedStringArray("_cuerpo", "_controlador")]
+script = ExtResource("14_fol")
+_cuerpo = NodePath("..")
+_controlador = NodePath("../../Carriles/ControladorCarriles")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1555922878]
+
+[node name="ParticulasHumo" type="GPUParticles2D" parent="CharacterBody2D" unique_id=1914040677 node_paths=PackedStringArray("_animacion_explosion")]
+emitting = false
+amount = 40
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_d04yg")
+script = ExtResource("4_ymy7k")
+_animacion_explosion = NodePath("../Explosion")
+
+[node name="Explosion" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1574590307]
+material = SubResource("ShaderMaterial_u1w1e")
+position = Vector2(-6.999998, -37.000004)
+scale = Vector2(1.9144958, 1.8039774)
+sprite_frames = SubResource("SpriteFrames_sdrig")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=330720827]
+
+[node name="DesplazadorFondo" type="Node" parent="ParallaxBackground" unique_id=1527255604 node_paths=PackedStringArray("_objetivo", "_controlador")]
+script = ExtResource("15_shf")
+_objetivo = NodePath("../ParallaxLayer/Mundo1")
+_controlador = NodePath("../../Carriles/ControladorCarriles")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1013180315]
+position = Vector2(-112, 0)
+motion_scale = Vector2(0.2, 0)
+motion_mirroring = Vector2(1152, 648)
+
+[node name="Mundo1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1269043596]
+self_modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(575.99994, 83.99996)
+scale = Vector2(3.6000001, 3.6000001)
+texture = ExtResource("2_j87l1")
+script = ExtResource("14_e7jer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1841613493]
+
+[node name="velocimetro" parent="CanvasLayer" unique_id=2115096295 instance=ExtResource("16_vel")]
+
+[node name="MenuPausa" parent="." unique_id=755765866 instance=ExtResource("17_pau")]
+
+[node name="PantallaMuerte" parent="." unique_id=949578974 instance=ExtResource("18_mue")]
+
+[connection signal="desplazamiento_solicitado" from="Carriles/EntradaCarriles" to="Carriles/ControladorCarriles" method="desplazar"]

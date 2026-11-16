@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://cyl3mkj665b2i" path="res://SueloTest.tscn" id="1_suelo"]
+[ext_resource type="Script" path="res://terrain_segment.gd" id="2_seg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_segmento"]
+size = Vector2(260, 60)
+
+[node name="SegmentoSuelo" instance=ExtResource("1_suelo") node_paths=PackedStringArray("_entrada", "_salida")]
+script = ExtResource("2_seg")
+_entrada = NodePath("PuntoEntrada")
+_salida = NodePath("PuntoSalida")
+
+[node name="CollisionShape2D" parent="." index="4"]
+shape = SubResource("RectangleShape2D_segmento")
+
+[node name="PuntoEntrada" type="Marker2D" parent="." index="5"]
+position = Vector2(-32, 0)
+
+[node name="PuntoSalida" type="Marker2D" parent="." index="6"]
+position = Vector2(224, 0)

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LaneConfig" format=3]
+
+[ext_resource type="Script" path="res://lane_config.gd" id="1_lcfg"]
+
+[resource]
+script = ExtResource("1_lcfg")
+_cantidad_carriles = 2
+_separacion_vertical = 40.0
+_duracion_transicion = 0.25
+_indice_inicial = 0
+_primera_capa_fisica = 2
