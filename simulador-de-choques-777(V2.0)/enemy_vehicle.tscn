@@ -1,0 +1,19 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://enemy_vehicle.gd" id="1_enemy"]
+[ext_resource type="Texture2D" path="res://Sprites/Cars/taxi.png" id="2_tex"]
+[ext_resource type="Shape2D" uid="uid://cfs4skbwv20ps" path="res://auto_h.tres" id="3_shape"]
+
+[node name="AutoEnemigo" type="CharacterBody2D" node_paths=PackedStringArray("_sprite") groups=["obstaculo"]]
+floor_snap_length = 12.0
+script = ExtResource("1_enemy")
+_sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.0454545, 2.5714285)
+texture = ExtResource("2_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+rotation = 1.5707964
+shape = ExtResource("3_shape")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TrafficConfig" format=3]
+
+[ext_resource type="Script" path="res://traffic_config.gd" id="1_tcfg"]
+[ext_resource type="Texture2D" path="res://Sprites/Cars/sports_yellow.png" id="2_a"]
+[ext_resource type="Texture2D" path="res://Sprites/Cars/sports_race.png" id="3_b"]
+[ext_resource type="Texture2D" path="res://Sprites/Cars/taxi.png" id="4_c"]
+
+[resource]
+script = ExtResource("1_tcfg")
+_sprites = Array[Texture2D]([ExtResource("2_a"), ExtResource("3_b"), ExtResource("4_c")])
+_velocidad = 200.0
+_intervalo_minimo = 1.5
+_intervalo_maximo = 4.0
