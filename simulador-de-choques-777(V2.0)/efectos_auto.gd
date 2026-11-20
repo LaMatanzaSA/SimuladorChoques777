@@ -7,6 +7,9 @@ extends GPUParticles2D
 ## Referencia al nodo AnimatedSprite2D de la explosión
 @export var _animacion_explosion: AnimatedSprite2D
 
+## Referencia al nodo AnimatedSprite2D del GIF que sale después de explotar
+@export var _animacion_fuego: AnimatedSprite2D
+
 var _damage_calculator: DamageCalculator
 
 func _ready() -> void:
@@ -15,8 +18,11 @@ func _ready() -> void:
 	
 	if is_instance_valid(_animacion_explosion):
 		_animacion_explosion.visible = false
-		# Conectamos la señal que avisa cuando la animación llega al final
 		_animacion_explosion.animation_finished.connect(_on_explosion_finalizada)
+		
+	if is_instance_valid(_animacion_fuego):
+		_animacion_fuego.visible = false
+		_animacion_fuego.stop()
 		
 	_conectar_calculador_dano()
 
@@ -41,10 +47,16 @@ func _on_dano_actualizado(dano_actual: float, dano_maximo: float) -> void:
 func _on_auto_destruido() -> void:
 	if is_instance_valid(_animacion_explosion):
 		_animacion_explosion.visible = true
-		_animacion_explosion.frame = 0 # Arranca desde el primer fotograma
+		_animacion_explosion.frame = 0
 		_animacion_explosion.play("default")
 
 func _on_explosion_finalizada() -> void:
 	# Oculta la explosión una vez que terminó de reproducirse
 	if is_instance_valid(_animacion_explosion):
 		_animacion_explosion.visible = false
+		
+	# Muestra y reproduce el GIF nuevo
+	if is_instance_valid(_animacion_fuego):
+		_animacion_fuego.visible = true
+		_animacion_fuego.frame = 0
+		_animacion_fuego.play()
