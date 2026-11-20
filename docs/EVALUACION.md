@@ -225,14 +225,14 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 ## 5. Evolución por commit
 
-Métricas calculadas sobre el estado de `main` en **cada commit** (26 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
+Métricas calculadas sobre el estado de `main` en **cada commit** (27 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
 
 ```mermaid
 xychart-beta
     title "Índice POO/SOLID a lo largo de los commits"
-    x-axis ["8d32acc", "61db4c4", "c16a3fc", "0d868c7", "78b731b", "f64205e", "2a437bb", "354fa9e", "5bb0e0c", "a204e05", "1d4dcb4", "a0e13d5", "bf89e1f", "a9a0b67", "97b59f6", "7f7b026", "d7f9c7a", "978c468", "43aa98a", "059cb1e", "1246707", "0959975", "ca706da", "cdddd1a", "b954b21", "71d51cd"]
+    x-axis ["8d32acc", "61db4c4", "c16a3fc", "0d868c7", "78b731b", "f64205e", "2a437bb", "354fa9e", "5bb0e0c", "a204e05", "1d4dcb4", "a0e13d5", "bf89e1f", "a9a0b67", "97b59f6", "7f7b026", "d7f9c7a", "978c468", "43aa98a", "059cb1e", "1246707", "0959975", "ca706da", "cdddd1a", "b954b21", "71d51cd", "b88f005"]
     y-axis "Índice" 0 --> 100
-    line [0, 0, 12, 11, 39, 39, 66, 72, 50, 50, 50, 92, 91, 91, 91, 91, 91, 89, 89, 89, 89, 95, 95, 95, 95, 96]
+    line [0, 0, 12, 11, 39, 39, 66, 72, 50, 50, 50, 92, 91, 91, 91, 91, 91, 89, 89, 89, 89, 95, 95, 95, 95, 96, 96]
 ```
 
 | # | Fecha | Commit | Autor | LOC | Índice | %POO | Duplic. | Sueltas |
@@ -263,89 +263,7 @@ xychart-beta
 | 24 | 2026-11-20 | `cdddd1a` | dqmdz-etec | 1,078 | 95 | 100% | 0.0% | 0 |
 | 25 | 2026-11-20 | `b954b21` | dqmdz-etec | 1,126 | 95 | 100% | 0.0% | 0 |
 | 26 | 2026-11-20 | `71d51cd` | dqmdz-etec | 1,333 | 96 | 100% | 0.0% | 0 |
-
-<!-- actividad-clases:inicio -->
-## Actividad en días de clase
-
-> Período evaluado **2026-08-14 → 2026-11-20** · **23 clases** (lunes, viernes) · días de clase del calendario, extendidos hasta la fecha de corte.
->
-> `Commits` = commits de trabajo (no-merge); `Merges` = merges de PR (también son push). Los días sin actividad dicen **sin actividad**. El cuadro principal usa sólo las fechas de clase del calendario oficial.
->
-> **Aportes fuera del calendario:** cada alumno tiene un cuadro aparte con las fechas no lectivas con actividad, desde **2026-08-14** hasta **2026-11-20** (ventana de aportes). Esas fechas no forman parte del cuadro principal, pero se muestran para no perder trabajo hecho en fines de semana, feriados o después del período.
->
-> Se recorre `git log --all` sobre un mirror (todas las ramas y `refs/pull/*`), con deduplicación por commit. Fecha = fecha de autor en UTC-3. Los commits locales no pusheados no se ven. Si el trabajo fue en pareja y el commit es de otra persona, figura a nombre del autor del commit; para reflejarlo, usar `Co-authored-by` o una nota manual.
->
-> Sección informativa: no modifica el semáforo de aprobación.
-
-### EmilianoMontano
-
-**7/23 clases con actividad** · 8 commits · 5 merges
-
-| Fecha | Marca | Repositorios | Commits / merges |
-|---|:--:|---|--:|
-| 2026-08-14 | **Sí** | SimuladorChoques777 | 1 / 0 |
-| 2026-08-21 | No | sin actividad | 0 / 0 |
-| 2026-08-24 | No | sin actividad | 0 / 0 |
-| 2026-08-28 | No | sin actividad | 0 / 0 |
-| 2026-08-31 | No | sin actividad | 0 / 0 |
-| 2026-09-04 | No | sin actividad | 0 / 0 |
-| 2026-09-07 | No | sin actividad | 0 / 0 |
-| 2026-09-14 | No | sin actividad | 0 / 0 |
-| 2026-09-25 | No | sin actividad | 0 / 0 |
-| 2026-09-28 | No | sin actividad | 0 / 0 |
-| 2026-10-02 | No | sin actividad | 0 / 0 |
-| 2026-10-05 | No | sin actividad | 0 / 0 |
-| 2026-10-09 | No | sin actividad | 0 / 0 |
-| 2026-10-16 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-10-19 | No | sin actividad | 0 / 0 |
-| 2026-10-23 | No | sin actividad | 0 / 0 |
-| 2026-10-26 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-10-30 | No | sin actividad | 0 / 0 |
-| 2026-11-02 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-11-06 | **Sí** | SimuladorChoques777 | 2 / 1 |
-| 2026-11-13 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-11-16 | No | sin actividad | 0 / 0 |
-| 2026-11-20 | **Sí** | SimuladorChoques777 | 1 / 0 |
-
-#### Aportes fuera del calendario de clases — EmilianoMontano
-
-_Sin aportes fuera del calendario de clases para EmilianoMontano._
-
-### Matías Mad
-
-**8/23 clases con actividad** · 10 commits · 9 merges
-
-| Fecha | Marca | Repositorios | Commits / merges |
-|---|:--:|---|--:|
-| 2026-08-14 | No | sin actividad | 0 / 0 |
-| 2026-08-21 | No | sin actividad | 0 / 0 |
-| 2026-08-24 | No | sin actividad | 0 / 0 |
-| 2026-08-28 | No | sin actividad | 0 / 0 |
-| 2026-08-31 | No | sin actividad | 0 / 0 |
-| 2026-09-04 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-09-07 | No | sin actividad | 0 / 0 |
-| 2026-09-14 | No | sin actividad | 0 / 0 |
-| 2026-09-25 | No | sin actividad | 0 / 0 |
-| 2026-09-28 | No | sin actividad | 0 / 0 |
-| 2026-10-02 | No | sin actividad | 0 / 0 |
-| 2026-10-05 | No | sin actividad | 0 / 0 |
-| 2026-10-09 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-10-16 | **Sí** | SimuladorChoques777 | 1 / 0 |
-| 2026-10-19 | **Sí** | SimuladorChoques777 | 2 / 2 |
-| 2026-10-23 | No | sin actividad | 0 / 0 |
-| 2026-10-26 | No | sin actividad | 0 / 0 |
-| 2026-10-30 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-11-02 | No | sin actividad | 0 / 0 |
-| 2026-11-06 | **Sí** | SimuladorChoques777 | 2 / 3 |
-| 2026-11-13 | No | sin actividad | 0 / 0 |
-| 2026-11-16 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-11-20 | **Sí** | SimuladorChoques777 | 1 / 0 |
-
-#### Aportes fuera del calendario de clases — Matías Mad
-
-_Sin aportes fuera del calendario de clases para Matías Mad._
-
-<!-- actividad-clases:fin -->
+| 27 | 2026-11-20 | `b88f005` | dqmdz-etec | 1,333 | 96 | 100% | 0.0% | 0 |
 
 ---
 _Informe generado por la cátedra. Los criterios y umbrales de medición corresponden al perfil `exigente` de `calidad.py`; el semáforo de aprobación, a `CRITERIOS-CALIDAD.md` (ver `README.md`). Ante dudas, revisá el archivo señalado._
