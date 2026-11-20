@@ -3,7 +3,7 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación II (RepoSense + análisis de calidad POO/SOLID). **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas): es una criba para orientar la revisión, **no una nota**.
-> Generado: 2026-11-17.
+> Generado: 2026-11-20.
 
 ## 1. Veredicto
 
@@ -189,6 +189,17 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 - **Por qué importa:** Es comportamiento procedural disfrazado de clase: no se instancia ni participa del modelo de objetos.
 - **Tu resultado:** **0** clase(s) solo con métodos estáticos
 
+### Archivos donde se originan las señales
+
+> Se listan **4** hallazgo(s) localizados en **2** archivo(s). La columna `Línea` es la línea del archivo donde el análisis detectó la señal; `—` indica una señal de nivel repositorio (sin archivo propio).
+
+| Aspecto | Archivo | Línea | Hallazgo |
+|---|---|---:|---|
+| Baja cohesión (LCOM) | `simulador-de-choques-777(V2.0)/atuto_test.gd` | 1 | clase 'Personaje' con baja cohesión (40%) |
+| Baja cohesión (LCOM) | `simulador-de-choques-777(V2.0)/menu_pausa.gd` | 1 | clase 'MenuPausa' con baja cohesión (33%) |
+| Complejidad alta | `simulador-de-choques-777(V2.0)/menu_pausa.gd` | 75 | método 'MenuPausa._conectar_senales' con complejidad 14 |
+| Métodos/funciones largos o con muchos parámetros | `simulador-de-choques-777(V2.0)/menu_pausa.gd` | 75 | método 'MenuPausa._conectar_senales' de 31 líneas |
+
 ### Desglose de la columna S (SRP)
 
 > La columna **S** no es un puntaje: cuenta **señales** de SRP. Aquí suma **3** entrada(s) sobre **2** clase(s) distinta(s).
@@ -214,14 +225,14 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 ## 5. Evolución por commit
 
-Métricas calculadas sobre el estado de `main` en **cada commit** (22 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
+Métricas calculadas sobre el estado de `main` en **cada commit** (23 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
 
 ```mermaid
 xychart-beta
     title "Índice POO/SOLID a lo largo de los commits"
-    x-axis ["8d32acc", "61db4c4", "c16a3fc", "0d868c7", "78b731b", "f64205e", "2a437bb", "354fa9e", "5bb0e0c", "a204e05", "1d4dcb4", "a0e13d5", "bf89e1f", "a9a0b67", "97b59f6", "7f7b026", "d7f9c7a", "978c468", "43aa98a", "059cb1e", "1246707", "0959975"]
+    x-axis ["8d32acc", "61db4c4", "c16a3fc", "0d868c7", "78b731b", "f64205e", "2a437bb", "354fa9e", "5bb0e0c", "a204e05", "1d4dcb4", "a0e13d5", "bf89e1f", "a9a0b67", "97b59f6", "7f7b026", "d7f9c7a", "978c468", "43aa98a", "059cb1e", "1246707", "0959975", "ca706da"]
     y-axis "Índice" 0 --> 100
-    line [0, 0, 12, 11, 39, 39, 66, 72, 50, 50, 50, 92, 91, 91, 91, 91, 91, 89, 89, 89, 89, 95]
+    line [0, 0, 12, 11, 39, 39, 66, 72, 50, 50, 50, 92, 91, 91, 91, 91, 91, 89, 89, 89, 89, 95, 95]
 ```
 
 | # | Fecha | Commit | Autor | LOC | Índice | %POO | Duplic. | Sueltas |
@@ -248,87 +259,7 @@ xychart-beta
 | 20 | 2026-11-14 | `059cb1e` | dqmdz-etec | 758 | 89 | 100% | 0.0% | 0 |
 | 21 | 2026-11-16 | `1246707` | dqmdz-etec | 758 | 89 | 100% | 0.0% | 0 |
 | 22 | 2026-11-16 | `0959975` | M-mad-2920 | 1,078 | 95 | 100% | 0.0% | 0 |
-
-<!-- actividad-clases:inicio -->
-## Actividad en días de clase
-
-> Período evaluado **2026-08-14 → 2026-11-17** · **22 clases** (lunes, viernes) · días de clase del calendario, extendidos hasta la fecha de corte.
->
-> `Commits` = commits de trabajo (no-merge); `Merges` = merges de PR (también son push). Los días sin actividad dicen **sin actividad**. El cuadro principal usa sólo las fechas de clase del calendario oficial.
->
-> **Aportes fuera del calendario:** cada alumno tiene un cuadro aparte con las fechas no lectivas con actividad, desde **2026-08-14** hasta **2026-11-17** (ventana de aportes). Esas fechas no forman parte del cuadro principal, pero se muestran para no perder trabajo hecho en fines de semana, feriados o después del período.
->
-> Se recorre `git log --all` sobre un mirror (todas las ramas y `refs/pull/*`), con deduplicación por commit. Fecha = fecha de autor en UTC-3. Los commits locales no pusheados no se ven. Si el trabajo fue en pareja y el commit es de otra persona, figura a nombre del autor del commit; para reflejarlo, usar `Co-authored-by` o una nota manual.
->
-> Sección informativa: no modifica el semáforo de aprobación.
-
-### EmilianoMontano
-
-**6/22 clases con actividad** · 7 commits · 5 merges
-
-| Fecha | Marca | Repositorios | Commits / merges |
-|---|:--:|---|--:|
-| 2026-08-14 | **Sí** | SimuladorChoques777 | 1 / 0 |
-| 2026-08-21 | No | sin actividad | 0 / 0 |
-| 2026-08-24 | No | sin actividad | 0 / 0 |
-| 2026-08-28 | No | sin actividad | 0 / 0 |
-| 2026-08-31 | No | sin actividad | 0 / 0 |
-| 2026-09-04 | No | sin actividad | 0 / 0 |
-| 2026-09-07 | No | sin actividad | 0 / 0 |
-| 2026-09-14 | No | sin actividad | 0 / 0 |
-| 2026-09-25 | No | sin actividad | 0 / 0 |
-| 2026-09-28 | No | sin actividad | 0 / 0 |
-| 2026-10-02 | No | sin actividad | 0 / 0 |
-| 2026-10-05 | No | sin actividad | 0 / 0 |
-| 2026-10-09 | No | sin actividad | 0 / 0 |
-| 2026-10-16 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-10-19 | No | sin actividad | 0 / 0 |
-| 2026-10-23 | No | sin actividad | 0 / 0 |
-| 2026-10-26 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-10-30 | No | sin actividad | 0 / 0 |
-| 2026-11-02 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-11-06 | **Sí** | SimuladorChoques777 | 2 / 1 |
-| 2026-11-13 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-11-16 | No | sin actividad | 0 / 0 |
-
-#### Aportes fuera del calendario de clases — EmilianoMontano
-
-_Sin aportes fuera del calendario de clases para EmilianoMontano._
-
-### Matías Mad
-
-**7/22 clases con actividad** · 9 commits · 9 merges
-
-| Fecha | Marca | Repositorios | Commits / merges |
-|---|:--:|---|--:|
-| 2026-08-14 | No | sin actividad | 0 / 0 |
-| 2026-08-21 | No | sin actividad | 0 / 0 |
-| 2026-08-24 | No | sin actividad | 0 / 0 |
-| 2026-08-28 | No | sin actividad | 0 / 0 |
-| 2026-08-31 | No | sin actividad | 0 / 0 |
-| 2026-09-04 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-09-07 | No | sin actividad | 0 / 0 |
-| 2026-09-14 | No | sin actividad | 0 / 0 |
-| 2026-09-25 | No | sin actividad | 0 / 0 |
-| 2026-09-28 | No | sin actividad | 0 / 0 |
-| 2026-10-02 | No | sin actividad | 0 / 0 |
-| 2026-10-05 | No | sin actividad | 0 / 0 |
-| 2026-10-09 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-10-16 | **Sí** | SimuladorChoques777 | 1 / 0 |
-| 2026-10-19 | **Sí** | SimuladorChoques777 | 2 / 2 |
-| 2026-10-23 | No | sin actividad | 0 / 0 |
-| 2026-10-26 | No | sin actividad | 0 / 0 |
-| 2026-10-30 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-11-02 | No | sin actividad | 0 / 0 |
-| 2026-11-06 | **Sí** | SimuladorChoques777 | 2 / 3 |
-| 2026-11-13 | No | sin actividad | 0 / 0 |
-| 2026-11-16 | **Sí** | SimuladorChoques777 | 1 / 1 |
-
-#### Aportes fuera del calendario de clases — Matías Mad
-
-_Sin aportes fuera del calendario de clases para Matías Mad._
-
-<!-- actividad-clases:fin -->
+| 23 | 2026-11-17 | `ca706da` | dqmdz-etec | 1,078 | 95 | 100% | 0.0% | 0 |
 
 ---
 _Informe generado por la cátedra. Los criterios y umbrales de medición corresponden al perfil `exigente` de `calidad.py`; el semáforo de aprobación, a `CRITERIOS-CALIDAD.md` (ver `README.md`). Ante dudas, revisá el archivo señalado._
