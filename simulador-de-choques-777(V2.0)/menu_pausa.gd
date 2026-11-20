@@ -28,7 +28,7 @@ extends CanvasLayer
 @onready var _boton_auto_2: Button = $UI/PanelAutos/BotonAuto2
 @onready var _boton_auto_3: Button = $UI/PanelAutos/BotonAuto3
 @onready var _boton_volver_autos: Button = $UI/PanelAutos/BotonVolverAutos
-@onready var _pausa_bloqueada: bool = false
+var _pausa_bloqueada: bool = false
 
 func _ready() -> void:
 	add_to_group(&"menu_pausa")
@@ -46,14 +46,14 @@ func _ready() -> void:
 	_conectar_senales()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		toggle_pausa()
-	if not _pausa_bloqueada:
+	if _pausa_bloqueada:
 		return
 	if event.is_action_pressed("ui_cancel"):
 		toggle_pausa()
 
 func toggle_pausa() -> void:
+	if _pausa_bloqueada:
+		return
 	var nuevo_estado: bool = not get_tree().paused
 	get_tree().paused = nuevo_estado
 	if nuevo_estado:
