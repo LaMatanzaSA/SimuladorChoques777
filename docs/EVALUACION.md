@@ -9,10 +9,10 @@
 
 | Aspecto | Resultado |
 |---|---|
-| Índice de calidad POO/SOLID | **95/100** |
-| Código (LOC) | 1,078 |
-| Archivos de código | 33 |
-| Clases (bien usadas) | 33 (31 OK) |
+| Índice de calidad POO/SOLID | **96/100** |
+| Código (LOC) | 1,333 |
+| Archivos de código | 36 |
+| Clases (bien usadas) | 36 (34 OK) |
 | Código dentro de clases (%POO) | 100% |
 | Funciones fuera de clases | 0 |
 | Duplicación lógica | 0.0% |
@@ -36,7 +36,7 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 | Código dentro de clases (%POO) | ≥ 85% | 100% | sí |
 | Duplicación lógica | ≤ 10% | 0.0% | sí |
 | Funciones fuera de clases | ≤ 1 | 0 | sí |
-| Señales POO/SOLID críticas | ninguna | Complejidad alta | no |
+| Señales POO/SOLID críticas | ninguna | Baja cohesión (LCOM), Complejidad alta | no |
 
 **Criterios para destacar**
 
@@ -46,7 +46,7 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 | Duplicación lógica | ≤ 5% | 0.0% | sí |
 | Funciones fuera de clases | ≤ 1 | 0 | sí |
 | Señales POO/SOLID críticas | ninguna | Baja cohesión (LCOM), Complejidad alta | no |
-| Índice de calidad POO/SOLID | ≥ 60 | 95/100 | sí |
+| Índice de calidad POO/SOLID | ≥ 60 | 96/100 | sí |
 
 ### Cómo se calcula el %POO (y por qué no sube solo)
 
@@ -60,12 +60,12 @@ Sube cuando el código que hoy está **fuera** de clases pasa a ser método de u
 
 | Autor | Commits | Código (LOC) | Tests (LOC) | Docs (LOC) | Días activos | % del código |
 |---|---:|---:|---:|---:|---:|---:|
-| Matías Mad | 8 | 962 | 0 | 0 | 7 | 75% |
-| EmilianoMontano | 7 | 327 | 0 | 1 | 6 | 25% |
+| Matías Mad | 9 | 1,198 | 0 | 0 | 8 | 76% |
+| EmilianoMontano | 8 | 385 | 0 | 1 | 7 | 24% |
 
 > _El LOC de autoría lo calcula RepoSense sobre el historial y puede diferir del LOC de código del análisis de calidad (que mira solo el estado de `main`)._
 
-> **Reparto del trabajo:** Matías Mad concentra el 75% de las líneas de código. Un reparto muy desigual suele indicar que la integración no fue realmente en equipo; vale la pena reconstruir cómo se coordinó.
+> **Reparto del trabajo:** Matías Mad concentra el 76% de las líneas de código. Un reparto muy desigual suele indicar que la integración no fue realmente en equipo; vale la pena reconstruir cómo se coordinó.
 
 ## 3. Fallas detectadas
 
@@ -73,7 +73,7 @@ Reúne lo que el análisis marcó y lo que todavía falta para cada semáforo. C
 
 | Falla | Tu resultado | Requisito | Archivos |
 |---|---|---|---|
-| Señales POO/SOLID críticas | Complejidad alta | Aprobar: ninguna<br>Destacar: ninguna | `simulador-de-choques-777(V2.0)/atuto_test.gd`, `simulador-de-choques-777(V2.0)/menu_pausa.gd` |
+| Señales POO/SOLID críticas | Baja cohesión (LCOM), Complejidad alta | Aprobar: ninguna<br>Destacar: ninguna | `simulador-de-choques-777(V2.0)/atuto_test.gd`, `simulador-de-choques-777(V2.0)/menu_pausa.gd` |
 | Métodos/funciones largos o con muchos parámetros | **1** método(s)/función(es) largos o con muchos parámetros | Sin señales | `simulador-de-choques-777(V2.0)/menu_pausa.gd` |
 
 ## 4. Aspectos evaluados
@@ -84,7 +84,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Un resumen numérico (0-100) que combina la riqueza de clases bien usadas con la penalización por señales POO/SOLID y duplicación, y luego aplica topes duros.
 - **Por qué importa:** Ordena y prioriza la revisión: un índice bajo indica varias señales que conviene mirar juntas.
-- **Tu resultado:** índice **95/100**
+- **Tu resultado:** índice **96/100**
 
 ### 2. Duplicación lógica (DRY) (duplicacion) — sin señales
 
@@ -195,7 +195,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 | Aspecto | Archivo | Línea | Hallazgo |
 |---|---|---:|---|
-| Baja cohesión (LCOM) | `simulador-de-choques-777(V2.0)/atuto_test.gd` | 1 | clase 'Personaje' con baja cohesión (40%) |
+| Baja cohesión (LCOM) | `simulador-de-choques-777(V2.0)/atuto_test.gd` | 1 | clase 'Personaje' con baja cohesión (22%) |
 | Baja cohesión (LCOM) | `simulador-de-choques-777(V2.0)/menu_pausa.gd` | 1 | clase 'MenuPausa' con baja cohesión (33%) |
 | Complejidad alta | `simulador-de-choques-777(V2.0)/menu_pausa.gd` | 75 | método 'MenuPausa._conectar_senales' con complejidad 14 |
 | Métodos/funciones largos o con muchos parámetros | `simulador-de-choques-777(V2.0)/menu_pausa.gd` | 75 | método 'MenuPausa._conectar_senales' de 31 líneas |
@@ -212,8 +212,8 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 **Clases con baja cohesión (2)**
 
+- `Personaje`: cohesión baja (22% de pares comparten campos)
 - `MenuPausa`: cohesión baja (33% de pares comparten campos)
-- `Personaje`: cohesión baja (40% de pares comparten campos)
 
 **Complejidad alta (1)**
 
@@ -225,14 +225,14 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 ## 5. Evolución por commit
 
-Métricas calculadas sobre el estado de `main` en **cada commit** (23 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
+Métricas calculadas sobre el estado de `main` en **cada commit** (26 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
 
 ```mermaid
 xychart-beta
     title "Índice POO/SOLID a lo largo de los commits"
-    x-axis ["8d32acc", "61db4c4", "c16a3fc", "0d868c7", "78b731b", "f64205e", "2a437bb", "354fa9e", "5bb0e0c", "a204e05", "1d4dcb4", "a0e13d5", "bf89e1f", "a9a0b67", "97b59f6", "7f7b026", "d7f9c7a", "978c468", "43aa98a", "059cb1e", "1246707", "0959975", "ca706da"]
+    x-axis ["8d32acc", "61db4c4", "c16a3fc", "0d868c7", "78b731b", "f64205e", "2a437bb", "354fa9e", "5bb0e0c", "a204e05", "1d4dcb4", "a0e13d5", "bf89e1f", "a9a0b67", "97b59f6", "7f7b026", "d7f9c7a", "978c468", "43aa98a", "059cb1e", "1246707", "0959975", "ca706da", "cdddd1a", "b954b21", "71d51cd"]
     y-axis "Índice" 0 --> 100
-    line [0, 0, 12, 11, 39, 39, 66, 72, 50, 50, 50, 92, 91, 91, 91, 91, 91, 89, 89, 89, 89, 95, 95]
+    line [0, 0, 12, 11, 39, 39, 66, 72, 50, 50, 50, 92, 91, 91, 91, 91, 91, 89, 89, 89, 89, 95, 95, 95, 95, 96]
 ```
 
 | # | Fecha | Commit | Autor | LOC | Índice | %POO | Duplic. | Sueltas |
@@ -260,89 +260,9 @@ xychart-beta
 | 21 | 2026-11-16 | `1246707` | dqmdz-etec | 758 | 89 | 100% | 0.0% | 0 |
 | 22 | 2026-11-16 | `0959975` | M-mad-2920 | 1,078 | 95 | 100% | 0.0% | 0 |
 | 23 | 2026-11-17 | `ca706da` | dqmdz-etec | 1,078 | 95 | 100% | 0.0% | 0 |
-
-<!-- actividad-clases:inicio -->
-## Actividad en días de clase
-
-> Período evaluado **2026-08-14 → 2026-11-20** · **23 clases** (lunes, viernes) · días de clase del calendario, extendidos hasta la fecha de corte.
->
-> `Commits` = commits de trabajo (no-merge); `Merges` = merges de PR (también son push). Los días sin actividad dicen **sin actividad**. El cuadro principal usa sólo las fechas de clase del calendario oficial.
->
-> **Aportes fuera del calendario:** cada alumno tiene un cuadro aparte con las fechas no lectivas con actividad, desde **2026-08-14** hasta **2026-11-20** (ventana de aportes). Esas fechas no forman parte del cuadro principal, pero se muestran para no perder trabajo hecho en fines de semana, feriados o después del período.
->
-> Se recorre `git log --all` sobre un mirror (todas las ramas y `refs/pull/*`), con deduplicación por commit. Fecha = fecha de autor en UTC-3. Los commits locales no pusheados no se ven. Si el trabajo fue en pareja y el commit es de otra persona, figura a nombre del autor del commit; para reflejarlo, usar `Co-authored-by` o una nota manual.
->
-> Sección informativa: no modifica el semáforo de aprobación.
-
-### EmilianoMontano
-
-**6/23 clases con actividad** · 7 commits · 5 merges
-
-| Fecha | Marca | Repositorios | Commits / merges |
-|---|:--:|---|--:|
-| 2026-08-14 | **Sí** | SimuladorChoques777 | 1 / 0 |
-| 2026-08-21 | No | sin actividad | 0 / 0 |
-| 2026-08-24 | No | sin actividad | 0 / 0 |
-| 2026-08-28 | No | sin actividad | 0 / 0 |
-| 2026-08-31 | No | sin actividad | 0 / 0 |
-| 2026-09-04 | No | sin actividad | 0 / 0 |
-| 2026-09-07 | No | sin actividad | 0 / 0 |
-| 2026-09-14 | No | sin actividad | 0 / 0 |
-| 2026-09-25 | No | sin actividad | 0 / 0 |
-| 2026-09-28 | No | sin actividad | 0 / 0 |
-| 2026-10-02 | No | sin actividad | 0 / 0 |
-| 2026-10-05 | No | sin actividad | 0 / 0 |
-| 2026-10-09 | No | sin actividad | 0 / 0 |
-| 2026-10-16 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-10-19 | No | sin actividad | 0 / 0 |
-| 2026-10-23 | No | sin actividad | 0 / 0 |
-| 2026-10-26 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-10-30 | No | sin actividad | 0 / 0 |
-| 2026-11-02 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-11-06 | **Sí** | SimuladorChoques777 | 2 / 1 |
-| 2026-11-13 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-11-16 | No | sin actividad | 0 / 0 |
-| 2026-11-20 | No | sin actividad | 0 / 0 |
-
-#### Aportes fuera del calendario de clases — EmilianoMontano
-
-_Sin aportes fuera del calendario de clases para EmilianoMontano._
-
-### Matías Mad
-
-**7/23 clases con actividad** · 9 commits · 9 merges
-
-| Fecha | Marca | Repositorios | Commits / merges |
-|---|:--:|---|--:|
-| 2026-08-14 | No | sin actividad | 0 / 0 |
-| 2026-08-21 | No | sin actividad | 0 / 0 |
-| 2026-08-24 | No | sin actividad | 0 / 0 |
-| 2026-08-28 | No | sin actividad | 0 / 0 |
-| 2026-08-31 | No | sin actividad | 0 / 0 |
-| 2026-09-04 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-09-07 | No | sin actividad | 0 / 0 |
-| 2026-09-14 | No | sin actividad | 0 / 0 |
-| 2026-09-25 | No | sin actividad | 0 / 0 |
-| 2026-09-28 | No | sin actividad | 0 / 0 |
-| 2026-10-02 | No | sin actividad | 0 / 0 |
-| 2026-10-05 | No | sin actividad | 0 / 0 |
-| 2026-10-09 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-10-16 | **Sí** | SimuladorChoques777 | 1 / 0 |
-| 2026-10-19 | **Sí** | SimuladorChoques777 | 2 / 2 |
-| 2026-10-23 | No | sin actividad | 0 / 0 |
-| 2026-10-26 | No | sin actividad | 0 / 0 |
-| 2026-10-30 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-11-02 | No | sin actividad | 0 / 0 |
-| 2026-11-06 | **Sí** | SimuladorChoques777 | 2 / 3 |
-| 2026-11-13 | No | sin actividad | 0 / 0 |
-| 2026-11-16 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-11-20 | No | sin actividad | 0 / 0 |
-
-#### Aportes fuera del calendario de clases — Matías Mad
-
-_Sin aportes fuera del calendario de clases para Matías Mad._
-
-<!-- actividad-clases:fin -->
+| 24 | 2026-11-20 | `cdddd1a` | dqmdz-etec | 1,078 | 95 | 100% | 0.0% | 0 |
+| 25 | 2026-11-20 | `b954b21` | dqmdz-etec | 1,126 | 95 | 100% | 0.0% | 0 |
+| 26 | 2026-11-20 | `71d51cd` | dqmdz-etec | 1,333 | 96 | 100% | 0.0% | 0 |
 
 ---
 _Informe generado por la cátedra. Los criterios y umbrales de medición corresponden al perfil `exigente` de `calidad.py`; el semáforo de aprobación, a `CRITERIOS-CALIDAD.md` (ver `README.md`). Ante dudas, revisá el archivo señalado._
