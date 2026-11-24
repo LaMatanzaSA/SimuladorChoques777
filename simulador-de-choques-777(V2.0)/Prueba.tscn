@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cyl3mkj665b2i" path="res://SueloTest.tscn" id="1_vnpk6"]
 [ext_resource type="PackedScene" uid="uid://usoha0vby261" path="res://AtutoTest.tscn" id="2_lgsii"]
+[ext_resource type="Script" uid="uid://cgtsj4gytp1sd" path="res://vehicle_stats.gd" id="3_2p5g7"]
 [ext_resource type="Script" uid="uid://b1o7fphj82aa4" path="res://efectos_auto.gd" id="3_d4gy5"]
 [ext_resource type="PackedScene" uid="uid://c6wdmvvejqpu7" path="res://ruedatest.tscn" id="4_lgsii"]
 [ext_resource type="Texture2D" uid="uid://bdexynepoyj03" path="res://Sprites/Animaciones/explosion-removebg-preview(1).png" id="4_swha6"]
@@ -13,6 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://cb7p6kin87gal" path="res://Sprites/FONDOS REALES/MUNDO 1.png" id="7_ep22w"]
 [ext_resource type="Script" uid="uid://3tl82mqhj3ic" path="res://fondo.gd" id="10_63gni"]
 [ext_resource type="Script" uid="uid://dj8h581rf8221" path="res://panel_slide_animator.gd" id="11_np4jp"]
+[ext_resource type="Script" uid="uid://53gsafdmc4do" path="res://parallax_scroller.gd" id="14_b4wox"]
+
+[sub_resource type="Resource" id="Resource_ky346"]
+script = ExtResource("3_2p5g7")
+metadata/_custom_type_script = "uid://cgtsj4gytp1sd"
 
 [sub_resource type="Curve" id="Curve_d4gy5"]
 _limits = [0.25, 1.5, 0.0, 1.0]
@@ -550,6 +556,7 @@ animations = [{
 
 [node name="CharacterBody2D" parent="." unique_id=182666106 instance=ExtResource("2_lgsii")]
 position = Vector2(18, -54)
+_stats = SubResource("Resource_ky346")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1390244013]
 
@@ -635,3 +642,6 @@ position = Vector2(576, 324)
 scale = Vector2(3.6000001, 3.6000001)
 texture = ExtResource("7_ep22w")
 script = ExtResource("11_np4jp")
+
+[node name="Node" type="Node" parent="ParallaxBackground" unique_id=614431285]
+script = ExtResource("14_b4wox")

@@ -1,47 +1,37 @@
 class_name MenuPausa
 extends CanvasLayer
+## ÚNICA responsabilidad: coordinar la pausa (abrir/cerrar el panel y navegar entre sus
+## submenús). El cableado de botones lo hace `ButtonBinder`, la navegación de escenas
+## `SceneFlow` y la elección guardada vive en `GameManager`.
 
 @export_file("*.tscn") var _ruta_menu_principal: String = "res://menu_inicio.tscn"
 @export var _animador: PanelSlideAnimator
+## Opciones de los submenús, en el mismo orden que sus botones (BotonMapa1, 2, 3...).
+## Agregar un mapa o un auto es sumar un botón a la escena y una ruta acá.
+@export_file("*.png") var _rutas_mapas: PackedStringArray = PackedStringArray([
+	"res://Sprites/FONDOS REALES/MUNDO 1.png",
+	"res://Sprites/FONDOS REALES/MUNDO 2.png",
+	"res://Sprites/FONDOS REALES/MUNDO 3.png",
+])
+@export_file("*.png") var _rutas_autos: PackedStringArray = PackedStringArray([
+	"res://Sprites/Cars/taxi.png",
+	"res://Sprites/Cars/sports_yellow.png",
+	"res://Sprites/Cars/sports_race.png",
+])
 
-# Contenedor principal y paneles secundarios
 @onready var _ui_contenedor: Control = $UI
 @onready var _menu_principal_vbox: Control = $UI/VBoxContainer
 @onready var _panel_mapas: Control = $UI/PanelMapas
 @onready var _panel_autos: Control = $UI/PanelAutos
 
-# Botones del menú principal
-@onready var _boton_continuar: Button = $UI/VBoxContainer/BotonContinuar
-@onready var _boton_mapas: Button = $UI/VBoxContainer/BotonMapas
-@onready var _boton_autos: Button = $UI/VBoxContainer/BotonAutos
-@onready var _boton_reiniciar: Button = $UI/VBoxContainer/BotonReiniciar
-@onready var _boton_salir: Button = $UI/VBoxContainer/BotonSalir
-
-# Botones del panel de Mapas
-@onready var _boton_mapa_1: Button = $UI/PanelMapas/BotonMapa1
-@onready var _boton_mapa_2: Button = $UI/PanelMapas/BotonMapa2
-@onready var _boton_mapa_3: Button = $UI/PanelMapas/BotonMapa3
-@onready var _boton_volver_mapas: Button = $UI/PanelMapas/BotonVolverMapas
-
-# Botones del panel de Autos
-@onready var _boton_auto_1: Button = $UI/PanelAutos/BotonAuto1
-@onready var _boton_auto_2: Button = $UI/PanelAutos/BotonAuto2
-@onready var _boton_auto_3: Button = $UI/PanelAutos/BotonAuto3
-@onready var _boton_volver_autos: Button = $UI/PanelAutos/BotonVolverAutos
+var _flujo: SceneFlow
 var _pausa_bloqueada: bool = false
 
 func _ready() -> void:
 	add_to_group(&"menu_pausa")
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	
-	if _animador == null:
-		_animador = PanelSlideAnimator.new()
-		add_child(_animador)
-	
-	if is_instance_valid(_animador):
-		_animador.panel = _ui_contenedor
-		_animador.inicializar()
-		
+	_flujo = SceneFlow.new(get_tree(), _ruta_menu_principal)
+	_preparar_animador()
 	_mostrar_submenu(null) # Deja visible únicamente el menú de pausa principal
 	_conectar_senales()
 
@@ -64,6 +54,21 @@ func toggle_pausa() -> void:
 		if is_instance_valid(_animador):
 			_animador.salir()
 
+func bloquear_pausa() -> void:
+	_pausa_bloqueada = true
+	if get_tree().paused:
+		get_tree().paused = false
+		if is_instance_valid(_animador):
+			_animador.salir()
+
+func _preparar_animador() -> void:
+	if _animador == null:
+		_animador = PanelSlideAnimator.new()
+		add_child(_animador)
+	_animador.panel = _ui_contenedor
+	_animador.inicializar()
+
+## Muestra el submenú indicado; con null, el menú principal.
 func _mostrar_submenu(sub_panel: Control) -> void:
 	if is_instance_valid(_menu_principal_vbox):
 		_menu_principal_vbox.visible = (sub_panel == null)
@@ -73,51 +78,29 @@ func _mostrar_submenu(sub_panel: Control) -> void:
 		_panel_autos.visible = (sub_panel == _panel_autos)
 
 func _conectar_senales() -> void:
-	# Navegación principal
-	if is_instance_valid(_boton_continuar):
-		_boton_continuar.pressed.connect(toggle_pausa)
-	if is_instance_valid(_boton_mapas):
-		_boton_mapas.pressed.connect(func() -> void: _mostrar_submenu(_panel_mapas))
-	if is_instance_valid(_boton_autos):
-		_boton_autos.pressed.connect(func() -> void: _mostrar_submenu(_panel_autos))
-	if is_instance_valid(_boton_reiniciar):
-		_boton_reiniciar.pressed.connect(func() -> void: SceneFlow.reiniciar_escena(get_tree()))
-	if is_instance_valid(_boton_salir):
-		_boton_salir.pressed.connect(func() -> void: SceneFlow.cambiar_escena(get_tree(), _ruta_menu_principal))
+	var binder: ButtonBinder = ButtonBinder.new()
+	_conectar_navegacion(binder)
+	_conectar_selecciones(binder)
 
-	# Botones de regreso
-	if is_instance_valid(_boton_volver_mapas):
-		_boton_volver_mapas.pressed.connect(func() -> void: _mostrar_submenu(null))
-	if is_instance_valid(_boton_volver_autos):
-		_boton_volver_autos.pressed.connect(func() -> void: _mostrar_submenu(null))
+func _conectar_navegacion(binder: ButtonBinder) -> void:
+	binder.conectar_por_nombre(_menu_principal_vbox, {
+		"BotonContinuar": toggle_pausa,
+		"BotonMapas": _mostrar_submenu.bind(_panel_mapas),
+		"BotonAutos": _mostrar_submenu.bind(_panel_autos),
+		"BotonReiniciar": _flujo.reiniciar,
+		"BotonSalir": _flujo.ir_al_menu_principal,
+	})
+	binder.conectar_por_nombre(_panel_mapas, {"BotonVolverMapas": _mostrar_submenu.bind(null)})
+	binder.conectar_por_nombre(_panel_autos, {"BotonVolverAutos": _mostrar_submenu.bind(null)})
 
-	# Selección de Mapas
-	if is_instance_valid(_boton_mapa_1):
-		_boton_mapa_1.pressed.connect(func() -> void: _seleccionar_mapa("res://Sprites/FONDOS REALES/MUNDO 1.png"))
-	if is_instance_valid(_boton_mapa_2):
-		_boton_mapa_2.pressed.connect(func() -> void: _seleccionar_mapa("res://Sprites/FONDOS REALES/MUNDO 2.png"))
-	if is_instance_valid(_boton_mapa_3):
-		_boton_mapa_3.pressed.connect(func() -> void: _seleccionar_mapa("res://Sprites/FONDOS REALES/MUNDO 3.png"))
-
-	# Selección de Autos
-	if is_instance_valid(_boton_auto_1):
-		_boton_auto_1.pressed.connect(func() -> void: _seleccionar_auto("res://Sprites/Cars/taxi.png"))
-	if is_instance_valid(_boton_auto_2):
-		_boton_auto_2.pressed.connect(func() -> void: _seleccionar_auto("res://Sprites/Cars/sports_yellow.png"))
-	if is_instance_valid(_boton_auto_3):
-		_boton_auto_3.pressed.connect(func() -> void: _seleccionar_auto("res://Sprites/Cars/sports_race.png"))
+func _conectar_selecciones(binder: ButtonBinder) -> void:
+	binder.conectar_opciones(_panel_mapas, "BotonMapa", _rutas_mapas, _seleccionar_mapa)
+	binder.conectar_opciones(_panel_autos, "BotonAuto", _rutas_autos, _seleccionar_auto)
 
 func _seleccionar_mapa(ruta_mapa: String) -> void:
-	GameManager.mapa_seleccionado = ruta_mapa
-	SceneFlow.reiniciar_escena(get_tree())
+	GameManager.cambiar_mapa(ruta_mapa)
+	_flujo.reiniciar()
 
 func _seleccionar_auto(ruta_auto: String) -> void:
-	GameManager.auto_seleccionado = ruta_auto
-	SceneFlow.reiniciar_escena(get_tree())
-
-func bloquear_pausa() -> void:
-	_pausa_bloqueada = true
-	if get_tree().paused:
-		get_tree().paused = false
-		if is_instance_valid(_animador) and _animador.has_method("salir"):
-			_animador.salir()
+	GameManager.cambiar_auto(ruta_auto)
+	_flujo.reiniciar()
