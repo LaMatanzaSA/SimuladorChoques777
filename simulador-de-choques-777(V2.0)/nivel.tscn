@@ -11,14 +11,18 @@
 [ext_resource type="Script" uid="uid://dgsfns0c20r7k" path="res://lane_track.gd" id="11_trk"]
 [ext_resource type="Script" uid="uid://bdfklaf2tje74" path="res://terrain_streamer.gd" id="12_str"]
 [ext_resource type="Texture2D" uid="uid://e5v8rqp7y7cl" path="res://Sprites/Animaciones/fuego-ezgif.com-gif-to-sprite-converter.png" id="12_sye3q"]
+[ext_resource type="Script" uid="uid://3tl82mqhj3ic" path="res://fondo.gd" id="13_8a6d0"]
 [ext_resource type="Resource" path="res://default_segment_catalog.tres" id="13_cat"]
 [ext_resource type="Script" uid="uid://dj8h581rf8221" path="res://panel_slide_animator.gd" id="14_e7jer"]
 [ext_resource type="Script" uid="uid://cdot0vxur6hm2" path="res://lane_body_follower.gd" id="14_fol"]
 [ext_resource type="Script" uid="uid://bqmbe42g1m3ad" path="res://lane_shifter.gd" id="15_shf"]
 [ext_resource type="PackedScene" uid="uid://bfp7ugu2d1dts" path="res://velocimetro_movimiento.tscn" id="16_vel"]
+[ext_resource type="Script" uid="uid://53gsafdmc4do" path="res://parallax_scroller.gd" id="17_12y6l"]
 [ext_resource type="PackedScene" uid="uid://bwd7vllafxdnc" path="res://menu_pausa.tscn" id="17_pau"]
-[ext_resource type="PackedScene" path="res://ObstaculoTest.tscn" id="18_bcau2"]
 [ext_resource type="PackedScene" uid="uid://6ctnn8raqqwg" path="res://pantalla_muerte.tscn" id="18_mue"]
+[ext_resource type="Script" uid="uid://dixhqhswx3crj" path="res://enemy_spawner.gd" id="21_a3547"]
+[ext_resource type="Resource" uid="uid://cko8qd2ua1sly" path="res://default_traffic_config.tres" id="22_rb50q"]
+[ext_resource type="PackedScene" path="res://enemy_vehicle.tscn" id="23_iablh"]
 
 [sub_resource type="Curve" id="Curve_6apml"]
 _limits = [0.25, 1.5, 0.0, 1.0]
@@ -587,8 +591,7 @@ script = ExtResource("12_str")
 _catalogo = ExtResource("13_cat")
 _limites_vista = NodePath("../../LimitesVista")
 
-[node name="CharacterBody2D" parent="." unique_id=182666106 node_paths=PackedStringArray("nodo_parallax") instance=ExtResource("3_ymy7k")]
-nodo_parallax = NodePath("../ParallaxBackground")
+[node name="CharacterBody2D" parent="." unique_id=182666106 instance=ExtResource("3_ymy7k")]
 
 [node name="SeguidorCarril" type="Node" parent="CharacterBody2D" unique_id=1123397007 node_paths=PackedStringArray("_cuerpo", "_controlador")]
 script = ExtResource("14_fol")
@@ -619,6 +622,7 @@ scale = Vector2(0.5475001, 0.17166665)
 sprite_frames = SubResource("SpriteFrames_8a6d0")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=330720827]
+script = ExtResource("13_8a6d0")
 
 [node name="DesplazadorFondo" type="Node" parent="ParallaxBackground" unique_id=1527255604 node_paths=PackedStringArray("_objetivo", "_controlador")]
 script = ExtResource("15_shf")
@@ -637,6 +641,9 @@ scale = Vector2(3.6000001, 3.6000001)
 texture = ExtResource("2_j87l1")
 script = ExtResource("14_e7jer")
 
+[node name="Node" type="Node" parent="ParallaxBackground" unique_id=68762274]
+script = ExtResource("17_12y6l")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1841613493]
 
 [node name="velocimetro" parent="CanvasLayer" unique_id=2115096295 instance=ExtResource("16_vel")]
@@ -645,7 +652,14 @@ script = ExtResource("14_e7jer")
 
 [node name="PantallaMuerte" parent="." unique_id=949578974 instance=ExtResource("18_mue")]
 
-[node name="Obstaculo" parent="." unique_id=1306095832 instance=ExtResource("18_bcau2")]
-position = Vector2(399, 16)
+[node name="Enemigos" type="Node2D" parent="." unique_id=445187475]
+
+[node name="Node" type="Node" parent="Enemigos" unique_id=2144249916 node_paths=PackedStringArray("_controlador", "_limites_vista", "_contenedor")]
+script = ExtResource("21_a3547")
+_config = ExtResource("22_rb50q")
+_escena_enemigo = ExtResource("23_iablh")
+_controlador = NodePath("../../Carriles/ControladorCarriles")
+_limites_vista = NodePath("../../Carriles/LimitesVista")
+_contenedor = NodePath("..")
 
 [connection signal="desplazamiento_solicitado" from="Carriles/EntradaCarriles" to="Carriles/ControladorCarriles" method="desplazar"]

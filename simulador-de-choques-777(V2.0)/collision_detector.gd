@@ -15,6 +15,7 @@ signal impacto_detectado(fuerza: float)
 
 var _velocidad_actual: float = 0.0
 
+
 func _ready() -> void:
 	# Conexiones idempotentes: funcionan igual si la escena ya las traía.
 	if not body_entered.is_connected(_on_body_entered):
@@ -32,11 +33,16 @@ func desactivar() -> void:
 	set_deferred(&"monitoring", false)
 
 func _on_body_entered(body: Node2D) -> void:
+	print("entró: ", body.name, " obstaculo=", body.is_in_group(_grupo_obstaculo), " vel=", _velocidad_actual)
 	if not body.is_in_group(_grupo_obstaculo):
 		return
-	if _velocidad_actual < _velocidad_minima:
+	var velocidad_obstaculo: float = 0.0
+	if body.has_method(&"velocidad_de_impacto"):
+		velocidad_obstaculo = body.call(&"velocidad_de_impacto")
+	var fuerza: float = _velocidad_actual + velocidad_obstaculo
+	if fuerza < _velocidad_minima:
 		return
-	impacto_detectado.emit(_velocidad_actual)
+	impacto_detectado.emit(fuerza)
 
 func _suscribirse(senal: StringName, receptor: Callable) -> void:
 	if not is_instance_valid(_fuente_velocidad) or not _fuente_velocidad.has_signal(senal):
