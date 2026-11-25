@@ -3,20 +3,21 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación II (RepoSense + análisis de calidad POO/SOLID). **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas): es una criba para orientar la revisión, **no una nota**.
-> Generado: 2026-11-20.
+> Generado: 2026-11-25.
 
 ## 1. Veredicto
 
 | Aspecto | Resultado |
 |---|---|
-| Índice de calidad POO/SOLID | **96/100** |
-| Código (LOC) | 1,333 |
-| Archivos de código | 36 |
-| Clases (bien usadas) | 36 (34 OK) |
+| Índice de calidad POO/SOLID | **97/100** |
+| Commit evaluado | `a09f9a838bbe` (2026-11-24) |
+| Código (LOC) | 1,383 |
+| Archivos de código | 39 |
+| Clases (bien usadas) | 39 (37 OK) |
 | Código dentro de clases (%POO) | 100% |
 | Funciones fuera de clases | 0 |
 | Duplicación lógica | 0.0% |
-| Señales S/O/L/I/D | 3/0/0/0/0 |
+| Señales S/O/L/I/D | 2/0/0/0/0 |
 
 > Este informe **describe** lo que el análisis midió con los criterios ya establecidos de la materia. No es una nota.
 
@@ -26,7 +27,7 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 
 | Semáforo | Resultado |
 |---|---|
-| Aprobar (`estandar`) | **no cumple** — 3/4 |
+| Aprobar (`estandar`) | **cumple** — 4/4 |
 | Destacar (`exigente`) | **no cumple** — 4/5 |
 
 **Criterios para aprobar**
@@ -36,7 +37,7 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 | Código dentro de clases (%POO) | ≥ 85% | 100% | sí |
 | Duplicación lógica | ≤ 10% | 0.0% | sí |
 | Funciones fuera de clases | ≤ 1 | 0 | sí |
-| Señales POO/SOLID críticas | ninguna | Baja cohesión (LCOM), Complejidad alta | no |
+| Señales POO/SOLID críticas | ninguna | ninguna | sí |
 
 **Criterios para destacar**
 
@@ -45,8 +46,8 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 | Código dentro de clases (%POO) | ≥ 95% | 100% | sí |
 | Duplicación lógica | ≤ 5% | 0.0% | sí |
 | Funciones fuera de clases | ≤ 1 | 0 | sí |
-| Señales POO/SOLID críticas | ninguna | Baja cohesión (LCOM), Complejidad alta | no |
-| Índice de calidad POO/SOLID | ≥ 60 | 96/100 | sí |
+| Señales POO/SOLID críticas | ninguna | Baja cohesión (LCOM) | no |
+| Índice de calidad POO/SOLID | ≥ 60 | 97/100 | sí |
 
 ### Cómo se calcula el %POO (y por qué no sube solo)
 
@@ -60,12 +61,12 @@ Sube cuando el código que hoy está **fuera** de clases pasa a ser método de u
 
 | Autor | Commits | Código (LOC) | Tests (LOC) | Docs (LOC) | Días activos | % del código |
 |---|---:|---:|---:|---:|---:|---:|
-| Matías Mad | 9 | 1,198 | 0 | 0 | 8 | 76% |
-| EmilianoMontano | 8 | 385 | 0 | 1 | 7 | 24% |
+| Matías Mad | 10 | 1,366 | 0 | 0 | 9 | 83% |
+| EmilianoMontano | 8 | 271 | 0 | 1 | 7 | 17% |
 
 > _El LOC de autoría lo calcula RepoSense sobre el historial y puede diferir del LOC de código del análisis de calidad (que mira solo el estado de `main`)._
 
-> **Reparto del trabajo:** Matías Mad concentra el 76% de las líneas de código. Un reparto muy desigual suele indicar que la integración no fue realmente en equipo; vale la pena reconstruir cómo se coordinó.
+> **Reparto del trabajo:** Matías Mad concentra el 83% de las líneas de código. Un reparto muy desigual suele indicar que la integración no fue realmente en equipo; vale la pena reconstruir cómo se coordinó.
 
 ## 3. Fallas detectadas
 
@@ -73,8 +74,7 @@ Reúne lo que el análisis marcó y lo que todavía falta para cada semáforo. C
 
 | Falla | Tu resultado | Requisito | Archivos |
 |---|---|---|---|
-| Señales POO/SOLID críticas | Baja cohesión (LCOM), Complejidad alta | Aprobar: ninguna<br>Destacar: ninguna | `simulador-de-choques-777(V2.0)/atuto_test.gd`, `simulador-de-choques-777(V2.0)/menu_pausa.gd` |
-| Métodos/funciones largos o con muchos parámetros | **1** método(s)/función(es) largos o con muchos parámetros | Sin señales | `simulador-de-choques-777(V2.0)/menu_pausa.gd` |
+| Señales POO/SOLID críticas | Baja cohesión (LCOM) | Destacar: ninguna | `simulador-de-choques-777(V2.0)/atuto_test.gd`, `simulador-de-choques-777(V2.0)/menu_pausa.gd` |
 
 ## 4. Aspectos evaluados
 
@@ -84,7 +84,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Un resumen numérico (0-100) que combina la riqueza de clases bien usadas con la penalización por señales POO/SOLID y duplicación, y luego aplica topes duros.
 - **Por qué importa:** Ordena y prioriza la revisión: un índice bajo indica varias señales que conviene mirar juntas.
-- **Tu resultado:** índice **96/100**
+- **Tu resultado:** índice **97/100**
 
 ### 2. Duplicación lógica (DRY) (duplicacion) — sin señales
 
@@ -121,25 +121,17 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
     - ¿Cambian por motivos distintos según la tarea?
     - ¿Se pensó su responsabilidad antes de escribirla, o se fue agregando?
 
-### 7. Complejidad alta (complejidad) — con señales
+### 7. Complejidad alta (complejidad) — sin señales
 
 - **Qué mide:** Complejidad ciclomática: cantidad de caminos posibles dentro de un método o función (condicionales, bucles, casos).
 - **Por qué importa:** Muchos caminos = difícil de seguir y de probar; suelen esconderse casos sin cubrir.
-- **Tu resultado:** **1** método(s)/función(es) con complejidad alta
-- **Para investigar la causa:**
-    - ¿Se agregaron condiciones a medida que aparecían casos nuevos?
-    - ¿Se probaron todos los caminos o solo el caso principal?
-    - ¿Hay reglas de negocio mezcladas con detalles técnicos?
+- **Tu resultado:** **0** método(s)/función(es) con complejidad alta
 
-### 8. Métodos/funciones largos o con muchos parámetros (tamano) — con señales
+### 8. Métodos/funciones largos o con muchos parámetros (tamano) — sin señales
 
 - **Qué mide:** Tamaño de los métodos/funciones y cantidad de parámetros.
 - **Por qué importa:** Una función que hace varias cosas cuesta leerla, nombrarla y reutilizarla.
-- **Tu resultado:** **1** método(s)/función(es) largos o con muchos parámetros
-- **Para investigar la causa:**
-    - ¿La función creció por acumulación de pasos?
-    - ¿Agrupa operaciones que podrían describirse por separado?
-    - ¿Los parámetros representan una misma idea (un objeto) o cosas sueltas?
+- **Tu resultado:** **0** método(s)/función(es) largos o con muchos parámetros
 
 ### 9. Acoplamiento alto (CBO) (acoplamiento) — sin señales
 
@@ -189,50 +181,83 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 - **Por qué importa:** Es comportamiento procedural disfrazado de clase: no se instancia ni participa del modelo de objetos.
 - **Tu resultado:** **0** clase(s) solo con métodos estáticos
 
+### Resumen de señales por tipo
+
+| Señal | Cantidad | Principio | Archivos |
+|---|---:|---|---:|
+| baja cohesión | 2 | S | 2 |
+
+### Resumen por archivo
+
+> Archivos ordenados por cantidad de señales. Se excluyen **0** señal(es) de nivel repositorio sin archivo propio.
+
+| Archivo | Señales | Aspectos | Líneas |
+|---|---:|---|---|
+| `simulador-de-choques-777(V2.0)/atuto_test.gd` | 1 | cohesión | 1 |
+| `simulador-de-choques-777(V2.0)/menu_pausa.gd` | 1 | cohesión | 1 |
+
 ### Archivos donde se originan las señales
 
-> Se listan **4** hallazgo(s) localizados en **2** archivo(s). La columna `Línea` es la línea del archivo donde el análisis detectó la señal; `—` indica una señal de nivel repositorio (sin archivo propio).
+> Se listan **2** hallazgo(s) localizados en **2** archivo(s). La columna `Línea` es la línea del archivo donde el análisis detectó la señal; `—` indica una señal de nivel repositorio (sin archivo propio).
 
 | Aspecto | Archivo | Línea | Hallazgo |
 |---|---|---:|---|
-| Baja cohesión (LCOM) | `simulador-de-choques-777(V2.0)/atuto_test.gd` | 1 | clase 'Personaje' con baja cohesión (22%) |
-| Baja cohesión (LCOM) | `simulador-de-choques-777(V2.0)/menu_pausa.gd` | 1 | clase 'MenuPausa' con baja cohesión (33%) |
-| Complejidad alta | `simulador-de-choques-777(V2.0)/menu_pausa.gd` | 75 | método 'MenuPausa._conectar_senales' con complejidad 14 |
-| Métodos/funciones largos o con muchos parámetros | `simulador-de-choques-777(V2.0)/menu_pausa.gd` | 75 | método 'MenuPausa._conectar_senales' de 31 líneas |
+| Baja cohesión (LCOM) | `simulador-de-choques-777(V2.0)/atuto_test.gd` | 1 | clase 'Personaje' con baja cohesión (39%) |
+| Baja cohesión (LCOM) | `simulador-de-choques-777(V2.0)/menu_pausa.gd` | 1 | clase 'MenuPausa' con baja cohesión (32%) |
+
+### Clases señaladas — métricas
+
+> Solo clases con al menos una señal. `LOC lóg.` y `Mét. lóg.` descuentan getters/setters; `LCOM` es la cantidad de pares de métodos sin campos en común.
+
+| Clase | Archivo | Línea | LOC lóg. | Mét. lóg. | Campos | CBO | LCOM | Cohesión | WMC | RFC | Señales |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| `MenuPausa` | `simulador-de-choques-777(V2.0)/menu_pausa.gd` | 1 | 66 | 11 | 7 | 5 | 19 | 32% | 23 | 38 | baja cohesión×1 |
+| `Personaje` | `simulador-de-choques-777(V2.0)/atuto_test.gd` | 1 | 51 | 11 | 10 | 5 | 22 | 39% | 19 | 43 | baja cohesión×1 |
+
+### Umbrales aplicados (perfil exigente)
+
+| Señal | Regla |
+|---|---|
+| Clase grande (SRP) | ≥ 200 LOC lógico, o ≥ 15 métodos con lógica y ≥ 100 LOC lógico; no cuentan getters/setters. |
+| Baja cohesión (LCOM) | < 50 % de pares de métodos comparten algún campo, con ≥ 4 métodos con lógica y ≥ 3 campos. |
+| Complejidad alta | algún método con complejidad ciclomática ≥ 10. |
+| Método largo | ≥ 30 líneas. |
+| Muchos parámetros | > 4 parámetros (5 o más). |
+| Acoplamiento alto (CBO) | CBO ≥ 8. |
+| Herencia profunda | DIT ≥ 3. |
+| Type-check / switch de tipos | ≥ 1 cadena de type-check. |
+| Interfaz demasiado grande (ISP) | > 6 métodos (7 o más). |
+| Override vacío (LSP) | método vacío o marcado como 'no implementado'. |
+| Clase solo de datos | 0 métodos y ≥ 3 campos. |
+| Campos mutables públicos | ≥ 4 campos mutables públicos y ≥ 4 campos. |
+| Clase estática | ≥ 2 métodos y todos estáticos. |
+| Duplicación lógica | ventana de 8 líneas; solo lógica; se informa desde 1 %. |
 
 ### Desglose de la columna S (SRP)
 
-> La columna **S** no es un puntaje: cuenta **señales** de SRP. Aquí suma **3** entrada(s) sobre **2** clase(s) distinta(s).
-> 1 clase(s) acumulan más de una señal: `MenuPausa`.
+> La columna **S** no es un puntaje: cuenta **señales** de SRP. Aquí suma **2** entrada(s) sobre **2** clase(s) distinta(s).
 
 | Señal | Entradas | Regla (perfil exigente) |
 |---|---:|---|
 | Cohesión baja | 2 | < 50 % de los pares de métodos comparten algún campo (con ≥ 4 métodos con lógica y ≥ 3 campos). |
-| Complejidad alta | 1 | Algún método con complejidad ciclomática ≥ 10. |
 
 **Clases con baja cohesión (2)**
 
-- `Personaje`: cohesión baja (22% de pares comparten campos)
-- `MenuPausa`: cohesión baja (33% de pares comparten campos)
-
-**Complejidad alta (1)**
-
-- `MenuPausa`: complejidad alta (máx=14)
-
-> Los **1** hallazgo(s) de métodos largos o con muchos parámetros se listan en «Métodos/funciones largos o con muchos parámetros» y **no suman** a la columna S.
+- `MenuPausa`: cohesión baja (32% de pares comparten campos)
+- `Personaje`: cohesión baja (39% de pares comparten campos)
 
 > El análisis no excluye tests: una clase de test que supere los umbrales también suma.
 
 ## 5. Evolución por commit
 
-Métricas calculadas sobre el estado de `main` en **cada commit** (28 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
+Métricas calculadas sobre el estado de `main` en **cada commit** (30 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
 
 ```mermaid
 xychart-beta
     title "Índice POO/SOLID a lo largo de los commits"
-    x-axis ["8d32acc", "61db4c4", "c16a3fc", "0d868c7", "78b731b", "f64205e", "2a437bb", "354fa9e", "5bb0e0c", "a204e05", "1d4dcb4", "a0e13d5", "bf89e1f", "a9a0b67", "97b59f6", "7f7b026", "d7f9c7a", "978c468", "43aa98a", "059cb1e", "1246707", "0959975", "ca706da", "cdddd1a", "b954b21", "71d51cd", "b88f005", "c2f4cd6"]
+    x-axis ["8d32acc", "61db4c4", "c16a3fc", "0d868c7", "78b731b", "f64205e", "2a437bb", "354fa9e", "5bb0e0c", "a204e05", "1d4dcb4", "a0e13d5", "bf89e1f", "a9a0b67", "97b59f6", "7f7b026", "d7f9c7a", "978c468", "43aa98a", "059cb1e", "1246707", "0959975", "ca706da", "cdddd1a", "b954b21", "71d51cd", "b88f005", "c2f4cd6", "ae256ab", "a09f9a8"]
     y-axis "Índice" 0 --> 100
-    line [0, 0, 12, 11, 39, 39, 66, 72, 50, 50, 50, 92, 91, 91, 91, 91, 91, 89, 89, 89, 89, 95, 95, 95, 95, 96, 96, 96]
+    line [0, 0, 12, 11, 39, 39, 66, 72, 50, 50, 50, 92, 91, 91, 91, 91, 91, 89, 89, 89, 89, 95, 95, 95, 95, 96, 96, 96, 96, 97]
 ```
 
 | # | Fecha | Commit | Autor | LOC | Índice | %POO | Duplic. | Sueltas |
@@ -265,89 +290,8 @@ xychart-beta
 | 26 | 2026-11-20 | `71d51cd` | dqmdz-etec | 1,333 | 96 | 100% | 0.0% | 0 |
 | 27 | 2026-11-20 | `b88f005` | dqmdz-etec | 1,333 | 96 | 100% | 0.0% | 0 |
 | 28 | 2026-11-20 | `c2f4cd6` | dqmdz-etec | 1,333 | 96 | 100% | 0.0% | 0 |
-
-<!-- actividad-clases:inicio -->
-## Actividad en días de clase
-
-> Período evaluado **2026-08-14 → 2026-11-20** · **23 clases** (lunes, viernes) · días de clase del calendario, extendidos hasta la fecha de corte.
->
-> `Commits` = commits de trabajo (no-merge); `Merges` = merges de PR (también son push). Los días sin actividad dicen **sin actividad**. El cuadro principal usa sólo las fechas de clase del calendario oficial.
->
-> **Aportes fuera del calendario:** cada alumno tiene un cuadro aparte con las fechas no lectivas con actividad, desde **2026-08-14** hasta **2026-11-20** (ventana de aportes). Esas fechas no forman parte del cuadro principal, pero se muestran para no perder trabajo hecho en fines de semana, feriados o después del período.
->
-> Se recorre `git log --all` sobre un mirror (todas las ramas y `refs/pull/*`), con deduplicación por commit. Fecha = fecha de autor en UTC-3. Los commits locales no pusheados no se ven. Si el trabajo fue en pareja y el commit es de otra persona, figura a nombre del autor del commit; para reflejarlo, usar `Co-authored-by` o una nota manual.
->
-> Sección informativa: no modifica el semáforo de aprobación.
-
-### EmilianoMontano
-
-**7/23 clases con actividad** · 8 commits · 5 merges
-
-| Fecha | Marca | Repositorios | Commits / merges |
-|---|:--:|---|--:|
-| 2026-08-14 | **Sí** | SimuladorChoques777 | 1 / 0 |
-| 2026-08-21 | No | sin actividad | 0 / 0 |
-| 2026-08-24 | No | sin actividad | 0 / 0 |
-| 2026-08-28 | No | sin actividad | 0 / 0 |
-| 2026-08-31 | No | sin actividad | 0 / 0 |
-| 2026-09-04 | No | sin actividad | 0 / 0 |
-| 2026-09-07 | No | sin actividad | 0 / 0 |
-| 2026-09-14 | No | sin actividad | 0 / 0 |
-| 2026-09-25 | No | sin actividad | 0 / 0 |
-| 2026-09-28 | No | sin actividad | 0 / 0 |
-| 2026-10-02 | No | sin actividad | 0 / 0 |
-| 2026-10-05 | No | sin actividad | 0 / 0 |
-| 2026-10-09 | No | sin actividad | 0 / 0 |
-| 2026-10-16 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-10-19 | No | sin actividad | 0 / 0 |
-| 2026-10-23 | No | sin actividad | 0 / 0 |
-| 2026-10-26 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-10-30 | No | sin actividad | 0 / 0 |
-| 2026-11-02 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-11-06 | **Sí** | SimuladorChoques777 | 2 / 1 |
-| 2026-11-13 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-11-16 | No | sin actividad | 0 / 0 |
-| 2026-11-20 | **Sí** | SimuladorChoques777 | 1 / 0 |
-
-#### Aportes fuera del calendario de clases — EmilianoMontano
-
-_Sin aportes fuera del calendario de clases para EmilianoMontano._
-
-### Matías Mad
-
-**8/23 clases con actividad** · 10 commits · 9 merges
-
-| Fecha | Marca | Repositorios | Commits / merges |
-|---|:--:|---|--:|
-| 2026-08-14 | No | sin actividad | 0 / 0 |
-| 2026-08-21 | No | sin actividad | 0 / 0 |
-| 2026-08-24 | No | sin actividad | 0 / 0 |
-| 2026-08-28 | No | sin actividad | 0 / 0 |
-| 2026-08-31 | No | sin actividad | 0 / 0 |
-| 2026-09-04 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-09-07 | No | sin actividad | 0 / 0 |
-| 2026-09-14 | No | sin actividad | 0 / 0 |
-| 2026-09-25 | No | sin actividad | 0 / 0 |
-| 2026-09-28 | No | sin actividad | 0 / 0 |
-| 2026-10-02 | No | sin actividad | 0 / 0 |
-| 2026-10-05 | No | sin actividad | 0 / 0 |
-| 2026-10-09 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-10-16 | **Sí** | SimuladorChoques777 | 1 / 0 |
-| 2026-10-19 | **Sí** | SimuladorChoques777 | 2 / 2 |
-| 2026-10-23 | No | sin actividad | 0 / 0 |
-| 2026-10-26 | No | sin actividad | 0 / 0 |
-| 2026-10-30 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-11-02 | No | sin actividad | 0 / 0 |
-| 2026-11-06 | **Sí** | SimuladorChoques777 | 2 / 3 |
-| 2026-11-13 | No | sin actividad | 0 / 0 |
-| 2026-11-16 | **Sí** | SimuladorChoques777 | 1 / 1 |
-| 2026-11-20 | **Sí** | SimuladorChoques777 | 1 / 0 |
-
-#### Aportes fuera del calendario de clases — Matías Mad
-
-_Sin aportes fuera del calendario de clases para Matías Mad._
-
-<!-- actividad-clases:fin -->
+| 29 | 2026-11-20 | `ae256ab` | dqmdz-etec | 1,333 | 96 | 100% | 0.0% | 0 |
+| 30 | 2026-11-24 | `a09f9a8` | dqmdz-etec | 1,383 | 97 | 100% | 0.0% | 0 |
 
 ---
 _Informe generado por la cátedra. Los criterios y umbrales de medición corresponden al perfil `exigente` de `calidad.py`; el semáforo de aprobación, a `CRITERIOS-CALIDAD.md` (ver `README.md`). Ante dudas, revisá el archivo señalado._
