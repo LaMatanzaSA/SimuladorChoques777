@@ -54,6 +54,7 @@ func aplicar_degradacion(factor: float) -> void:
 func inhabilitar(friccion_final: float) -> void:
 	if not _operativo:
 		return
+	GameManager.velocidad_al_morir = absf(_speed)
 	_operativo = false
 	_friccion_final = friccion_final
 	destruido.emit()

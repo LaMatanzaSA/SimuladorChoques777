@@ -1,7 +1,6 @@
 class_name DamageConfig
 extends Resource
 ## Parámetros de balance del sistema de daño y las reglas que dependen de ellos.
-
 ## Umbral de destrucción total.
 @export var _dano_maximo: float = 100.0
 ## Velocidad que se considera un choque "a fondo".
