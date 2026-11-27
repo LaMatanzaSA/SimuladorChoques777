@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://usoha0vby261"]
 
-[ext_resource type="Script" uid="uid://cbcljwmti6sar" path="res://atuto_test.gd" id="1_mos8y"]
+[ext_resource type="Script" uid="uid://ch3b6l7gnfd5k" path="res://atuto_test.gd" id="1_mos8y"]
 [ext_resource type="Texture2D" uid="uid://cmb5o0kt6enxf" path="res://Sprites/Cars/taxi.png" id="1_wj72q"]
 [ext_resource type="Shape2D" uid="uid://cfs4skbwv20ps" path="res://auto_h.tres" id="3_mos8y"]
 [ext_resource type="Script" uid="uid://2qobhv4cb6vv" path="res://collision_detector.gd" id="5_cdet"]

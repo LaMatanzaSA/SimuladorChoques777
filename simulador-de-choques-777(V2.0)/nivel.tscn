@@ -7,6 +7,7 @@
 [ext_resource type="Resource" path="res://default_lane_config.tres" id="7_lcfg"]
 [ext_resource type="Script" uid="uid://b8gfdjfedu2ei" path="res://lane_controller.gd" id="8_ctrl"]
 [ext_resource type="Script" uid="uid://b55v1qujmdl5p" path="res://lane_input.gd" id="9_inp"]
+[ext_resource type="Script" uid="uid://cgtsj4gytp1sd" path="res://vehicle_stats.gd" id="9_rb50q"]
 [ext_resource type="Script" uid="uid://dsjc8if8c453p" path="res://view_bounds.gd" id="10_vb"]
 [ext_resource type="Script" uid="uid://dgsfns0c20r7k" path="res://lane_track.gd" id="11_trk"]
 [ext_resource type="Script" uid="uid://bdfklaf2tje74" path="res://terrain_streamer.gd" id="12_str"]
@@ -23,6 +24,10 @@
 [ext_resource type="Script" uid="uid://dixhqhswx3crj" path="res://enemy_spawner.gd" id="21_a3547"]
 [ext_resource type="Resource" uid="uid://cko8qd2ua1sly" path="res://default_traffic_config.tres" id="22_rb50q"]
 [ext_resource type="PackedScene" path="res://enemy_vehicle.tscn" id="23_iablh"]
+
+[sub_resource type="Resource" id="Resource_f8xma"]
+script = ExtResource("9_rb50q")
+metadata/_custom_type_script = "uid://cgtsj4gytp1sd"
 
 [sub_resource type="Curve" id="Curve_6apml"]
 _limits = [0.25, 1.5, 0.0, 1.0]
@@ -592,6 +597,7 @@ _catalogo = ExtResource("13_cat")
 _limites_vista = NodePath("../../LimitesVista")
 
 [node name="CharacterBody2D" parent="." unique_id=182666106 instance=ExtResource("3_ymy7k")]
+_stats = SubResource("Resource_f8xma")
 
 [node name="SeguidorCarril" type="Node" parent="CharacterBody2D" unique_id=1123397007 node_paths=PackedStringArray("_cuerpo", "_controlador")]
 script = ExtResource("14_fol")

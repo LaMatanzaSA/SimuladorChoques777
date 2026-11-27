@@ -8,6 +8,7 @@ extends CanvasLayer
 @export_file("*.tscn") var _ruta_menu_principal: String = "res://menu_inicio.tscn"
 @export var _ruta_boton_reiniciar: NodePath = ^"UI/VBoxContainer/BotonReiniciar"
 @export var _ruta_boton_menu: NodePath = ^"UI/VBoxContainer/BotonMenu"
+@export var _ruta_label_velocidad: NodePath = ^"UI/VBoxContainer/LabelVelocidad"
 
 var _flujo: SceneFlow
 
@@ -21,6 +22,14 @@ func _ready() -> void:
 
 ## Muestra la pantalla sin pausar el árbol del juego.
 func mostrar_muerte() -> void:
+	var label_vel: Label = get_node_or_null(_ruta_label_velocidad) as Label
+	if is_instance_valid(label_vel):
+		var fuerza_redondeada: int = roundi(GameManager.fuerza_ultimo_choque)
+		label_vel.text = "Fuerza del impacto: %d N" % fuerza_redondeada
+		
+	_alternar_visibilidad(true)
+	get_tree().call_group(&"menu_pausa", &"bloquear_pausa")
+		
 	_alternar_visibilidad(true)
 	get_tree().call_group(&"menu_pausa", &"bloquear_pausa")
 
