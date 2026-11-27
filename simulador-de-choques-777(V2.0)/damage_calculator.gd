@@ -29,6 +29,7 @@ func calcular_dano(fuerza: float) -> void:
 	_dano_actual = _config.acumular(_dano_actual, fuerza)
 	dano_actualizado.emit(_dano_actual, _config.dano_maximo())
 	if _config.es_letal(_dano_actual):
+		GameManager.fuerza_ultimo_choque = fuerza
 		auto_destruido.emit()
 
 func dano_acumulado() -> float:
@@ -62,3 +63,4 @@ func _buscar_hermano_con_senal(senal: StringName) -> Node:
 		if hermano != self and hermano.has_signal(senal):
 			return hermano
 	return null
+	

@@ -4,8 +4,8 @@ extends Resource
 ## Los campos son privados: el resto del código consulta valores mediante métodos
 ## y el desgaste por daño se aplica como un factor, de modo que el recurso nunca se modifica.
 
-@export var _max_speed: float = 400.0
-@export var _accel: float = 800.0
+@export var _max_speed: float = 800.0
+@export var _accel: float = 200.0
 @export var _friction: float = 600.0
 @export var _rotation_speed: float = 10.0
 @export var _gravity: float = 300.0

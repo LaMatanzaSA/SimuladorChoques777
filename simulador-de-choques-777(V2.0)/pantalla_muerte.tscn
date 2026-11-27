@@ -44,6 +44,12 @@ text = "¡Has Perdido!
 "
 horizontal_alignment = 1
 
+[node name="LabelVelocidad" type="Label" parent="UI/VBoxContainer" unique_id=2050704762]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "
+"
+
 [node name="BotonReiniciar" type="Button" parent="UI/VBoxContainer" unique_id=1854586481]
 custom_minimum_size = Vector2(50, 75)
 layout_mode = 2
