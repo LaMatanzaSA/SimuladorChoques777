@@ -303,6 +303,95 @@ xychart-beta
 | 30 | 2026-11-24 | `a09f9a8` | dqmdz-etec | 1,383 | 97 | 100% | 0.0% | 0 |
 | 31 | 2026-11-25 | `95136df` | dqmdz-etec | 1,383 | 97 | 100% | 0.0% | 0 |
 
+<!-- actividad-clases:inicio -->
+## Actividad en días de clase
+
+> Período evaluado **2026-08-14 → 2026-11-27** · **24 clases** (lunes, viernes) · días de clase del calendario, extendidos hasta la fecha de corte.
+>
+> `Commits` = commits de trabajo (no-merge); `Merges` = merges de PR (también son push). Los días sin actividad dicen **sin actividad**. El cuadro principal usa sólo las fechas de clase del calendario oficial.
+>
+> **Aportes fuera del calendario:** cada alumno tiene un cuadro aparte con las fechas no lectivas con actividad, desde **2026-08-14** hasta **2026-11-27** (ventana de aportes). Esas fechas no forman parte del cuadro principal, pero se muestran para no perder trabajo hecho en fines de semana, feriados o después del período.
+>
+> Se recorre `git log --all` sobre un mirror (todas las ramas y `refs/pull/*`), con deduplicación por commit. Fecha = fecha de autor en UTC-3. Los commits locales no pusheados no se ven. Si el trabajo fue en pareja y el commit es de otra persona, figura a nombre del autor del commit; para reflejarlo, usar `Co-authored-by` o una nota manual.
+>
+> Sección informativa: no modifica el semáforo de aprobación.
+
+### EmilianoMontano
+
+**7/24 clases con actividad** · 8 commits · 5 merges
+
+| Fecha | Marca | Repositorios | Commits / merges |
+|---|:--:|---|--:|
+| 2026-08-14 | **Sí** | SimuladorChoques777 | 1 / 0 |
+| 2026-08-21 | No | sin actividad | 0 / 0 |
+| 2026-08-24 | No | sin actividad | 0 / 0 |
+| 2026-08-28 | No | sin actividad | 0 / 0 |
+| 2026-08-31 | No | sin actividad | 0 / 0 |
+| 2026-09-04 | No | sin actividad | 0 / 0 |
+| 2026-09-07 | No | sin actividad | 0 / 0 |
+| 2026-09-14 | No | sin actividad | 0 / 0 |
+| 2026-09-25 | No | sin actividad | 0 / 0 |
+| 2026-09-28 | No | sin actividad | 0 / 0 |
+| 2026-10-02 | No | sin actividad | 0 / 0 |
+| 2026-10-05 | No | sin actividad | 0 / 0 |
+| 2026-10-09 | No | sin actividad | 0 / 0 |
+| 2026-10-16 | **Sí** | SimuladorChoques777 | 1 / 1 |
+| 2026-10-19 | No | sin actividad | 0 / 0 |
+| 2026-10-23 | No | sin actividad | 0 / 0 |
+| 2026-10-26 | **Sí** | SimuladorChoques777 | 1 / 1 |
+| 2026-10-30 | No | sin actividad | 0 / 0 |
+| 2026-11-02 | **Sí** | SimuladorChoques777 | 1 / 1 |
+| 2026-11-06 | **Sí** | SimuladorChoques777 | 2 / 1 |
+| 2026-11-13 | **Sí** | SimuladorChoques777 | 1 / 1 |
+| 2026-11-16 | No | sin actividad | 0 / 0 |
+| 2026-11-20 | **Sí** | SimuladorChoques777 | 1 / 0 |
+| 2026-11-27 | No | sin actividad | 0 / 0 |
+
+#### Aportes fuera del calendario de clases — EmilianoMontano
+
+_Sin aportes fuera del calendario de clases para EmilianoMontano._
+
+### Matías Mad
+
+**8/24 clases con actividad** · 10 commits · 9 merges
+
+| Fecha | Marca | Repositorios | Commits / merges |
+|---|:--:|---|--:|
+| 2026-08-14 | No | sin actividad | 0 / 0 |
+| 2026-08-21 | No | sin actividad | 0 / 0 |
+| 2026-08-24 | No | sin actividad | 0 / 0 |
+| 2026-08-28 | No | sin actividad | 0 / 0 |
+| 2026-08-31 | No | sin actividad | 0 / 0 |
+| 2026-09-04 | **Sí** | SimuladorChoques777 | 1 / 1 |
+| 2026-09-07 | No | sin actividad | 0 / 0 |
+| 2026-09-14 | No | sin actividad | 0 / 0 |
+| 2026-09-25 | No | sin actividad | 0 / 0 |
+| 2026-09-28 | No | sin actividad | 0 / 0 |
+| 2026-10-02 | No | sin actividad | 0 / 0 |
+| 2026-10-05 | No | sin actividad | 0 / 0 |
+| 2026-10-09 | **Sí** | SimuladorChoques777 | 1 / 1 |
+| 2026-10-16 | **Sí** | SimuladorChoques777 | 1 / 0 |
+| 2026-10-19 | **Sí** | SimuladorChoques777 | 2 / 2 |
+| 2026-10-23 | No | sin actividad | 0 / 0 |
+| 2026-10-26 | No | sin actividad | 0 / 0 |
+| 2026-10-30 | **Sí** | SimuladorChoques777 | 1 / 1 |
+| 2026-11-02 | No | sin actividad | 0 / 0 |
+| 2026-11-06 | **Sí** | SimuladorChoques777 | 2 / 3 |
+| 2026-11-13 | No | sin actividad | 0 / 0 |
+| 2026-11-16 | **Sí** | SimuladorChoques777 | 1 / 1 |
+| 2026-11-20 | **Sí** | SimuladorChoques777 | 1 / 0 |
+| 2026-11-27 | No | sin actividad | 0 / 0 |
+
+#### Aportes fuera del calendario de clases — Matías Mad
+
+**Matías Mad — 1 fecha fuera del calendario** · 1 commit · 0 merges
+
+| Alumno | Fecha | Repositorios | Commits / merges |
+|---|---|---|---|
+| Matías Mad (`M-mad-2920`) | 2026-11-24 | SimuladorChoques777 | 1 / 0 |
+
+<!-- actividad-clases:fin -->
+
 ---
 _Informe generado por la cátedra. Los criterios y umbrales de medición corresponden al perfil `exigente` de `calidad.py`; el semáforo de aprobación, a `CRITERIOS-CALIDAD.md` (ver `README.md`). Ante dudas, revisá el archivo señalado._
 <!-- evaluacion:fin -->
