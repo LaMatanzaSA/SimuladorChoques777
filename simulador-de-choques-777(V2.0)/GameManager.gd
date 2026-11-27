@@ -4,7 +4,7 @@ extends Node
 # Ponemos rutas por defecto para que el juego siempre arranque con algo cargado.
 var auto_seleccionado: String = "res://Sprites/Cars/taxi.png"
 var mapa_seleccionado: String = "res://Sprites/FONDOS REALES/MUNDO 1.png"
-var fuerza_ultimo_choque: float = 0.0
+var velocidad_al_morir: float = 0.0
 
 # Opcional: Podés agregar funciones para cambiar valores de forma limpia
 func cambiar_auto(nueva_ruta: String) -> void:

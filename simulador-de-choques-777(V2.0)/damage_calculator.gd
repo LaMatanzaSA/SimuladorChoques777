@@ -29,7 +29,6 @@ func calcular_dano(fuerza: float) -> void:
 	_dano_actual = _config.acumular(_dano_actual, fuerza)
 	dano_actualizado.emit(_dano_actual, _config.dano_maximo())
 	if _config.es_letal(_dano_actual):
-		GameManager.fuerza_ultimo_choque = fuerza
 		auto_destruido.emit()
 
 func dano_acumulado() -> float:

@@ -3,7 +3,6 @@ extends Resource
 ## Datos de movimiento del vehículo. Se inyecta como Resource (.tres).
 ## Los campos son privados: el resto del código consulta valores mediante métodos
 ## y el desgaste por daño se aplica como un factor, de modo que el recurso nunca se modifica.
-
 @export var _max_speed: float = 800.0
 @export var _accel: float = 200.0
 @export var _friction: float = 600.0

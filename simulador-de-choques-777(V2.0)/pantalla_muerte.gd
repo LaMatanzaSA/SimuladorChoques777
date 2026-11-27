@@ -2,7 +2,8 @@ class_name PantallaMuerte
 extends CanvasLayer
 ## ÚNICA responsabilidad: mostrar la pantalla de derrota.
 ## Depende de cualquier nodo que emita `auto_destruido`, no de una clase concreta.
-
+var _tiempo_impacto: float = 0.15
+var _masa: float = 1200.0
 ## Fuente explícita (opcional). Si está vacía se buscan fuentes por grupo.
 @export var _fuente_destruccion: Node
 @export_file("*.tscn") var _ruta_menu_principal: String = "res://menu_inicio.tscn"
@@ -24,10 +25,8 @@ func _ready() -> void:
 func mostrar_muerte() -> void:
 	var label_vel: Label = get_node_or_null(_ruta_label_velocidad) as Label
 	if is_instance_valid(label_vel):
-		var fuerza_redondeada: int = roundi(GameManager.fuerza_ultimo_choque)
-		label_vel.text = "Fuerza del impacto: %d N" % fuerza_redondeada
-		
-	_alternar_visibilidad(true)
+		label_vel.text = "Fuerza del impacto: %d N" % ((GameManager.velocidad_al_morir * _masa) / _tiempo_impacto)
+		_alternar_visibilidad(true)
 	get_tree().call_group(&"menu_pausa", &"bloquear_pausa")
 		
 	_alternar_visibilidad(true)
